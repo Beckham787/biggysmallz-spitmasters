@@ -3,6 +3,7 @@ import Image from "next/image";
 import { siteConfig, whatsappUrl } from "@/lib/site-config";
 import { galleryTeaser } from "@/lib/gallery";
 import Reveal from "@/components/Reveal";
+import CtaBand from "@/components/CtaBand";
 
 const worlds = [
   {
@@ -86,7 +87,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Invitation ───────────────────────────────────────────────────── */}
-      <section className="relative grain overflow-hidden bg-charcoal py-24 sm:py-32">
+      <section className="relative grain glow-center overflow-hidden bg-charcoal py-24 sm:py-32">
         <div className="section relative z-10">
           <Reveal>
             <p className="mx-auto max-w-prose text-balance text-center text-2xl font-light leading-relaxed text-cream sm:text-3xl">
@@ -101,7 +102,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Three worlds ─────────────────────────────────────────────────── */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="glow-top bg-ink py-20 sm:py-28">
         <div className="section">
           <Reveal>
             <p className="eyebrow mb-3">The range</p>
@@ -113,7 +114,7 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-3">
             {worlds.map((world, i) => (
               <Reveal key={world.title} delay={i * 120}>
-                <article className="group relative h-[26rem] overflow-hidden rounded-sm bg-coal">
+                <article className="group lift relative h-[26rem] overflow-hidden rounded-sm bg-coal">
                   <Image
                     src={`/images/${world.image}.png`}
                     alt={world.alt}
@@ -193,6 +194,12 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ── Closing invitation ───────────────────────────────────────────── */}
+      <CtaBand
+        heading="Tell Biggy about your day."
+        sub="A date, the kind of event, and how to reach you — that's all it takes to start. No deposit, no commitment yet."
+      />
     </>
   );
 }

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "@/lib/site-config";
 import Reveal from "@/components/Reveal";
 import BullMark from "@/components/BullMark";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "The man at the fire",
@@ -42,7 +41,7 @@ export default function AboutPage() {
       </section>
 
       {/* Long-form story */}
-      <section className="bg-charcoal py-20 sm:py-28">
+      <section className="glow-top bg-charcoal py-20 sm:py-28">
         <div className="section">
           <Reveal>
             <div className="mx-auto max-w-prose space-y-6 text-lg leading-relaxed text-cream/90">
@@ -89,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* The bull */}
-      <section className="relative grain overflow-hidden border-y border-cream/10 bg-ink py-20 sm:py-28">
+      <section className="relative grain glow-center overflow-hidden border-y border-cream/10 bg-ink py-20 sm:py-28">
         <div className="section relative z-10">
           <Reveal>
             <div className="mx-auto max-w-prose text-center">
@@ -110,32 +109,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Close */}
-      <section className="bg-charcoal py-20 sm:py-28">
-        <div className="section">
-          <Reveal>
-            <div className="mx-auto max-w-prose text-center">
-              <p className="text-2xl font-light leading-snug text-cream sm:text-3xl">
-                If that sounds like your kind of table, tell him about it.
-              </p>
-              <div className="mt-9">
-                <Link href="/book" className="btn-ember text-base">
-                  Book a Date
-                </Link>
-              </div>
-              {/*
-                [CONFIRM] Dedication line to his mother, uGogo Lillian, if
-                Martin wants it included. He has dedicated work to her publicly
-                before. To add it, uncomment and place below the closing line:
-
-                <p className="mt-10 text-sm italic text-smoke">
-                  For uGogo Lillian.
-                </p>
-              */}
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* Close.
+          [CONFIRM] Dedication line to his mother, uGogo Lillian, if Martin
+          wants it included. He has dedicated work to her publicly before. To
+          add it, place an italic line — e.g. "For uGogo Lillian." — above this
+          band, or pass it through as a new prop on CtaBand. */}
+      <CtaBand
+        heading="If that sounds like your kind of table, tell him about it."
+        sub="A date and a few details is all Biggy needs to start the conversation."
+      />
     </>
   );
 }

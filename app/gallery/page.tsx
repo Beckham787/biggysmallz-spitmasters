@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import GalleryGrid from "@/components/GalleryGrid";
 import Reveal from "@/components/Reveal";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -39,20 +39,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="border-t border-cream/10 bg-ink py-20 text-center">
-        <div className="section">
-          <Reveal>
-            <h2 className="text-3xl text-cream sm:text-4xl">
-              Picture it at your table.
-            </h2>
-            <div className="mt-8">
-              <Link href="/book" className="btn-ember text-base">
-                Book a Date
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <CtaBand
+        heading="Picture it at your table."
+        sub="Tell Biggy the date and the kind of event — he'll take it from there."
+      />
     </>
   );
 }

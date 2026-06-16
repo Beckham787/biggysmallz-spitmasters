@@ -53,32 +53,46 @@ export const siteConfig = {
   ],
 
   // The six service categories (Services page). Range, not detail — no prices.
+  // `image` is a slug in /public/images, paired so each card carries appetite
+  // appeal; `alt` describes it for screen readers.
   services: [
     {
       title: "Fine Dining",
       blurb: "Elevated, plated courses, composed with care.",
+      image: "anniversary-salmon",
+      alt: "A sesame-crusted salmon course, plated with herb and dukkah.",
     },
     {
       title: "The Traveling Chef",
       blurb: "Biggy comes to your home or venue and cooks on site.",
+      image: "biggy-plating-lamb",
+      alt: "Chef Biggy plating a lamb dish on site, at the pass.",
     },
     {
       title: "3–7 Course Plated Service",
       blurb: "A full sit-down dining experience, paced and served.",
+      image: "private-dining-lamb-rack",
+      alt: "A rack of lamb, carved and plated for a private dinner.",
     },
     {
       title: "VIP Events",
       blurb:
         "Discreet, high-touch catering for the occasions that matter most.",
+      image: "buffet-white-function",
+      alt: "A buffet set for an elegant white-linen function.",
     },
     {
       title: "Large-Scale Catering",
       blurb: "Feasts and spreads for the big gatherings, without losing the quality.",
+      image: "garden-party-spread",
+      alt: "A generous spread laid out for a large garden party.",
     },
     {
       title: "The Ultimate Braaimaster",
       blurb:
         "Whole-animal spit-roasting and live-flame cooking — the original craft.",
+      image: "whole-lamb-coals",
+      alt: "A whole lamb roasting slowly over glowing coals.",
     },
   ],
 

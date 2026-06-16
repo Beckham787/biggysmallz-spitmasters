@@ -33,6 +33,12 @@ const config: Config = {
       maxWidth: {
         prose: "65ch",
       },
+      boxShadow: {
+        // Warm ember shadows for primary actions and lifted cards.
+        // Never a neutral-grey drop shadow on this brand.
+        ember: "0 12px 30px -12px rgba(193, 67, 45, 0.5)",
+        "ember-lg": "0 22px 55px -18px rgba(193, 67, 45, 0.55)",
+      },
       keyframes: {
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(14px)" },

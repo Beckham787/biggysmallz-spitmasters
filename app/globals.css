@@ -47,11 +47,12 @@
     @apply font-display uppercase tracking-stamp text-xs sm:text-sm text-ember-bright;
   }
 
-  /* Primary ember button. */
+  /* Primary ember button — warm shadow, gentle lift on hover. */
   .btn-ember {
     @apply inline-flex items-center justify-center gap-2 rounded-sm bg-ember
            px-7 py-3.5 font-display uppercase tracking-stamp text-sm text-cream
-           transition-colors duration-300 hover:bg-ember-bright
+           shadow-ember transition duration-300 hover:-translate-y-0.5
+           hover:bg-ember-bright hover:shadow-ember-lg
            focus-visible:bg-ember-bright;
   }
 
@@ -59,7 +60,7 @@
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-sm border
            border-cream/25 px-6 py-3 font-display uppercase tracking-stamp
-           text-sm text-cream transition-colors duration-300
+           text-sm text-cream transition duration-300 hover:-translate-y-0.5
            hover:border-cream/60 hover:bg-cream/5;
   }
 
@@ -75,6 +76,42 @@
 }
 
 @layer utilities {
+  /* Warmth layer — low-opacity ember radials so dark text-only sections feel
+     lit by coals rather than painted flat black. Sit behind content via the
+     section's own background-color (these set background-image only). */
+  .glow-top {
+    background-image: radial-gradient(
+      120% 80% at 50% -10%,
+      rgba(193, 67, 45, 0.12) 0%,
+      rgba(193, 67, 45, 0) 55%
+    );
+  }
+
+  .glow-center {
+    background-image: radial-gradient(
+      90% 90% at 50% 45%,
+      rgba(193, 67, 45, 0.1) 0%,
+      rgba(74, 53, 39, 0.06) 35%,
+      rgba(193, 67, 45, 0) 70%
+    );
+  }
+
+  /* Stronger ember pool for closing CTA bands — the fire you walk toward. */
+  .glow-ember {
+    background-image: radial-gradient(
+      100% 130% at 50% 120%,
+      rgba(224, 103, 63, 0.22) 0%,
+      rgba(193, 67, 45, 0.14) 30%,
+      rgba(193, 67, 45, 0) 65%
+    );
+  }
+
+  /* Card hover: gentle lift with a warm shadow. Pairs with group-hover image
+     scale on image tiles. Honours reduced-motion via the global override. */
+  .lift {
+    @apply transition duration-300 hover:-translate-y-1 hover:shadow-ember-lg;
+  }
+
   /* Subtle film grain over dark sections — adds warmth and texture.
      Pure CSS so there's no extra image request. */
   .grain::after {

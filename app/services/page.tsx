@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import Reveal from "@/components/Reveal";
+import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
   title: "What Biggy does",
@@ -41,7 +41,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Intro */}
-      <section className="bg-charcoal pt-20 sm:pt-28">
+      <section className="glow-top bg-charcoal pt-20 sm:pt-28">
         <div className="section">
           <Reveal>
             <p className="mx-auto max-w-prose text-balance text-center text-xl font-light leading-relaxed text-cream sm:text-2xl">
@@ -59,14 +59,27 @@ export default function ServicesPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {siteConfig.services.map((service, i) => (
               <Reveal key={service.title} delay={(i % 3) * 100}>
-                <article className="group h-full rounded-sm border border-cream/10 bg-ink p-7 transition-colors duration-500 hover:border-ember/50">
-                  <span className="font-display text-sm text-ember-bright">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h2 className="mt-3 text-2xl text-cream">{service.title}</h2>
-                  <p className="mt-3 leading-relaxed text-cream-dim">
-                    {service.blurb}
-                  </p>
+                <article className="group lift relative flex h-full min-h-[24rem] flex-col justify-end overflow-hidden rounded-sm border border-cream/10 bg-coal transition-colors duration-500 hover:border-ember/50">
+                  <Image
+                    src={`/images/${service.image}.png`}
+                    alt={service.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                  />
+                  {/* Warm gradient keeps the text legible and the food glowing. */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/10" />
+                  <div className="relative z-10 p-7">
+                    <span className="font-display text-sm tabular-nums text-ember-bright">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h2 className="mt-2 text-2xl text-cream text-shadow-soft">
+                      {service.title}
+                    </h2>
+                    <p className="mt-2 leading-relaxed text-cream/85 text-shadow-soft">
+                      {service.blurb}
+                    </p>
+                  </div>
                 </article>
               </Reveal>
             ))}
@@ -75,20 +88,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Close */}
-      <section className="border-t border-cream/10 bg-ink py-20 sm:py-24">
-        <div className="section text-center">
-          <Reveal>
-            <h2 className="text-3xl text-cream sm:text-4xl">
-              The rest is a conversation.
-            </h2>
-            <div className="mt-8">
-              <Link href="/book" className="btn-ember text-base">
-                Book a Date
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <CtaBand
+        heading="The rest is a conversation."
+        sub="No fixed menu, no prices on a page. Tell Biggy what you're planning and he'll shape the food around it."
+      />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { Oswald, Spectral } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FloatingCta from "@/components/FloatingCta";
 import "./globals.css";
 
 // Display face — condensed, bold, stamped feel echoing the logo lettering.
@@ -83,6 +84,7 @@ export default function RootLayout({
         </a>
         <Nav />
         <main id="main">{children}</main>
+        <FloatingCta />
         <Footer />
       </body>
     </html>

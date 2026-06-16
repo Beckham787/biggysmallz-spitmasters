@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <section className="bg-charcoal pb-24 pt-32 sm:pt-40">
+    <section className="glow-top bg-charcoal pb-24 pt-32 sm:pt-40">
       <div className="section">
         <div className="mx-auto max-w-2xl">
           <Reveal>
