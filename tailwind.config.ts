@@ -13,9 +13,13 @@ const config: Config = {
         ink: "#0b0a09",
         charcoal: "#15110f",
         coal: "#1d1815",
-        // Ember orange-red accent (from the SPITMASTERS banner)
+        // Ember ramp — fire as a light source, deep coal-shadow to hot flame-tip.
+        "ember-deep": "#8f2f1c",
         ember: "#c1432d",
         "ember-bright": "#e0673f",
+        flame: "#f2854b",
+        // Rendered-fat warmth — the brightest, most appetising highlight.
+        gold: "#e8b36a",
         // Warm cream / off-white for text and space
         cream: "#f3eadd",
         "cream-dim": "#cabfb0",
@@ -24,8 +28,11 @@ const config: Config = {
         wood: "#4a3527",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Oswald", "sans-serif"],
-        body: ["var(--font-body)", "Spectral", "serif"],
+        // Archivo — crisp grotesque workhorse: stamps, labels, UI, body.
+        display: ["var(--font-display)", "Archivo", "sans-serif"],
+        body: ["var(--font-display)", "Archivo", "sans-serif"],
+        // Fraunces — optical display serif: headlines only (the appetite voice).
+        serif: ["var(--font-serif)", "Fraunces", "Georgia", "serif"],
       },
       letterSpacing: {
         stamp: "0.18em",

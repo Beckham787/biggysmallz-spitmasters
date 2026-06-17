@@ -12,8 +12,8 @@
 export const siteConfig = {
   name: "Biggy Smallz Spitmasters",
   shortName: "Biggy Smallz",
-  established: 2017,
-  tagline: "Cooking over open flame since 2017",
+  established: 2018,
+  tagline: "Cooking over open flame since 2018",
 
   owner: {
     name: 'Martin "Biggy" Mhlongo',
@@ -22,7 +22,7 @@ export const siteConfig = {
 
   // One-line description used for SEO + Open Graph.
   description:
-    "Chef-led fire catering and private dining by Martin “Biggy” Mhlongo — whole-animal spit-roasting to refined plated courses. Mbombela, the Lowveld, and beyond.",
+    "Fire catering from Martin “Biggy” Mhlongo — whole-animal spitbraai to refined plated courses. Professional chefs lead the fine-dining dinners and weddings; a team trained in Biggy’s own methods handles every other event. Based in the Mpumalanga Lowveld, catering across South Africa.",
 
   // Production URL — update once the domain is live (used for OG / canonical).
   url: "https://biggysmallz.co.za",

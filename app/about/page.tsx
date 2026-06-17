@@ -51,14 +51,13 @@ export default function AboutPage() {
               </p>
               <p>
                 There was no culinary school. There was a love of food, a love
-                of people, and a feeling that the two belonged together. In 2017
+                of people, and a feeling that the two belonged together. In 2018
                 he started Biggy Smallz Spitmasters with that and not much else,
                 and has been chasing flavour over open flame ever since.
               </p>
               <p>
-                He came to it honestly. Martin works in the agricultural sector,
-                in animal feed, in business with some of the country&rsquo;s
-                leading feedlots, abattoirs and butchers. He knows meat — how
+                Martin worked in the agricultural sector,
+                in animal feed. He knows meat — how
                 it&rsquo;s graded, what good looks like, where the best of it
                 comes from. So when he puts a lamb on the spit or a rack on the
                 coals, it starts long before the fire is lit.
@@ -73,6 +72,12 @@ export default function AboutPage() {
                 confirmed South African pitmaster at the Mozambique Barbecue
                 Festival. His food borrows from South Africa, Spain and Asia, and
                 answers to none of them.
+              </p>
+              <p>
+                The operation carries his name and his methods. Professional
+                chefs lead the fine-dining dinners and weddings; a team
+                he&rsquo;s trained in his own way handles every other event.
+                Biggy sets the standard the kitchen cooks to.
               </p>
               <p>
                 He cooks, in his own words, as an act of love — a way of sharing

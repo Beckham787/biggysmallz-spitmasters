@@ -1,31 +1,33 @@
 import type { Metadata } from "next";
-import { Oswald, Spectral } from "next/font/google";
+import { Archivo, Fraunces } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
 import "./globals.css";
 
-// Display face — condensed, bold, stamped feel echoing the logo lettering.
-const display = Oswald({
+// Utility / body face — Archivo, a crisp warm grotesque. Carries the stamped
+// uppercase labels, navigation, buttons and body copy. Distinct, not default.
+const sans = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-// Body face — warm, highly readable serif for restrained luxury.
-const body = Spectral({
+// Display face — Fraunces, an optical "old-style" serif with craft and
+// appetite. Used large and mixed-case for headlines; italic carries flavour.
+const serif = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-body",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-serif",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Chef-led fire catering`,
+    default: `${siteConfig.name} — Spitbraai & fine-dining catering`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Chef-led fire catering`,
+    title: `${siteConfig.name} — Spitbraai & fine-dining catering`,
     description: siteConfig.description,
     images: [
       {
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Chef-led fire catering`,
+    title: `${siteConfig.name} — Spitbraai & fine-dining catering`,
     description: siteConfig.description,
     images: ["/images/anniversary-salmon.png"],
   },
@@ -73,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body className="min-h-screen bg-ink text-cream antialiased">
         {/* Skip link for keyboard users */}
         <a
