@@ -16,7 +16,7 @@ export default function NotFound() {
             Home
           </Link>
           <Link href="/book" className="btn-ghost">
-            Book a Date
+            Book a Service
           </Link>
         </div>
       </div>

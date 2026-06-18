@@ -7,10 +7,10 @@ import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 const links = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
+  { href: "/about", label: "About Us" },
+  { href: "/services", label: "What We Do" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/book", label: "Book a Date" },
+  { href: "/book", label: "Book a Service" },
 ];
 
 export default function Nav() {
@@ -64,7 +64,7 @@ export default function Nav() {
             className="h-12 w-12 rounded-full"
           />
           <span className="hidden font-display uppercase tracking-stamp text-sm text-cream sm:block">
-            {siteConfig.shortName}
+            {siteConfig.name}
           </span>
         </Link>
 

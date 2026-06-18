@@ -98,4 +98,4 @@ Use `tabular-nums` for index numbers and any figures.
 
 Every page ends in a warm CTA band, and booking is never more than one tap away
 (nav button on desktop, floating button on mobile). The message is consistent:
-*tell Biggy about your day, and he'll cook it* — low-commitment, conversational.
+*tell Biggy what you're planning, and he'll cook it* — low-commitment, conversational.

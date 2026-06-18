@@ -4,6 +4,7 @@ import { siteConfig, whatsappUrl } from "@/lib/site-config";
 import { galleryTeaser } from "@/lib/gallery";
 import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 const worlds = [
   {
@@ -33,69 +34,30 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────────
-          Fire as the light source. A bed of live coals glows up from the
-          bottom edge, lighting the headline and the food photo from below.
-          The hero's one job: make the visitor hungry, then move them to a
-          quote. Mobile reorders the photo between the subline and the CTA so
-          appetite comes before the ask. ─────────────────────────────────── */}
-      <section className="relative isolate grain flex min-h-[100svh] items-stretch overflow-hidden bg-ink lg:items-center">
-        <div className="coal-bed pointer-events-none absolute inset-0" aria-hidden="true" />
+          Full-bleed photography with the copy resting at the bottom. The
+          background is a slideshow: three shots crossfade one at a time so the
+          hero stays alive without competing with the headline. ───────────── */}
+      <section className="relative grain flex min-h-[100svh] items-end overflow-hidden">
+        <HeroSlideshow />
+        <div className="photo-veil absolute inset-0" />
 
-        <div className="section relative z-10 grid grid-cols-1 gap-y-9 pb-20 pt-32 sm:gap-y-10 sm:pb-24 lg:grid-cols-12 lg:items-center lg:gap-x-12 lg:gap-y-6 lg:pb-28 lg:pt-36">
-          {/* Eyebrow — the stamp: what, and the reach. */}
-          <Reveal className="lg:col-span-7 lg:col-start-1">
-            <p className="eyebrow">Spitbraai catering · Across South Africa</p>
-          </Reveal>
-
-          {/* Headline — the thesis. Fraunces, mixed-case; "fire" comes off the coals. */}
-          <Reveal className="lg:col-span-7 lg:col-start-1" delay={80}>
-            <h1 className="font-serif text-balance text-[clamp(2.75rem,6vw+1rem,5.5rem)] font-semibold normal-case leading-[0.95] tracking-[-0.02em] text-cream text-shadow-soft">
-              Real <span className="seared italic">fire.</span>
-              <br />
-              Whole feasts.
+        <div className="section relative z-10 pb-20 pt-32 sm:pb-28">
+          <Reveal>
+            <p className="eyebrow mb-5">Est. {siteConfig.established}</p>
+            <h1 className="max-w-4xl text-balance text-5xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-6xl md:text-7xl">
+              Fire, and everything it can become.
             </h1>
-          </Reveal>
-
-          {/* What we do — one clear line. */}
-          <Reveal className="lg:col-span-7 lg:col-start-1" delay={160}>
-            <p className="max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-cream/90 text-shadow-soft sm:text-xl">
               Spitbraai catering for weddings, corporate events and funerals —
               based in the Mpumalanga Lowveld, catering across South Africa.
             </p>
-          </Reveal>
 
-          {/* Hero food photo — lit from below by the coal bed. object-cover so a
-              non-portrait source fills the frame cleanly; swap in higher-res
-              shots later by changing the src. */}
-          <Reveal
-            className="lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-6 lg:self-center"
-            delay={120}
-          >
-            <figure className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-md border border-cream/15 bg-coal shadow-ember-lg lg:mx-0">
-              <Image
-                src="/images/anniversary-salmon.png"
-                alt="A refined plated salmon dish held in the chef's hand, emerging from darkness."
-                fill
-                priority
-                sizes="(min-width: 1024px) 36vw, (min-width: 640px) 28rem, 100vw"
-                className="object-cover"
-              />
-              {/* Firelight wash up from the coals onto the dish. */}
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/30 via-transparent to-transparent"
-                aria-hidden="true"
-              />
-            </figure>
-          </Reveal>
-
-          {/* Primary action + quiet WhatsApp fallback. */}
-          <Reveal className="lg:col-span-7 lg:col-start-1" delay={240}>
-            <div className="flex flex-col items-start gap-4">
+            <div className="mt-9 flex flex-col items-start gap-4">
               <Link href="/book" className="btn-ember text-base">
-                Get a Quote
+                Book a Service
               </Link>
-              <p className="text-sm text-cream/70">
-                or message Biggy on{" "}
+              <p className="text-sm text-cream/75">
+                Or message Biggy on{" "}
                 <a
                   href={whatsappUrl}
                   target="_blank"
@@ -103,35 +65,16 @@ export default function HomePage() {
                   className="underline decoration-ember/60 underline-offset-4 transition-colors hover:text-cream"
                 >
                   WhatsApp
+                </a>{" "}
+                /{" "}
+                <a
+                  href={siteConfig.contact.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-ember/60 underline-offset-4 transition-colors hover:text-cream"
+                >
+                  Instagram
                 </a>
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Trust signal — reliability at scale. Cumulative reach across many
-              events (not a single-event figure); largest single event ~300. */}
-          <Reveal className="lg:col-span-7 lg:col-start-1" delay={320}>
-            <div className="flex max-w-xl items-start gap-3 border-t border-cream/10 pt-6">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mt-0.5 shrink-0 text-gold"
-                aria-hidden="true"
-              >
-                <path d="M12 3c1.8 2.4 1.2 4.2 0 6-1.2-1.2-2.4-.6-2.4 1.2 0 1.2.9 2.1 2.4 3.6 2.4-1.8 3.6-3.9 3.6-6.6C18 11.4 19 13.2 19 15.4A7 7 0 1 1 5 15.4c0-3 1.6-5.7 4-8 .6 1.8 1.8 2.7 3 2.7" />
-              </svg>
-              <p className="text-sm leading-relaxed text-cream-dim">
-                <span className="text-cream">
-                  Over 2,000 plates served across his events.
-                </span>{" "}
-                From intimate dinners up to 300-guest functions — fed in full,
-                and on time.
               </p>
             </div>
           </Reveal>
@@ -233,13 +176,30 @@ export default function HomePage() {
             <p className="mb-6 text-center font-display uppercase tracking-stamp text-xs text-smoke">
               As seen on
             </p>
-            <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+            <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center sm:gap-x-14">
               {siteConfig.asSeenOn.map((item) => (
                 <li
-                  key={item}
-                  className="font-display uppercase tracking-stamp text-sm text-cream-dim"
+                  key={item.name}
+                  className="flex w-32 flex-col items-center gap-3 sm:w-40"
                 >
-                  {item}
+                  {item.logo && (
+                    <span
+                      className={`relative block w-full opacity-80 transition-opacity duration-300 hover:opacity-100 ${
+                        item.logoClass ?? "h-12"
+                      }`}
+                    >
+                      <Image
+                        src={item.logo}
+                        alt={`${item.name} logo`}
+                        fill
+                        sizes="(min-width: 640px) 10rem, 8rem"
+                        className="object-contain"
+                      />
+                    </span>
+                  )}
+                  <span className="font-display uppercase tracking-stamp text-xs text-cream-dim">
+                    {item.name}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -249,7 +209,7 @@ export default function HomePage() {
 
       {/* ── Closing invitation ───────────────────────────────────────────── */}
       <CtaBand
-        heading="Tell Biggy about your day."
+        heading="Tell Biggy what you're planning."
         sub="A date, the kind of event, and how to reach you — that's all it takes to start. No deposit, no commitment yet."
       />
     </>

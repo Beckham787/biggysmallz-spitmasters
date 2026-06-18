@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import BullMark from "@/components/BullMark";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
@@ -97,8 +96,14 @@ export default function AboutPage() {
         <div className="section relative z-10">
           <Reveal>
             <div className="mx-auto max-w-prose text-center">
-              <BullMark className="mx-auto mb-4 h-16 w-24 text-ember" />
-              <p className="eyebrow mb-8 text-smoke">Nguni strength</p>
+              <Image
+                src="/logos/nguni-strength.png"
+                alt="Nguni Strength"
+                width={120}
+                height={120}
+                className="mx-auto mb-4 h-24 w-auto"
+              />
+              <p className="eyebrow mb-8 text-smoke">Powered by Nguni Strength</p>
               <h2 className="mb-6 text-3xl text-cream sm:text-4xl">The bull</h2>
               <div className="space-y-5 text-lg leading-relaxed text-cream/90">
                 <p>

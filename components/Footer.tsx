@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
-import BullMark from "@/components/BullMark";
 
 export default function Footer() {
   return (
@@ -20,13 +19,16 @@ export default function Footer() {
             <p className="font-display uppercase tracking-stamp text-sm text-cream-dim">
               {siteConfig.tagline}
             </p>
-            <div className="space-y-1.5">
-              <BullMark
-                className="h-8 w-12 text-ember/70"
-                title="Longhorn bull skull emblem"
+            <div className="flex w-fit flex-col items-center gap-1.5">
+              <Image
+                src="/logos/nguni-strength.png"
+                alt="Nguni Strength"
+                width={56}
+                height={56}
+                className="h-12 w-auto"
               />
-              <p className="font-display uppercase tracking-stamp text-[10px] text-smoke">
-                Nguni strength
+              <p className="font-display uppercase tracking-stamp text-[10px] text-gold/80">
+                Powered by Nguni Strength
               </p>
             </div>
           </div>
@@ -71,11 +73,11 @@ export default function Footer() {
           <div className="space-y-4 md:text-right">
             <h2 className="eyebrow md:text-right">Start the conversation</h2>
             <p className="text-cream-dim">
-              Tell {siteConfig.owner.firstName} about your day, and he&rsquo;ll
-              cook it.
+              Tell {siteConfig.owner.firstName} what you&rsquo;re planning, and
+              he&rsquo;ll cook it.
             </p>
             <Link href="/book" className="btn-ember">
-              Book a Date
+              Book a Service
             </Link>
           </div>
         </div>
