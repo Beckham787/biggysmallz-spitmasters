@@ -42,15 +42,38 @@ export const siteConfig = {
   // [CONFIRM] exact areas Martin wants named.
   serviceArea:
     "Based in Mbombela (Nelspruit) and the Lowveld, Mpumalanga — travelling nationally and internationally for events.",
-  serviceAreaShort: "Mbombela · the Lowveld · nationwide & abroad",
+  serviceAreaShort: "Mpumalanga · Mozambique · Gauteng · nationwide",
 
-  // Small, understated credibility strip.
+  // Small, understated credibility strip. `logo` is an optional path to an
+  // official logo in /public/logos — when present it renders above the name;
+  // when omitted (or the file is missing) the name shows on its own. Drop the
+  // real PNG/SVG assets at the paths below to light up the logos.
   asSeenOn: [
-    "Come Dine With Me (SA)",
-    "SUA Magazine",
-    "Mozambique Barbecue Festival",
-    "Ultimate Braai Master",
-  ],
+    {
+      name: "Come Dine With Me (SA)",
+      logo: "/logos/come-dine-with-me-sa.png",
+      // White background knocked out (transparent); enlarged to match.
+      logoClass: "h-16",
+    },
+    {
+      // No logo file yet — shows name-only until one is added at
+      // /logos/sua-magazine.jpg (then set the logo path here).
+      name: "SUA Magazine",
+    },
+    {
+      name: "Mozambique Barbecue Festival",
+      logo: "/logos/mozambique-barbecue-festival.png",
+      // Yellow field + letterbox knocked out (transparent); enlarged to match.
+      logoClass: "h-16",
+    },
+    {
+      name: "Ultimate Braai Master",
+      logo: "/logos/ultimate-braai-master.png",
+      // Background knocked out (transparent) + sized a touch larger than the
+      // rest so the flame/ribbon reads at the same visual weight.
+      logoClass: "h-16",
+    },
+  ] as { name: string; logo?: string; logoClass?: string }[],
 
   // The six service categories (Services page). Range, not detail — no prices.
   // `image` is a slug in /public/images, paired so each card carries appetite

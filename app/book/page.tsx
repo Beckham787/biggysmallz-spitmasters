@@ -4,11 +4,11 @@ import BookForm from "@/components/BookForm";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Book a Date",
+  title: "Book a Service",
   description:
     "Tell Biggy the date and the kind of event, and how to reach you. He'll take it from there — personally, by phone or email. No deposit, no commitment.",
   openGraph: {
-    title: "Book a Date · Biggy Smallz Spitmasters",
+    title: "Book a Service · Biggy Smallz Spitmasters",
     description:
       "Tell Biggy the date and the kind of event. The start of a conversation.",
     images: ["/images/meats-warm-from-spit.png"],
@@ -21,7 +21,7 @@ export default function BookPage() {
       <div className="section">
         <div className="mx-auto max-w-2xl">
           <Reveal>
-            <p className="eyebrow mb-4">Book a Date</p>
+            <p className="eyebrow mb-4">Book a Service</p>
             <h1 className="text-balance text-4xl font-bold leading-[1] text-cream sm:text-5xl">
               The start of a conversation
             </h1>

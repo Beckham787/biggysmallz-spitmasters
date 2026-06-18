@@ -31,7 +31,7 @@ export default function CtaBand({
           )}
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/book" className="btn-ember text-base">
-              Book a Date
+              Book a Service
             </Link>
             <a
               href={whatsappUrl}
