@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, whatsappUrl } from "@/lib/site-config";
-import { galleryTeaser } from "@/lib/gallery";
+import { recentEvent } from "@/lib/recent-event";
 import Reveal from "@/components/Reveal";
-import CtaBand from "@/components/CtaBand";
 import HeroSlideshow from "@/components/HeroSlideshow";
 
 const worlds = [
@@ -129,42 +128,59 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Gallery teaser ───────────────────────────────────────────────── */}
+      {/* ── Recent event spotlight ───────────────────────────────────────────
+          One real, recent job told with a little depth, rather than a grid of
+          unrelated shots. Swap the event in lib/recent-event.ts after the next
+          one. ────────────────────────────────────────────────────────────── */}
       <section className="relative grain overflow-hidden bg-charcoal py-20 sm:py-28">
         <div className="section relative z-10">
-          <Reveal>
-            <div className="mb-10 flex items-end justify-between gap-6">
-              <div>
-                <p className="eyebrow mb-3">From the fire</p>
-                <h2 className="text-4xl text-cream sm:text-5xl">The work</h2>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+            <Reveal className="lg:col-span-7" as="div">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal sm:aspect-[4/3]">
+                <Image
+                  src={`/images/${recentEvent.image}.png`}
+                  alt={recentEvent.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="object-cover"
+                />
               </div>
-              <Link
-                href="/gallery"
-                className="shrink-0 font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
-              >
-                See the gallery
-              </Link>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-            {galleryTeaser.map((img, i) => (
-              <Reveal key={img.slug} delay={(i % 3) * 100}>
+            <div className="lg:col-span-5 lg:flex lg:flex-col lg:justify-center">
+              <Reveal>
+                <p className="eyebrow mb-3">{recentEvent.eyebrow}</p>
+                <h2 className="text-3xl text-cream sm:text-4xl">
+                  {recentEvent.caption}
+                </h2>
+                <p className="mt-5 max-w-md text-lg leading-relaxed text-cream-dim">
+                  {recentEvent.detail}
+                </p>
+              </Reveal>
+
+              {recentEvent.supportingImage && (
+                <Reveal delay={150} className="mt-8">
+                  <div className="relative aspect-[16/10] w-full max-w-md overflow-hidden rounded-sm bg-coal">
+                    <Image
+                      src={`/images/${recentEvent.supportingImage}.png`}
+                      alt={recentEvent.supportingImageAlt ?? ""}
+                      fill
+                      sizes="(min-width: 1024px) 42vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </Reveal>
+              )}
+
+              <Reveal delay={250}>
                 <Link
                   href="/gallery"
-                  className="group relative block aspect-square overflow-hidden rounded-sm bg-coal"
+                  className="mt-8 inline-block font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
                 >
-                  <Image
-                    src={`/images/${img.slug}.png`}
-                    alt={img.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 50vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/20" />
+                  See more of the work
                 </Link>
               </Reveal>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -206,12 +222,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      {/* ── Closing invitation ───────────────────────────────────────────── */}
-      <CtaBand
-        heading="Tell Biggy what you're planning."
-        sub="A date, the kind of event, and how to reach you — that's all it takes to start. No deposit, no commitment yet."
-      />
     </>
   );
 }

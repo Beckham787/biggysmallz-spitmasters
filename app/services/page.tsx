@@ -5,11 +5,11 @@ import Reveal from "@/components/Reveal";
 import CtaBand from "@/components/CtaBand";
 
 export const metadata: Metadata = {
-  title: "What Biggy does",
+  title: "What we do",
   description:
     "From fine dining and the traveling chef to whole-animal spit-roasting — the shape of what's possible. No fixed menu, no prices. The detail comes when you talk.",
   openGraph: {
-    title: "What Biggy does · Biggy Smallz Spitmasters",
+    title: "What we do · Biggy Smallz Spitmasters",
     description:
       "The shape of what's possible — fine dining to whole-animal spit-roasting.",
     images: ["/images/whole-lamb-rotisserie.png"],
@@ -34,7 +34,7 @@ export default function ServicesPage() {
           <Reveal>
             <p className="eyebrow mb-4">Services</p>
             <h1 className="text-balance text-5xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-6xl md:text-7xl">
-              What Biggy does
+              What we do
             </h1>
           </Reveal>
         </div>

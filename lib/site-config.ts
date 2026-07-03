@@ -12,8 +12,8 @@
 export const siteConfig = {
   name: "Biggy Smallz Spitmasters",
   shortName: "Biggy Smallz",
-  established: 2018,
-  tagline: "Cooking over open flame since 2018",
+  established: 2017,
+  tagline: "Cooking over open flame since 2017",
 
   owner: {
     name: 'Martin "Biggy" Mhlongo',
@@ -87,7 +87,7 @@ export const siteConfig = {
     },
     {
       title: "The Traveling Chef",
-      blurb: "Biggy comes to your home or venue and cooks on site.",
+      blurb: "We come to your home or venue and cook on site.",
       image: "biggy-plating-lamb",
       alt: "Chef Biggy plating a lamb dish on site, at the pass.",
     },
