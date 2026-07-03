@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Book a Service · Biggy Smallz Spitmasters",
     description:
       "Tell Biggy the date and the kind of event. The start of a conversation.",
-    images: ["/images/meats-warm-from-spit.png"],
+    images: ["/images/wbho-meats-spit.png"],
   },
 };
 

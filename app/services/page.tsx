@@ -22,12 +22,12 @@ export default function ServicesPage() {
       {/* Header */}
       <section className="relative grain flex min-h-[55svh] items-end overflow-hidden">
         <Image
-          src="/images/biggy-plating-lamb.png"
-          alt="Chef Biggy plating a lamb dish at the pass, in low light."
+          src="/images/wedding-rob-leah-plating.png"
+          alt="Biggy and Chef Sikolethu plating together at a wedding, at the pass."
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_8%]"
+          className="object-cover object-[center_25%]"
         />
         <div className="photo-veil absolute inset-0" />
         <div className="section relative z-10 pb-14 pt-32">

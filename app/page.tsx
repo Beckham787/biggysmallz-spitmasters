@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, whatsappUrl } from "@/lib/site-config";
-import { recentEvent } from "@/lib/recent-event";
+import { featuredCaseStudy } from "@/lib/case-studies";
 import Reveal from "@/components/Reveal";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import CaseStudyMedia from "@/components/CaseStudyMedia";
 
 const worlds = [
   {
@@ -17,15 +18,15 @@ const worlds = [
     title: "The Table",
     blurb:
       "Plated three- to seven-course dining, brought to your home or venue. Quiet, considered, restaurant-level.",
-    image: "private-dining-lamb-rack",
-    alt: "A rack of lamb carved and plated for a private dinner.",
+    image: "anniv7-salmon",
+    alt: "A sesame-crusted salmon course, plated with herb aioli and dukkah.",
   },
   {
     title: "The Spread",
     blurb:
       "Generous buffets and feasts for the big gatherings, served warm from the fire.",
-    image: "meats-warm-from-spit",
-    alt: "Roasted meats resting warm, fresh off the spit.",
+    image: "wbho-meats-spit",
+    alt: "Trays of shredded lamb, boerewors and chicken served warm from the spit.",
   },
 ];
 
@@ -80,21 +81,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Invitation ───────────────────────────────────────────────────── */}
-      <section className="relative grain glow-center overflow-hidden bg-charcoal py-24 sm:py-32">
-        <div className="section relative z-10">
-          <Reveal>
-            <p className="mx-auto max-w-prose text-balance text-center text-2xl font-light leading-relaxed text-cream sm:text-3xl">
-              Every event is its own thing. A wedding, a lobola lunch, a
-              fortieth, a quiet dinner for two. Biggy doesn&rsquo;t do set
-              packages off a page — he&rsquo;d rather hear what you&rsquo;re
-              planning, then build the food around it. That conversation is
-              where it starts.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       {/* ── Three worlds ─────────────────────────────────────────────────── */}
       <section className="glow-top bg-ink py-20 sm:py-28">
         <div className="section">
@@ -129,56 +115,64 @@ export default function HomePage() {
       </section>
 
       {/* ── Recent event spotlight ───────────────────────────────────────────
-          One real, recent job told with a little depth, rather than a grid of
-          unrelated shots. Swap the event in lib/recent-event.ts after the next
-          one. ────────────────────────────────────────────────────────────── */}
+          The single featured case study — a three-shot slideshow and a short
+          teaser, linking through to the full write-up. Every other event lives
+          on /work. Swap the featured event in lib/case-studies.ts. ────────── */}
       <section className="relative grain overflow-hidden bg-charcoal py-20 sm:py-28">
         <div className="section relative z-10">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-7" as="div">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal sm:aspect-[4/3]">
-                <Image
-                  src={`/images/${recentEvent.image}.png`}
-                  alt={recentEvent.imageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-cover"
+              <Link
+                href={`/work/${featuredCaseStudy.slug}`}
+                className="block"
+                aria-label={`Read the full story: ${featuredCaseStudy.title}`}
+              >
+                <CaseStudyMedia
+                  study={featuredCaseStudy}
+                  aspectClassName="aspect-[4/5] sm:aspect-[4/3]"
                 />
-              </div>
+              </Link>
             </Reveal>
 
-            <div className="lg:col-span-5 lg:flex lg:flex-col lg:justify-center">
+            <div className="lg:col-span-5">
               <Reveal>
-                <p className="eyebrow mb-3">{recentEvent.eyebrow}</p>
+                <p className="eyebrow mb-3">Recently</p>
                 <h2 className="text-3xl text-cream sm:text-4xl">
-                  {recentEvent.caption}
+                  {featuredCaseStudy.title}
                 </h2>
+                <p className="mt-2 font-display uppercase tracking-stamp text-xs text-smoke">
+                  {featuredCaseStudy.venue
+                    ? `${featuredCaseStudy.venue} · ${featuredCaseStudy.date}`
+                    : featuredCaseStudy.date}
+                </p>
                 <p className="mt-5 max-w-md text-lg leading-relaxed text-cream-dim">
-                  {recentEvent.detail}
+                  {featuredCaseStudy.teaser}
                 </p>
               </Reveal>
 
-              {recentEvent.supportingImage && (
-                <Reveal delay={150} className="mt-8">
-                  <div className="relative aspect-[16/10] w-full max-w-md overflow-hidden rounded-sm bg-coal">
-                    <Image
-                      src={`/images/${recentEvent.supportingImage}.png`}
-                      alt={recentEvent.supportingImageAlt ?? ""}
-                      fill
-                      sizes="(min-width: 1024px) 42vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
+              {featuredCaseStudy.quote && (
+                <Reveal delay={150}>
+                  <blockquote className="mt-6 max-w-md border-l-2 border-ember pl-5 text-lg italic leading-relaxed text-cream/90">
+                    &ldquo;{featuredCaseStudy.quote}&rdquo;
+                  </blockquote>
                 </Reveal>
               )}
 
               <Reveal delay={250}>
-                <Link
-                  href="/gallery"
-                  className="mt-8 inline-block font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
-                >
-                  See more of the work
-                </Link>
+                <div className="mt-8 flex flex-col items-start gap-4">
+                  <Link
+                    href={`/work/${featuredCaseStudy.slug}`}
+                    className="btn-ember text-base"
+                  >
+                    See the full event
+                  </Link>
+                  <Link
+                    href="/work"
+                    className="font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
+                  >
+                    Browse all our work
+                  </Link>
+                </div>
               </Reveal>
             </div>
           </div>

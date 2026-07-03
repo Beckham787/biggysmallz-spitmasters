@@ -17,16 +17,24 @@ import Image from "next/image";
 
 const slides = [
   {
-    src: "/images/anniversary-salmon.png",
-    alt: "A refined plated salmon dish held in the chef's hand, emerging from darkness.",
+    src: "/images/wedding-rl-plating-wide.png",
+    alt: "Biggy plating at a wedding's harvest table, the couple seated alongside.",
   },
   {
-    src: "/images/whole-lamb-coals.png",
-    alt: "A whole lamb roasting low over a bed of glowing coals.",
+    src: "/images/malinga-40th-buffet-view.png",
+    alt: "A birthday buffet laid out on a covered patio with a Lowveld view.",
   },
   {
-    src: "/images/garden-party-spread.png",
-    alt: "A generous garden-party spread laid out warm from the fire.",
+    src: "/images/wedding-rl-buffet.png",
+    alt: "Biggy at the harvest buffet as wedding guests gather around the spread.",
+  },
+  {
+    src: "/images/anniv7-salmon.png",
+    alt: "A sesame-crusted salmon course held to the light.",
+  },
+  {
+    src: "/images/wedding-rob-leah-jamon.png",
+    alt: "Hand-carved jamón on a wooden stand at a wedding.",
   },
 ];
 

@@ -33,3 +33,6 @@ next-env.d.ts
 
 # local-only: pristine image originals (the web-sized copies live in public/images)
 /files
+# local-only: raw Instagram screenshot sources; the cropped, web-sized copies
+# used by the site live directly in public/images (not in dropped/).
+/public/images/dropped/
