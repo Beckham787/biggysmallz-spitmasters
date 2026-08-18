@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/images/anniversary-salmon.png",
+        url: "/images/mozambique-lamb-spit.png",
         width: 1200,
         height: 1200,
-        alt: "A refined plated dish from Biggy Smallz Spitmasters.",
+        alt: "A whole lamb on the cross-spit over open coals — Biggy Smallz Spitmasters.",
       },
     ],
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} — Spitbraai & fine-dining catering`,
     description: siteConfig.description,
-    images: ["/images/anniversary-salmon.png"],
+    images: ["/images/mozambique-lamb-spit.png"],
   },
   alternates: {
     canonical: siteConfig.url,

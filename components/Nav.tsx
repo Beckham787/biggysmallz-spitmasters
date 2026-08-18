@@ -8,8 +8,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const links = [
   { href: "/about", label: "About Us" },
-  { href: "/services", label: "What We Do" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/work", label: "Our Work" },
   { href: "/book", label: "Book a Service" },
 ];
 

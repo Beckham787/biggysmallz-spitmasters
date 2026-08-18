@@ -12,8 +12,8 @@
 export const siteConfig = {
   name: "Biggy Smallz Spitmasters",
   shortName: "Biggy Smallz",
-  established: 2018,
-  tagline: "Cooking over open flame since 2018",
+  established: 2017,
+  tagline: "Cooking over open flame since 2017",
 
   owner: {
     name: 'Martin "Biggy" Mhlongo',
@@ -33,8 +33,7 @@ export const siteConfig = {
     phoneDisplay: "064 850 4066",
     // E.164 form for tel: and WhatsApp links (South Africa +27, drop leading 0).
     phoneE164: "+27648504066",
-    // [CONFIRM] business email address.
-    email: "hello@biggysmallz.co.za",
+    email: "biggy@biggysmallzspitmasters.co.za",
     instagramHandle: "@biggysmallzspitmasters",
     instagramUrl: "https://www.instagram.com/biggysmallzspitmasters",
   },
@@ -44,10 +43,11 @@ export const siteConfig = {
     "Based in Mbombela (Nelspruit) and the Lowveld, Mpumalanga — travelling nationally and internationally for events.",
   serviceAreaShort: "Mpumalanga · Mozambique · Gauteng · nationwide",
 
-  // Small, understated credibility strip. `logo` is an optional path to an
-  // official logo in /public/logos — when present it renders above the name;
-  // when omitted (or the file is missing) the name shows on its own. Drop the
-  // real PNG/SVG assets at the paths below to light up the logos.
+  // Small, understated credibility strip, split into two groups. `logo` is an
+  // optional path to an official logo in /public/logos — when present it
+  // renders above the name; when omitted (or the file is missing) the name
+  // shows on its own. Drop the real PNG/SVG assets at the paths below to
+  // light up the logos.
   asSeenOn: [
     {
       name: "Come Dine With Me (SA)",
@@ -56,10 +56,20 @@ export const siteConfig = {
       logoClass: "h-16",
     },
     {
-      // No logo file yet — shows name-only until one is added at
-      // /logos/sua-magazine.jpg (then set the logo path here).
-      name: "SUA Magazine",
+      name: "Ultimate Braai Master",
+      logo: "/logos/ultimate-braai-master.png",
+      // Background knocked out (transparent) + sized a touch larger than the
+      // rest so the flame/ribbon reads at the same visual weight.
+      logoClass: "h-16",
     },
+    {
+      // Upcoming Mzansi Magic (DStv 161) show — no public logo yet, shows
+      // name-only until one is added at /logos/rate-my-plate.png.
+      name: "Rate My Plate",
+    },
+  ] as { name: string; logo?: string; logoClass?: string }[],
+
+  catchMeOn: [
     {
       name: "Mozambique Barbecue Festival",
       logo: "/logos/mozambique-barbecue-festival.png",
@@ -67,10 +77,8 @@ export const siteConfig = {
       logoClass: "h-16",
     },
     {
-      name: "Ultimate Braai Master",
-      logo: "/logos/ultimate-braai-master.png",
-      // Background knocked out (transparent) + sized a touch larger than the
-      // rest so the flame/ribbon reads at the same visual weight.
+      name: "South Africa Barbecue Festival",
+      logo: "/logos/south-africa-barbecue-festival.png",
       logoClass: "h-16",
     },
   ] as { name: string; logo?: string; logoClass?: string }[],
@@ -82,33 +90,33 @@ export const siteConfig = {
     {
       title: "Fine Dining",
       blurb: "Elevated, plated courses, composed with care.",
-      image: "anniversary-salmon",
-      alt: "A sesame-crusted salmon course, plated with herb and dukkah.",
+      image: "anniv7-ribeye",
+      alt: "A reverse-seared rib eye course, plated with broccolini and a red wine jus.",
     },
     {
       title: "The Traveling Chef",
-      blurb: "Biggy comes to your home or venue and cooks on site.",
-      image: "biggy-plating-lamb",
-      alt: "Chef Biggy plating a lamb dish on site, at the pass.",
+      blurb: "We come to your home or venue and cook on site.",
+      image: "wbho-lamb-spit",
+      alt: "A whole lamb roasting on the spit with open flame, cooked on site.",
     },
     {
       title: "3–7 Course Plated Service",
       blurb: "A full sit-down dining experience, paced and served.",
-      image: "private-dining-lamb-rack",
-      alt: "A rack of lamb, carved and plated for a private dinner.",
+      image: "anniv7-salmon",
+      alt: "A sesame-crusted salmon course, plated with herb aioli and dukkah.",
     },
     {
       title: "VIP Events",
       blurb:
         "Discreet, high-touch catering for the occasions that matter most.",
-      image: "buffet-white-function",
-      alt: "A buffet set for an elegant white-linen function.",
+      image: "malinga-40th-canape-spread",
+      alt: "A layered welcome-canapé spread on white linen for a milestone celebration.",
     },
     {
       title: "Large-Scale Catering",
       blurb: "Feasts and spreads for the big gatherings, without losing the quality.",
-      image: "garden-party-spread",
-      alt: "A generous spread laid out for a large garden party.",
+      image: "mozambique-hanging-chickens",
+      alt: "Dozens of whole chickens hanging over open coals at a barbecue festival.",
     },
     {
       title: "The Ultimate Braaimaster",
