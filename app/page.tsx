@@ -6,37 +6,11 @@ import Reveal from "@/components/Reveal";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import CaseStudyMedia from "@/components/CaseStudyMedia";
 
-const worlds = [
-  {
-    title: "The Spit",
-    blurb:
-      "Whole lamb, pork, beef and chicken, slow-turned over coals. The centrepiece people gather around.",
-    image: "whole-lamb-rotisserie",
-    alt: "A whole lamb turning on a rotisserie spit above the fire.",
-  },
-  {
-    title: "The Table",
-    blurb:
-      "Plated three- to seven-course dining, brought to your home or venue. Quiet, considered, restaurant-level.",
-    image: "anniv7-salmon",
-    alt: "A sesame-crusted salmon course, plated with herb aioli and dukkah.",
-  },
-  {
-    title: "The Spread",
-    blurb:
-      "Generous buffets and feasts for the big gatherings, served warm from the fire.",
-    image: "wbho-meats-spit",
-    alt: "Trays of shredded lamb, boerewors and chicken served warm from the spit.",
-  },
-];
-
 export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────────
-          Full-bleed photography with the copy resting at the bottom. The
-          background is a slideshow: three shots crossfade one at a time so the
-          hero stays alive without competing with the headline. ───────────── */}
+          Full-bleed photo with the copy resting at the bottom. ──────────── */}
       <section className="relative grain flex min-h-[100svh] items-end overflow-hidden">
         <HeroSlideshow />
         <div className="photo-veil absolute inset-0" />
@@ -44,10 +18,10 @@ export default function HomePage() {
         <div className="section relative z-10 pb-20 pt-32 sm:pb-28">
           <Reveal>
             <p className="eyebrow mb-5">Est. {siteConfig.established}</p>
-            <h1 className="max-w-4xl text-balance text-5xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-6xl md:text-7xl">
+            <h1 className="max-w-4xl text-balance text-4xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-5xl md:text-6xl">
               Fire, and everything it can become.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-cream/90 text-shadow-soft sm:text-xl">
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/90 text-shadow-soft sm:text-lg">
               Spitbraai catering for weddings, corporate events and funerals —
               based in the Mpumalanga Lowveld, catering across South Africa.
             </p>
@@ -81,39 +55,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Three worlds ─────────────────────────────────────────────────── */}
-      <section className="glow-top bg-ink py-20 sm:py-28">
-        <div className="section">
-          <Reveal>
-            <p className="eyebrow mb-3">The range</p>
-            <h2 className="mb-12 max-w-2xl text-4xl text-cream sm:text-5xl">
-              Three worlds, one fire.
-            </h2>
-          </Reveal>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {worlds.map((world, i) => (
-              <Reveal key={world.title} delay={i * 120}>
-                <article className="group lift relative h-[26rem] overflow-hidden rounded-sm bg-coal">
-                  <Image
-                    src={`/images/${world.image}.png`}
-                    alt={world.alt}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6">
-                    <h3 className="text-2xl text-cream">{world.title}</h3>
-                    <p className="mt-2 text-cream-dim">{world.blurb}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Recent event spotlight ───────────────────────────────────────────
           The single featured case study — a three-shot slideshow and a short
           teaser, linking through to the full write-up. Every other event lives
@@ -121,19 +62,6 @@ export default function HomePage() {
       <section className="relative grain overflow-hidden bg-charcoal py-20 sm:py-28">
         <div className="section relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-            <Reveal className="lg:col-span-7" as="div">
-              <Link
-                href={`/work/${featuredCaseStudy.slug}`}
-                className="block"
-                aria-label={`Read the full story: ${featuredCaseStudy.title}`}
-              >
-                <CaseStudyMedia
-                  study={featuredCaseStudy}
-                  aspectClassName="aspect-[4/5] sm:aspect-[4/3]"
-                />
-              </Link>
-            </Reveal>
-
             <div className="lg:col-span-5">
               <Reveal>
                 <p className="eyebrow mb-3">Recently</p>
@@ -175,47 +103,77 @@ export default function HomePage() {
                 </div>
               </Reveal>
             </div>
+
+            <Reveal className="lg:col-span-7" as="div">
+              <Link
+                href={`/work/${featuredCaseStudy.slug}`}
+                className="block"
+                aria-label={`Read the full story: ${featuredCaseStudy.title}`}
+              >
+                <CaseStudyMedia
+                  study={featuredCaseStudy}
+                  aspectClassName="aspect-[4/5] sm:aspect-[4/3]"
+                />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* ── As seen on ───────────────────────────────────────────────────── */}
+      {/* ── As seen on / Catch me on ─────────────────────────────────────── */}
       <section className="border-y border-cream/10 bg-ink py-12">
-        <div className="section">
+        <div className="section grid gap-10 sm:grid-cols-2 sm:gap-6">
           <Reveal>
-            <p className="mb-6 text-center font-display uppercase tracking-stamp text-xs text-smoke">
-              As seen on
-            </p>
-            <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center sm:gap-x-14">
-              {siteConfig.asSeenOn.map((item) => (
-                <li
-                  key={item.name}
-                  className="flex w-32 flex-col items-center gap-3 sm:w-40"
-                >
-                  {item.logo && (
-                    <span
-                      className={`relative block w-full opacity-80 transition-opacity duration-300 hover:opacity-100 ${
-                        item.logoClass ?? "h-12"
-                      }`}
-                    >
-                      <Image
-                        src={item.logo}
-                        alt={`${item.name} logo`}
-                        fill
-                        sizes="(min-width: 640px) 10rem, 8rem"
-                        className="object-contain"
-                      />
-                    </span>
-                  )}
-                  <span className="font-display uppercase tracking-stamp text-xs text-cream-dim">
-                    {item.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <CreditGroup label="As seen on" items={siteConfig.asSeenOn} />
+          </Reveal>
+          <Reveal delay={100}>
+            <CreditGroup label="Catch me on" items={siteConfig.catchMeOn} />
           </Reveal>
         </div>
       </section>
     </>
+  );
+}
+
+function CreditGroup({
+  label,
+  items,
+}: {
+  label: string;
+  items: { name: string; logo?: string; logoClass?: string }[];
+}) {
+  return (
+    <div>
+      <p className="mb-6 text-center font-display uppercase tracking-stamp text-xs text-smoke">
+        {label}
+      </p>
+      <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center">
+        {items.map((item) => (
+          <li
+            key={item.name}
+            className="flex w-32 flex-col items-center gap-3 sm:w-36"
+          >
+            {item.logo && (
+              <span
+                className={`relative block w-full opacity-80 transition-opacity duration-300 hover:opacity-100 ${
+                  item.logoClass ?? "h-12"
+                }`}
+              >
+                <Image
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  fill
+                  sizes="(min-width: 640px) 10rem, 8rem"
+                  className="object-contain"
+                />
+              </span>
+            )}
+            <span className="font-display uppercase tracking-stamp text-xs text-cream-dim">
+              {item.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

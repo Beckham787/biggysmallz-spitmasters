@@ -55,6 +55,16 @@ export default function CaseStudyPage({ params }: Params) {
             <p className="mt-3 font-display uppercase tracking-stamp text-sm text-smoke">
               {study.venue ? `${study.venue} · ${study.date}` : study.date}
             </p>
+            {study.instagramUrl && (
+              <a
+                href={study.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
+              >
+                View on Instagram →
+              </a>
+            )}
           </Reveal>
         </div>
       </section>

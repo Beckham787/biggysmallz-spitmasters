@@ -33,8 +33,7 @@ export const siteConfig = {
     phoneDisplay: "064 850 4066",
     // E.164 form for tel: and WhatsApp links (South Africa +27, drop leading 0).
     phoneE164: "+27648504066",
-    // [CONFIRM] business email address.
-    email: "hello@biggysmallz.co.za",
+    email: "biggy@biggysmallzspitmasters.co.za",
     instagramHandle: "@biggysmallzspitmasters",
     instagramUrl: "https://www.instagram.com/biggysmallzspitmasters",
   },
@@ -44,10 +43,11 @@ export const siteConfig = {
     "Based in Mbombela (Nelspruit) and the Lowveld, Mpumalanga — travelling nationally and internationally for events.",
   serviceAreaShort: "Mpumalanga · Mozambique · Gauteng · nationwide",
 
-  // Small, understated credibility strip. `logo` is an optional path to an
-  // official logo in /public/logos — when present it renders above the name;
-  // when omitted (or the file is missing) the name shows on its own. Drop the
-  // real PNG/SVG assets at the paths below to light up the logos.
+  // Small, understated credibility strip, split into two groups. `logo` is an
+  // optional path to an official logo in /public/logos — when present it
+  // renders above the name; when omitted (or the file is missing) the name
+  // shows on its own. Drop the real PNG/SVG assets at the paths below to
+  // light up the logos.
   asSeenOn: [
     {
       name: "Come Dine With Me (SA)",
@@ -56,10 +56,20 @@ export const siteConfig = {
       logoClass: "h-16",
     },
     {
-      // No logo file yet — shows name-only until one is added at
-      // /logos/sua-magazine.jpg (then set the logo path here).
-      name: "SUA Magazine",
+      name: "Ultimate Braai Master",
+      logo: "/logos/ultimate-braai-master.png",
+      // Background knocked out (transparent) + sized a touch larger than the
+      // rest so the flame/ribbon reads at the same visual weight.
+      logoClass: "h-16",
     },
+    {
+      // Upcoming Mzansi Magic (DStv 161) show — no public logo yet, shows
+      // name-only until one is added at /logos/rate-my-plate.png.
+      name: "Rate My Plate",
+    },
+  ] as { name: string; logo?: string; logoClass?: string }[],
+
+  catchMeOn: [
     {
       name: "Mozambique Barbecue Festival",
       logo: "/logos/mozambique-barbecue-festival.png",
@@ -67,10 +77,8 @@ export const siteConfig = {
       logoClass: "h-16",
     },
     {
-      name: "Ultimate Braai Master",
-      logo: "/logos/ultimate-braai-master.png",
-      // Background knocked out (transparent) + sized a touch larger than the
-      // rest so the flame/ribbon reads at the same visual weight.
+      name: "South Africa Barbecue Festival",
+      logo: "/logos/south-africa-barbecue-festival.png",
       logoClass: "h-16",
     },
   ] as { name: string; logo?: string; logoClass?: string }[],
