@@ -64,19 +64,6 @@ export default function HomePage() {
       <section className="relative grain overflow-hidden bg-charcoal py-20 sm:py-28">
         <div className="section relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-            <Reveal className="lg:col-span-7" as="div">
-              <Link
-                href={`/work/${featuredCaseStudy.slug}`}
-                className="block"
-                aria-label={`Read the full story: ${featuredCaseStudy.title}`}
-              >
-                <CaseStudyMedia
-                  study={featuredCaseStudy}
-                  aspectClassName="aspect-[4/5] sm:aspect-[4/3]"
-                />
-              </Link>
-            </Reveal>
-
             <div className="lg:col-span-5">
               <Reveal>
                 <p className="eyebrow mb-3">Recently</p>
@@ -118,6 +105,19 @@ export default function HomePage() {
                 </div>
               </Reveal>
             </div>
+
+            <Reveal className="lg:col-span-7" as="div">
+              <Link
+                href={`/work/${featuredCaseStudy.slug}`}
+                className="block"
+                aria-label={`Read the full story: ${featuredCaseStudy.title}`}
+              >
+                <CaseStudyMedia
+                  study={featuredCaseStudy}
+                  aspectClassName="aspect-[4/5] sm:aspect-[4/3]"
+                />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -146,10 +146,10 @@ function CreditGroup({
 }) {
   return (
     <div>
-      <p className="mb-6 text-center font-display uppercase tracking-stamp text-xs text-smoke sm:text-left">
+      <p className="mb-6 text-center font-display uppercase tracking-stamp text-xs text-smoke">
         {label}
       </p>
-      <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center sm:justify-start">
+      <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center">
         {items.map((item) => (
           <li
             key={item.name}

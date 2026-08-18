@@ -4,37 +4,26 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 /**
- * HeroSlideshow — full-bleed background photos that crossfade one at a time.
- *
- * Restores the original full-bleed hero look, but instead of a single static
- * photo it cycles through a small set of shots. Only one is visible at a time;
- * the rest sit at opacity-0 underneath and fade in on a timer. The first image
- * is `priority` so the LCP shot loads immediately.
+ * HeroSlideshow — full-bleed hero that alternates between a photo and the
+ * brand mark: one strong shot, then the logo on a dark field, back and
+ * forth. Only one slide is visible at a time; the rest sit at opacity-0
+ * underneath and fade in on a timer. The first image is `priority` so the
+ * LCP shot loads immediately.
  *
  * Respects prefers-reduced-motion: if the user has it on, we hold the first
- * image and skip the rotation.
+ * slide and skip the rotation.
  */
 
 const slides = [
   {
-    src: "/images/wedding-rl-plating-wide.png",
-    alt: "Biggy plating at a wedding's harvest table, the couple seated alongside.",
+    kind: "photo" as const,
+    src: "/images/home-hero.png",
+    alt: "Biggy carving a whole roasted lamb straight off the spit at a festival.",
   },
   {
-    src: "/images/malinga-40th-buffet-view.png",
-    alt: "A birthday buffet laid out on a covered patio with a Lowveld view.",
-  },
-  {
-    src: "/images/wedding-rl-buffet.png",
-    alt: "Biggy at the harvest buffet as wedding guests gather around the spread.",
-  },
-  {
-    src: "/images/anniv7-salmon.png",
-    alt: "A sesame-crusted salmon course held to the light.",
-  },
-  {
-    src: "/images/wedding-rob-leah-jamon.png",
-    alt: "Hand-carved jamón on a wooden stand at a wedding.",
+    kind: "logo" as const,
+    src: "/logo.png",
+    alt: "Biggy Smallz Spitmasters badge.",
   },
 ];
 
@@ -57,19 +46,32 @@ export default function HeroSlideshow() {
 
   return (
     <div className="absolute inset-0" aria-hidden="true">
-      {slides.map((slide, i) => (
-        <Image
-          key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          fill
-          priority={i === 0}
-          sizes="100vw"
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
-            i === active ? "opacity-100" : "opacity-0"
-          }`}
-        />
-      ))}
+      {slides.map((slide, i) =>
+        slide.kind === "logo" ? (
+          <div
+            key={slide.src}
+            className={`absolute inset-0 flex items-center justify-center bg-ink transition-opacity duration-1000 ease-in-out ${
+              i === active ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <div className="relative h-[45vh] w-[45vh] max-h-80 max-w-80">
+              <Image src={slide.src} alt={slide.alt} fill sizes="45vh" className="object-contain" />
+            </div>
+          </div>
+        ) : (
+          <Image
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className={`object-cover transition-opacity duration-1000 ease-in-out ${
+              i === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ),
+      )}
     </div>
   );
 }

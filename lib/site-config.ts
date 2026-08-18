@@ -33,8 +33,7 @@ export const siteConfig = {
     phoneDisplay: "064 850 4066",
     // E.164 form for tel: and WhatsApp links (South Africa +27, drop leading 0).
     phoneE164: "+27648504066",
-    // [CONFIRM] business email address.
-    email: "hello@biggysmallz.co.za",
+    email: "biggy@biggysmallzspitmasters.co.za",
     instagramHandle: "@biggysmallzspitmasters",
     instagramUrl: "https://www.instagram.com/biggysmallzspitmasters",
   },
