@@ -10,9 +10,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────────
-          Full-bleed photography with the copy resting at the bottom. The
-          background is a slideshow: three shots crossfade one at a time so the
-          hero stays alive without competing with the headline. ───────────── */}
+          Full-bleed photo with the copy resting at the bottom. ──────────── */}
       <section className="relative grain flex min-h-[100svh] items-end overflow-hidden">
         <HeroSlideshow />
         <div className="photo-veil absolute inset-0" />
@@ -20,10 +18,10 @@ export default function HomePage() {
         <div className="section relative z-10 pb-20 pt-32 sm:pb-28">
           <Reveal>
             <p className="eyebrow mb-5">Est. {siteConfig.established}</p>
-            <h1 className="max-w-4xl text-balance text-5xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-6xl md:text-7xl">
+            <h1 className="max-w-4xl text-balance text-4xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-5xl md:text-6xl">
               Fire, and everything it can become.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-cream/90 text-shadow-soft sm:text-xl">
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/90 text-shadow-soft sm:text-lg">
               Spitbraai catering for weddings, corporate events and funerals —
               based in the Mpumalanga Lowveld, catering across South Africa.
             </p>

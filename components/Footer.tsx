@@ -7,8 +7,8 @@ export default function Footer() {
     <footer className="relative grain overflow-hidden border-t border-cream/10 bg-charcoal">
       <div className="section relative z-10 py-14">
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
-          {/* Identity — both marks aligned in a row, same height */}
-          <div className="flex items-start gap-8">
+          {/* Identity — both marks stacked, one above the other */}
+          <div className="flex w-fit flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-1.5">
               <Image
                 src="/logo.png"
