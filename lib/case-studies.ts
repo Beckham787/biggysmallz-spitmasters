@@ -26,6 +26,8 @@ export type CaseStudy = {
   teaser: string;
   intro: string[];
   quote?: string;
+  /** Link to the source Instagram post for this event, when known. */
+  instagramUrl?: string;
   /** Single static cover — used instead of a slideshow when set. */
   cover?: CoverImage;
   /** Three crossfading shots for the card/hero — used when there's no cover. */
@@ -63,21 +65,12 @@ export const caseStudies: CaseStudy[] = [
         alt: "Hand-carved jamón, aged and thinly sliced, on a wooden stand.",
       },
     ],
+    instagramUrl: undefined,
     gallery: [
-      { image: "wedding-rl-plating-wide", caption: "Plating at the harvest table", alt: "Biggy plating at the harvest table while the couple sit alongside." },
       { image: "wedding-rob-leah-plating", caption: "Biggy & Chef Sikolethu, plating together", alt: "Biggy and Chef Sikolethu plating together at the table." },
       { image: "wedding-rl-buffet", caption: "Guests at the harvest spread", alt: "Guests gathering at the harvest buffet." },
-      { image: "wedding-rl-spread-wide", caption: "The full harvest spread", alt: "The full harvest-style spread laid out on white linen." },
-      { image: "wedding-rob-leah-jamon", caption: "Hand-carved jamón", alt: "Hand-carved jamón on a wooden stand." },
-      { image: "wedding-rl-chimi-lamb", caption: "Red smoked vino chimichurri lamb & citrus roasted chicken", alt: "Chimichurri lamb and citrus roasted chicken." },
       { image: "wedding-rl-ribs", caption: "Smoked bourbon BBQ pork ribs", alt: "Smoked bourbon BBQ pork ribs on a board." },
-      { image: "wedding-rob-leah-arancini", caption: "Grana Padano stuffed arancini", alt: "Grana Padano stuffed arancini plated in a row." },
-      { image: "wedding-rob-leah-butternut", caption: "Grilled butternut, citrus & feta", alt: "Grilled butternut with citrus, feta and spiced seeds." },
       { image: "wedding-rl-chakalaka", caption: "Upper North chakalaka", alt: "Upper North chakalaka in a bowl." },
-      { image: "wedding-rl-duck-potatoes", caption: "Duck fat roasted potatoes", alt: "Duck fat roasted potatoes with herbs." },
-      { image: "wedding-rl-green-goddess", caption: "Green goddess salad", alt: "A green goddess salad platter." },
-      { image: "wedding-rl-beetroot-hummus", caption: "Roasted beetroot hummus", alt: "Roasted beetroot hummus with pomegranate." },
-      { image: "wedding-rl-moroccan-hummus", caption: "Moroccan-spiced hummus", alt: "Moroccan-spiced hummus with herbs and pomegranate." },
     ],
     featured: true,
   },
@@ -98,17 +91,12 @@ export const caseStudies: CaseStudy[] = [
       { image: "malinga-40th-buffet-view", alt: "The buffet laid out on a covered patio with a Lowveld view." },
       { image: "malinga-40th-green-beans", alt: "Sautéed green bean and basil pesto salad, plated long." },
     ],
+    instagramUrl: undefined,
     gallery: [
       { image: "malinga-40th-canape-spread", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga-40th-buffet-view", caption: "The buffet, with a Lowveld view", alt: "The buffet on a covered patio with a mountain and forest view." },
       { image: "malinga-canape-tower", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
       { image: "malinga-40th-green-beans", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
       { image: "malinga-green-goddess", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
-      { image: "malinga-spit-veg", caption: "Spit-roasted vegetables, dukkah finish", alt: "Spit-roasted corn and potatoes with a dukkah finish." },
-      { image: "malinga-cream-spinach", caption: "Cape Malay coconut curry cream spinach", alt: "Cape Malay coconut curry cream spinach." },
-      { image: "malinga-yellowtail", caption: "Whole grilled yellowtail, white wine sauce", alt: "Whole grilled yellowtail with a creamy white wine sauce." },
-      { image: "malinga-citrus-chicken", caption: "Citrus-spiced roast chicken", alt: "Citrus-spiced roast chicken pieces." },
-      { image: "malinga-korean-boar", caption: "Korean BBQ wild boar", alt: "Korean BBQ wild boar, glazed." },
     ],
   },
   {
@@ -128,6 +116,7 @@ export const caseStudies: CaseStudy[] = [
       { image: "anniv7-salmon", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
       { image: "anniv7-dessert", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
     ],
+    instagramUrl: undefined,
     gallery: [
       { image: "anniv7-salmon", caption: "Starter — sesame-crusted lightly smoked salmon, herb aioli, dukkah, charred corn crudo", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
       { image: "anniv7-beet", caption: "Amuse — marinated beet carpaccio, whipped crème fraîche, citrus vinaigrette", alt: "Marinated beet carpaccio with whipped crème fraîche." },
@@ -153,17 +142,12 @@ export const caseStudies: CaseStudy[] = [
       { image: "wbho-meats-spit", alt: "Trays of shredded lamb, boerewors and chicken warm from the spit." },
       { image: "wbho-team-queue", alt: "Site workers in WBHO hi-vis vests queuing for food." },
     ],
+    instagramUrl: undefined,
     gallery: [
       { image: "wbho-lamb-spit", caption: "Whole lamb on the spit", alt: "A whole lamb roasting on the spit with open flame." },
       { image: "wbho-meats-spit", caption: "Meats served warm from the spit", alt: "Trays of shredded lamb, boerewors and chicken warm from the spit." },
-      { image: "wbho-team-queue", caption: "The site team, queuing up", alt: "Site workers in WBHO hi-vis vests queuing for food." },
-      { image: "wbho-chakalaka", caption: "Upper North chakalaka", alt: "Upper North chakalaka in a wooden bowl." },
-      { image: "wbho-curry-spinach", caption: "Cape Malay coconut curry spinach", alt: "Cape Malay coconut curry spinach." },
       { image: "wbho-rice-pilaf", caption: "Wild rice pilaf salad", alt: "Wild rice pilaf salad with lemon." },
-      { image: "wbho-spit-potatoes", caption: "Spit-roasted potatoes", alt: "Spit-roasted potatoes in a tray." },
       { image: "wbho-glazed-chicken", caption: "Glazed chicken", alt: "Glazed sesame-topped chicken in a tray." },
-      { image: "wbho-lamb-wors", caption: "Spicy Klein Karoo lamb wors, Bisto relish", alt: "Spicy lamb wors in a Bisto relish." },
-      { image: "wbho-asian-chicken", caption: "Asian BBQ roast chicken", alt: "Glossy Asian BBQ roast chicken." },
     ],
   },
 ];
