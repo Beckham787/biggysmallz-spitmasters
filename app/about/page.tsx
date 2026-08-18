@@ -3,11 +3,11 @@ import Image from "next/image";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "The fire we cook by",
+  title: "About Us",
   description:
     "Biggy Smallz Spitmasters — founded 2017, from spit-braais to plated four-course tables. The story of the operation, the team, and the founder behind it.",
   openGraph: {
-    title: "The fire we cook by · Biggy Smallz Spitmasters",
+    title: "About Us · Biggy Smallz Spitmasters",
     description:
       "Founded 2017, from spit-braais to plated four-course tables. The story of the operation.",
     images: ["/images/wedding-rob-leah-plating.png"],
@@ -32,59 +32,24 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — headline lit from below by the coal-bed glow, paired with a
-          staggered triptych that shows the breadth of the work: fire, fine
-          dining, and a wedding. */}
-      <section className="relative grain coal-bed overflow-hidden bg-ink">
-        <div className="section relative z-10 pb-16 pt-36 sm:pb-24 sm:pt-44">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <p className="eyebrow mb-4">About</p>
-              <h1 className="text-balance text-5xl font-bold leading-[0.95] text-cream sm:text-6xl md:text-7xl">
-                The <span className="seared">fire</span> we cook by
-              </h1>
-              <p className="mt-7 max-w-xl text-lg leading-relaxed text-cream-dim sm:text-xl">
-                Founded 2017. From spit-braais with no culinary school behind
-                them, to plated dinners for hundreds — built one fire, one
-                event, one standard at a time.
-              </p>
-            </Reveal>
-
-            <Reveal delay={150} className="lg:justify-self-end">
-              <div className="grid grid-cols-3 gap-3 sm:gap-4">
-                {[
-                  {
-                    src: "mozambique-lamb-spit",
-                    alt: "A whole lamb on a cross-spit over open coals at a barbecue festival.",
-                    shift: "translate-y-6 sm:translate-y-8",
-                  },
-                  {
-                    src: "anniv7-ribeye",
-                    alt: "A plated reverse-seared rib eye course from a private fine-dining dinner.",
-                    shift: "-translate-y-3 sm:-translate-y-4",
-                  },
-                  {
-                    src: "wedding-rob-leah-plating",
-                    alt: "Biggy and Chef Sikolethu plating together at a wedding.",
-                    shift: "translate-y-6 sm:translate-y-8",
-                  },
-                ].map((shot) => (
-                  <div
-                    key={shot.src}
-                    className={`relative aspect-[3/4] overflow-hidden rounded-sm bg-coal ${shot.shift}`}
-                  >
-                    <Image
-                      src={`/images/${shot.src}.png`}
-                      alt={shot.alt}
-                      fill
-                      sizes="(min-width: 1024px) 15vw, 30vw"
-                      className="object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
+      {/* Hero — one representative photo, full-bleed */}
+      <section className="relative grain flex min-h-[55svh] items-end overflow-hidden">
+        <Image
+          src="/images/wedding-rob-leah-plating.png"
+          alt="Biggy and Chef Sikolethu plating together at a wedding, at the pass."
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_25%]"
+        />
+        <div className="photo-veil absolute inset-0" />
+        <div className="section relative z-10 pb-14 pt-32">
+          <Reveal>
+            <p className="eyebrow mb-4">About</p>
+            <h1 className="text-balance text-5xl font-bold leading-[0.95] text-cream text-shadow-soft sm:text-6xl md:text-7xl">
+              About Us
+            </h1>
+          </Reveal>
         </div>
       </section>
 
@@ -115,7 +80,8 @@ export default function AboutPage() {
               <p>
                 The operation has consulted in restaurants across
                 Johannesburg, holds part-ownership of Megálo on 5th, has
-                cooked live on national television, fed five thousand people
+                appeared on Rate My Plate, Come Dine With Me (SA), Ultimate
+                Braai Master and Afternoon Express, fed five thousand people
                 in Soweto over a Mandela Day week, and stood at the coals as
                 the confirmed South African pitmaster at the Mozambique
                 Barbecue Festival. The food borrows from South Africa, Spain
@@ -187,6 +153,13 @@ export default function AboutPage() {
                     won&rsquo;t just be met, they&rsquo;ll be exceeded. He
                     lives by the idea that nothing is too big a challenge if
                     your heart is vested in the right place.
+                  </p>
+                  <p>
+                    Beyond the kitchen, it&rsquo;s about celebrating South
+                    African heritage through food — creating space for people
+                    to connect, laugh and feast together. That&rsquo;s the
+                    part that turns a booking into an event people still talk
+                    about.
                   </p>
                 </div>
               </div>
