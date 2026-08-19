@@ -25,7 +25,7 @@ export const siteConfig = {
     "Fire catering from Martin “Biggy” Mhlongo — whole-animal spitbraai to refined plated courses. Professional chefs lead the fine-dining dinners and weddings; a team trained in Biggy’s own methods handles every other event. Based in the Mpumalanga Lowveld, catering across South Africa.",
 
   // Production URL — update once the domain is live (used for OG / canonical).
-  url: "https://biggysmallz.co.za",
+  url: "https://biggysmallzspitmasters.co.za",
 
   contact: {
     // [CONFIRM] 064 850 4066 — the "Chef Biggy" number from his private-chef
