@@ -31,8 +31,15 @@ next-env.d.ts
 # vercel
 .vercel
 
-# local-only: pristine image originals (the web-sized copies live in public/images)
+# local-only: raw/source photo archive (web-sized copies live in public/images)
+# - legacy-originals/     pristine pre-optimization originals
+# - new-pictures-raw/     unsorted camera dump (was public/New pictures - moved
+#                         out because everything under public/ gets deployed)
+# - new-pictures-matched/ renamed source photos matched to their published names
 /files
 # local-only: raw Instagram screenshot sources; the cropped, web-sized copies
 # used by the site live directly in public/images (not in dropped/).
 /public/images/dropped/
+
+.vercel
+.env*

@@ -22,7 +22,7 @@ export const siteConfig = {
 
   // One-line description used for SEO + Open Graph.
   description:
-    "Fire catering from Martin “Biggy” Mhlongo — whole-animal spitbraai to refined plated courses. Professional chefs lead the fine-dining dinners and weddings; a team trained in Biggy’s own methods handles every other event. Based in the Mpumalanga Lowveld, catering across South Africa.",
+    "Personal chef and fire catering from Martin “Biggy” Mhlongo — whole-animal spitbraai to plated, course-by-course dining, brought to wherever the table is. Based in the Mpumalanga Lowveld, catering across South Africa.",
 
   // Production URL — update once the domain is live (used for OG / canonical).
   url: "https://biggysmallzspitmasters.co.za",
@@ -63,9 +63,12 @@ export const siteConfig = {
       logoClass: "h-16",
     },
     {
-      // Upcoming Mzansi Magic (DStv 161) show — no public logo yet, shows
-      // name-only until one is added at /logos/rate-my-plate.png.
+      // Mzansi Magic (DStv 161). Black field knocked out (transparent) and the
+      // empty margins trimmed, so it takes the section's background and sits at
+      // the same weight as the rest. Source JPEG kept at rate-my-plate.jpeg.
       name: "Rate My Plate",
+      logo: "/logos/rate-my-plate.png",
+      logoClass: "h-16",
     },
   ] as { name: string; logo?: string; logoClass?: string }[],
 
@@ -84,45 +87,48 @@ export const siteConfig = {
   ] as { name: string; logo?: string; logoClass?: string }[],
 
   // The six service categories (Services page). Range, not detail — no prices.
-  // `image` is a slug in /public/images, paired so each card carries appetite
-  // appeal; `alt` describes it for screen readers.
+  // The cards render the title only. `image` (a path under /public/images,
+  // folder/file.ext) and `alt` are kept as a curated pairing in case pictures
+  // come back, but nothing renders them today. `blurb` is likewise unused.
   services: [
     {
       title: "Fine Dining",
       blurb: "Elevated, plated courses, composed with care.",
-      image: "anniv7-ribeye",
+      image: "anniv7/anniv7-ribeye.png",
       alt: "A reverse-seared rib eye course, plated with broccolini and a red wine jus.",
     },
     {
       title: "The Traveling Chef",
-      blurb: "We come to your home or venue and cook on site.",
-      image: "wbho-lamb-spit",
+      blurb:
+        "Your personal chef for the night — we come to your home or venue and cook on site.",
+      image: "wbho/wbho-lamb-spit.png",
       alt: "A whole lamb roasting on the spit with open flame, cooked on site.",
     },
     {
       title: "3–7 Course Plated Service",
       blurb: "A full sit-down dining experience, paced and served.",
-      image: "anniv7-salmon",
+      image: "anniv7/anniv7-salmon.png",
       alt: "A sesame-crusted salmon course, plated with herb aioli and dukkah.",
     },
     {
       title: "VIP Events",
       blurb:
         "Discreet, high-touch catering for the occasions that matter most.",
-      image: "malinga-40th-canape-spread",
+      image: "malinga/malinga-40th-canape-spread.png",
       alt: "A layered welcome-canapé spread on white linen for a milestone celebration.",
     },
     {
       title: "Large-Scale Catering",
       blurb: "Feasts and spreads for the big gatherings, without losing the quality.",
-      image: "mozambique-hanging-chickens",
+      image: "mozambique/mozambique-hanging-chickens.png",
       alt: "Dozens of whole chickens hanging over open coals at a barbecue festival.",
     },
     {
       title: "The Ultimate Braaimaster",
       blurb:
         "Whole-animal spit-roasting and live-flame cooking — the original craft.",
-      image: "whole-lamb-coals",
+      // TODO: replace with real photo (original whole-lamb-coals is gone)
+      image: "mozambique/mozambique-lamb-spit.png",
       alt: "A whole lamb roasting slowly over glowing coals.",
     },
   ],

@@ -53,24 +53,29 @@ export const caseStudies: CaseStudy[] = [
     quote: "A wedding as beautiful as the setting deserved a table to match.",
     slideshowImages: [
       {
-        image: "wedding-rl-plating-wide",
-        alt: "Biggy plating at the harvest table while the couple sit alongside.",
+        // TODO: replace with real photo (original wedding-rl-plating-wide is gone)
+        image: "wedding-rob-leah/wedding-rob-leah-plating-2.png",
+        alt: "Biggy plating at the harvest table while guests sit alongside.",
       },
       {
-        image: "wedding-rl-buffet",
+        image: "wedding-rob-leah/wedding-rl-buffet.png",
         alt: "Biggy at the harvest buffet as guests gather around the spread.",
       },
       {
-        image: "wedding-rob-leah-jamon",
-        alt: "Hand-carved jamón, aged and thinly sliced, on a wooden stand.",
+        // TODO: replace with real photo (original wedding-rob-leah-jamon is gone)
+        image: "wedding-rob-leah/wedding-rob-leah-spread.png",
+        alt: "The harvest table laid out end to end, guests gathered behind it.",
       },
     ],
     instagramUrl: undefined,
     gallery: [
-      { image: "wedding-rob-leah-plating", caption: "Biggy & Chef Sikolethu, plating together", alt: "Biggy and Chef Sikolethu plating together at the table." },
-      { image: "wedding-rl-buffet", caption: "Guests at the harvest spread", alt: "Guests gathering at the harvest buffet." },
-      { image: "wedding-rl-ribs", caption: "Smoked bourbon BBQ pork ribs", alt: "Smoked bourbon BBQ pork ribs on a board." },
-      { image: "wedding-rl-chakalaka", caption: "Upper North chakalaka", alt: "Upper North chakalaka in a bowl." },
+      { image: "wedding-rob-leah/wedding-rob-leah-plating.png", caption: "Biggy & Chef Sikolethu, plating together", alt: "Biggy and Chef Sikolethu plating together at the table." },
+      { image: "wedding-rob-leah/wedding-rl-buffet.png", caption: "Guests at the harvest spread", alt: "Guests gathering at the harvest buffet." },
+      // TODO: confirm captions — the ribs and chakalaka photos were removed from
+      // /images/wedding-rob-leah, so these two are stand-ins described from the
+      // photos themselves rather than from the event's own menu captions.
+      { image: "wedding-rob-leah/JNEB5264.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
+      { image: "wedding-rob-leah/PJMI3890.JPG", caption: "Dips, breads and pastries down the table", alt: "Dips, warm breads and pastries laid down the length of the table." },
     ],
     featured: true,
   },
@@ -87,16 +92,16 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: "The table told a story of abundance, love, and legacy.",
     slideshowImages: [
-      { image: "malinga-40th-canape-spread", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga-40th-buffet-view", alt: "The buffet laid out on a covered patio with a Lowveld view." },
-      { image: "malinga-40th-green-beans", alt: "Sautéed green bean and basil pesto salad, plated long." },
+      { image: "malinga/malinga-40th-canape-spread.png", alt: "A layered welcome-canapé spread on white linen." },
+      { image: "malinga/malinga-40th-buffet-view.png", alt: "The buffet laid out on a covered patio with a Lowveld view." },
+      { image: "malinga/malinga-40th-green-beans.png", alt: "Sautéed green bean and basil pesto salad, plated long." },
     ],
     instagramUrl: undefined,
     gallery: [
-      { image: "malinga-40th-canape-spread", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga-canape-tower", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
-      { image: "malinga-40th-green-beans", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
-      { image: "malinga-green-goddess", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
+      { image: "malinga/malinga-40th-canape-spread.png", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
+      { image: "malinga/malinga-canape-tower.png", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
+      { image: "malinga/malinga-40th-green-beans.png", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
+      { image: "malinga/malinga-green-goddess.png", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
     ],
   },
   {
@@ -112,16 +117,18 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: "Creating memories through food is what we love most.",
     slideshowImages: [
-      { image: "anniv7-ribeye", alt: "Reverse-seared rib eye with fondant potato, broccolini and bok choy." },
-      { image: "anniv7-salmon", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
-      { image: "anniv7-dessert", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
+      { image: "anniv7/anniv7-ribeye.png", alt: "Reverse-seared rib eye with fondant potato, broccolini and bok choy." },
+      { image: "anniv7/anniv7-salmon.png", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
+      { image: "anniv7/anniv7-dessert.png", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
     ],
     instagramUrl: undefined,
     gallery: [
-      { image: "anniv7-salmon", caption: "Starter — sesame-crusted lightly smoked salmon, herb aioli, dukkah, charred corn crudo", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
-      { image: "anniv7-beet", caption: "Amuse — marinated beet carpaccio, whipped crème fraîche, citrus vinaigrette", alt: "Marinated beet carpaccio with whipped crème fraîche." },
-      { image: "anniv7-ribeye", caption: "Main — reverse-seared rib eye, fondant potato, broccolini, bok choy, red wine jus", alt: "Reverse-seared rib eye with fondant potato and broccolini." },
-      { image: "anniv7-dessert", caption: "Dessert — Lindt chocolate chilli brownie, strawberry, pistachio ice cream", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
+      { image: "anniv7/anniv7-salmon.png", caption: "Starter — sesame-crusted lightly smoked salmon, herb aioli, dukkah, charred corn crudo", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
+      // TODO: replace with real photo — the amuse course (marinated beet
+      // carpaccio, whipped crème fraîche, citrus vinaigrette) has no usable
+      // photo, so the entry is dropped rather than shown with a wrong image.
+      { image: "anniv7/anniv7-ribeye.png", caption: "Main — reverse-seared rib eye, fondant potato, broccolini, bok choy, red wine jus", alt: "Reverse-seared rib eye with fondant potato and broccolini." },
+      { image: "anniv7/anniv7-dessert.png", caption: "Dessert — Lindt chocolate chilli brownie, strawberry, pistachio ice cream", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
     ],
   },
   {
@@ -138,16 +145,19 @@ export const caseStudies: CaseStudy[] = [
     ],
     quote: "Site braais. Travel cooks. Noma yini, WE GOT YOU!",
     slideshowImages: [
-      { image: "wbho-lamb-spit", alt: "A whole lamb roasting on the spit with open flame." },
-      { image: "wbho-meats-spit", alt: "Trays of shredded lamb, boerewors and chicken warm from the spit." },
-      { image: "wbho-team-queue", alt: "Site workers in WBHO hi-vis vests queuing for food." },
+      { image: "wbho/wbho-lamb-spit.png", alt: "A whole lamb roasting on the spit with open flame." },
+      // TODO: replace with real photo (original wbho-meats-spit is gone)
+      { image: "wbho/wbho-glazed-chicken.png", alt: "Glazed sesame-topped chicken in a tray, served warm from the fire." },
+      // TODO: replace with real photo (original wbho-team-queue is gone)
+      { image: "wbho/wbho-rice-pilaf.png", alt: "Wild rice pilaf salad with lemon, served alongside the braai." },
     ],
     instagramUrl: undefined,
     gallery: [
-      { image: "wbho-lamb-spit", caption: "Whole lamb on the spit", alt: "A whole lamb roasting on the spit with open flame." },
-      { image: "wbho-meats-spit", caption: "Meats served warm from the spit", alt: "Trays of shredded lamb, boerewors and chicken warm from the spit." },
-      { image: "wbho-rice-pilaf", caption: "Wild rice pilaf salad", alt: "Wild rice pilaf salad with lemon." },
-      { image: "wbho-glazed-chicken", caption: "Glazed chicken", alt: "Glazed sesame-topped chicken in a tray." },
+      { image: "wbho/wbho-lamb-spit.png", caption: "Whole lamb on the spit", alt: "A whole lamb roasting on the spit with open flame." },
+      // TODO: replace with real photo (original wbho-meats-spit is gone)
+      { image: "wbho/wbho-curry-spinach.png", caption: "Creamed curry spinach", alt: "Creamed curry spinach in a serving dish." },
+      { image: "wbho/wbho-rice-pilaf.png", caption: "Wild rice pilaf salad", alt: "Wild rice pilaf salad with lemon." },
+      { image: "wbho/wbho-glazed-chicken.png", caption: "Glazed chicken", alt: "Glazed sesame-topped chicken in a tray." },
     ],
   },
 ];

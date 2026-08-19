@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { caseStudies } from "@/lib/case-studies";
@@ -10,12 +9,12 @@ import CtaBand from "@/components/CtaBand";
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "What Biggy Smallz Spitmasters does, and the real events that show it — weddings, milestone birthdays, corporate site braais and private fine dining.",
+    "What Biggy Smallz Spitmasters does, and the real events that show it — personal chef dinners, weddings, milestone birthdays, corporate site braais and private fine dining.",
   openGraph: {
     title: "Our Work · Biggy Smallz Spitmasters",
     description:
       "What we do, and the real events that show it.",
-    images: ["/images/mozambique-lamb-spit.png"],
+    images: ["/images/mozambique/mozambique-lamb-spit.png"],
   },
 };
 
@@ -38,22 +37,14 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Services — name and picture, no fixed menu or pricing */}
+      {/* Services — names only, no fixed menu or pricing */}
       <section className="bg-charcoal pb-20 sm:pb-28">
         <div className="section">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {siteConfig.services.map((service, i) => (
               <Reveal key={service.title} delay={(i % 3) * 100}>
-                <article className="group lift relative flex h-64 items-end overflow-hidden rounded-sm border border-cream/10 bg-coal transition-colors duration-500 hover:border-ember/50">
-                  <Image
-                    src={`/images/${service.image}.png`}
-                    alt={service.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-                  <h2 className="relative z-10 p-5 text-xl text-cream text-shadow-soft">
+                <article className="lift flex min-h-[7rem] items-center rounded-sm border border-cream/10 bg-coal p-6 transition-colors duration-500 hover:border-ember/50">
+                  <h2 className="text-xl leading-snug text-cream">
                     {service.title}
                   </h2>
                 </article>

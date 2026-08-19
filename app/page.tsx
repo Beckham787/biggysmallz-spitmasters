@@ -22,8 +22,9 @@ export default function HomePage() {
               Fire, and everything it can become.
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-relaxed text-cream/90 text-shadow-soft sm:text-lg">
-              Spitbraai catering for weddings, corporate events and funerals —
-              based in the Mpumalanga Lowveld, catering across South Africa.
+              Personal chef and spitbraai catering for weddings, corporate
+              events and funerals — based in the Mpumalanga Lowveld, catering
+              across South Africa.
             </p>
 
             <div className="mt-9 flex flex-col items-start gap-4">

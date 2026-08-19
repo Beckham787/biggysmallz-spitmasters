@@ -7,8 +7,11 @@ so any aspect ratio is fine.
 **As seen on**
 - `come-dine-with-me-sa.png` — Come Dine With Me (SA)
 - `ultimate-braai-master.png` — Ultimate Braai Master
-- `rate-my-plate.png` — Rate My Plate (Mzansi Magic, DStv 161) — no public logo
-  found yet (upcoming/unreleased show); shows name-only until one is added.
+- `rate-my-plate.png` — Rate My Plate (Mzansi Magic, DStv 161) — derived from
+  the supplied `rate-my-plate.jpeg` (light artwork on solid black): the black
+  was knocked out to transparency and the empty margins trimmed, so it picks up
+  whatever background it sits on. The source JPEG is kept alongside it and is
+  no longer referenced.
 
 **Catch me on**
 - `mozambique-barbecue-festival.png` — Mozambique Barbecue Festival

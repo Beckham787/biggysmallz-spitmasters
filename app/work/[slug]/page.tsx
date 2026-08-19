@@ -27,7 +27,7 @@ export function generateMetadata({ params }: Params): Metadata {
     openGraph: {
       title: `${study.title} · Biggy Smallz Spitmasters`,
       description: study.teaser,
-      images: ogImage ? [`/images/${ogImage}.png`] : undefined,
+      images: ogImage ? [`/images/${ogImage}`] : undefined,
     },
   };
 }
@@ -129,7 +129,7 @@ export default function CaseStudyPage({ params }: Params) {
                 <figure>
                   <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal">
                     <Image
-                      src={`/images/${item.image}.png`}
+                      src={`/images/${item.image}`}
                       alt={item.alt}
                       fill
                       sizes="(min-width: 768px) 30vw, 50vw"

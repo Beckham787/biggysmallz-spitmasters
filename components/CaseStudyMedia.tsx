@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CaseStudySlideshow from "@/components/CaseStudySlideshow";
+import PhotoSlideshow from "@/components/PhotoSlideshow";
 import type { CaseStudy } from "@/lib/case-studies";
 
 /**
@@ -26,7 +26,7 @@ export default function CaseStudyMedia({
         className={`relative overflow-hidden rounded-sm bg-coal ${aspectClassName}`}
       >
         <Image
-          src={`/images/${study.cover.image}.png`}
+          src={`/images/${study.cover.image}`}
           alt={study.cover.alt}
           fill
           priority={priority}
@@ -39,7 +39,7 @@ export default function CaseStudyMedia({
 
   if (study.slideshowImages) {
     return (
-      <CaseStudySlideshow
+      <PhotoSlideshow
         images={study.slideshowImages}
         aspectClassName={aspectClassName}
         sizes={sizes}

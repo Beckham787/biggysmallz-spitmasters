@@ -27,7 +27,7 @@ const serif = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Spitbraai & fine-dining catering`,
+    default: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -35,7 +35,8 @@ export const metadata: Metadata = {
   keywords: [
     "spitbraai",
     "spit braai catering",
-    "private chef Mbombela",
+    "personal chef",
+    "personal chef Mbombela",
     "private dining Nelspruit",
     "fire catering",
     "whole lamb spit",
@@ -47,11 +48,11 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Spitbraai & fine-dining catering`,
+    title: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
     description: siteConfig.description,
     images: [
       {
-        url: "/images/mozambique-lamb-spit.png",
+        url: "/images/mozambique/mozambique-lamb-spit.png",
         width: 1200,
         height: 1200,
         alt: "A whole lamb on the cross-spit over open coals — Biggy Smallz Spitmasters.",
@@ -60,9 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Spitbraai & fine-dining catering`,
+    title: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
     description: siteConfig.description,
-    images: ["/images/mozambique-lamb-spit.png"],
+    images: ["/images/mozambique/mozambique-lamb-spit.png"],
   },
   alternates: {
     canonical: siteConfig.url,
