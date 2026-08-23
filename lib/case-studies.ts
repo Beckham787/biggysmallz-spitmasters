@@ -69,31 +69,32 @@ export const caseStudies: CaseStudy[] = [
       "The undeniable star of the table was the jamón: hand-carved, beautifully aged and packed with flavour, enjoyed from the first plate to the last and proudly carved by Chef Sikolethu.",
     ],
     quote: "A wedding as beautiful as the setting deserved a table to match.",
+    // Slideshow (card crossfade, /work listing) and gallery (detail page)
+    // both refreshed 2026-08-23 from TK's own re-shoot of the folder — she
+    // numbered them herself: 1/2/3 for the gallery, slide/slide2/slide3 for
+    // the crossfade. This also replaces the two photos that had gone
+    // missing from the folder (the old JNEB5264.JPG bone-marrow shot and the
+    // ribs/chakalaka stand-ins) with her new set, so there are no more TODO
+    // stand-ins on this case study.
     slideshowImages: [
       {
-        // TODO: replace with real photo (original wedding-rl-plating-wide is gone)
-        image: "wedding-rob-leah/wedding-rob-leah-plating-2.png",
-        alt: "Biggy plating at the harvest table while guests sit alongside.",
+        image: "wedding-rob-leah/slide.JPG",
+        alt: "Biggy and Chef Sikolethu shaking hands over the harvest buffet, guests mingling behind them.",
       },
       {
-        image: "wedding-rob-leah/wedding-rl-buffet.png",
-        alt: "Biggy at the harvest buffet as guests gather around the spread.",
+        image: "wedding-rob-leah/slide2.png",
+        alt: "Biggy plating at the harvest buffet.",
       },
       {
-        // TODO: replace with real photo (original wedding-rob-leah-jamon is gone)
-        image: "wedding-rob-leah/wedding-rob-leah-spread.png",
-        alt: "The harvest table laid out end to end, guests gathered behind it.",
+        image: "wedding-rob-leah/slide3.png",
+        alt: "A guest serving herself from the harvest spread.",
       },
     ],
-    instagramUrl: undefined,
+    instagramUrl: "https://www.instagram.com/reel/DZc7JL7sOaD/",
     gallery: [
-      { image: "wedding-rob-leah/wedding-rob-leah-plating.png", caption: "Biggy & Chef Sikolethu, plating together", alt: "Biggy and Chef Sikolethu plating together at the table." },
-      { image: "wedding-rob-leah/wedding-rl-buffet.png", caption: "Guests at the harvest spread", alt: "Guests gathering at the harvest buffet." },
-      // TODO: confirm captions — the ribs and chakalaka photos were removed from
-      // /images/wedding-rob-leah, so these two are stand-ins described from the
-      // photos themselves rather than from the event's own menu captions.
-      { image: "wedding-rob-leah/JNEB5264.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
-      { image: "wedding-rob-leah/PJMI3890.JPG", caption: "Dips, breads and pastries down the table", alt: "Dips, warm breads and pastries laid down the length of the table." },
+      { image: "wedding-rob-leah/1.JPG", caption: "The jamón, hand-carved to order", alt: "Biggy hand-carving the jamón centerpiece for the harvest table." },
+      { image: "wedding-rob-leah/2.JPG", caption: "Canapés and platters from the spread", alt: "A spread of canapés, dips, cheese and fruit platters from the harvest table." },
+      { image: "wedding-rob-leah/3.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
     ],
     featured: true,
   },
@@ -109,15 +110,21 @@ export const caseStudies: CaseStudy[] = [
       "From rich, hearty dishes to beautifully layered flavours, the table told a story of abundance, love, and legacy. It wasn't just a meal — it was an experience of opulence, laughter, and moments that will be cherished for years to come.",
     ],
     quote: "The table told a story of abundance, love, and legacy.",
+    // TK deleted the original wide buffet-view photo and replaced it with
+    // two new close-up dish shots (2026-08-23) — the whole roasted fish now
+    // fills the slideshow slot, and the Caesar salad is added to the
+    // gallery alongside it.
     slideshowImages: [
       { image: "malinga/malinga-40th-canape-spread.png", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga/malinga-40th-buffet-view.png", alt: "The buffet laid out on a covered patio with a Lowveld view." },
+      { image: "malinga/SHIM3192.JPG", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
       { image: "malinga/malinga-40th-green-beans.png", alt: "Sautéed green bean and basil pesto salad, plated long." },
     ],
-    instagramUrl: undefined,
+    instagramUrl: "https://www.instagram.com/reel/DXKPBrIDPCs/",
     gallery: [
       { image: "malinga/malinga-40th-canape-spread.png", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
       { image: "malinga/malinga-canape-tower.png", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
+      { image: "malinga/SHIM3192.JPG", caption: "Whole roasted fish, herb and chilli crust", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
+      { image: "malinga/SKRE5721.JPG", caption: "Caesar salad, shaved parmesan", alt: "A Caesar salad with croutons and shaved parmesan." },
       { image: "malinga/malinga-40th-green-beans.png", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
       { image: "malinga/malinga-green-goddess.png", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
     ],
@@ -139,7 +146,7 @@ export const caseStudies: CaseStudy[] = [
       { image: "anniv7/anniv7-salmon.png", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
       { image: "anniv7/anniv7-dessert.png", alt: "A Lindt chocolate chilli brownie with strawberries and pistachio ice cream." },
     ],
-    instagramUrl: undefined,
+    instagramUrl: "https://www.instagram.com/p/DXq_acKDJ3v/",
     gallery: [
       { image: "anniv7/anniv7-salmon.png", caption: "Starter — sesame-crusted lightly smoked salmon, herb aioli, dukkah, charred corn crudo", alt: "Sesame-crusted lightly smoked salmon on a charred corn crudo." },
       // TODO: replace with real photo — the amuse course (marinated beet
@@ -169,11 +176,12 @@ export const caseStudies: CaseStudy[] = [
       // TODO: replace with real photo (original wbho-team-queue is gone)
       { image: "wbho/wbho-rice-pilaf.png", alt: "Wild rice pilaf salad with lemon, served alongside the braai." },
     ],
-    instagramUrl: undefined,
+    instagramUrl: "https://www.instagram.com/reel/CqU8w7PDWqX/",
+    // wbho-curry-spinach.png was deleted 2026-08-23 with no replacement
+    // supplied yet — dropped rather than left as a broken image. Flag to TK
+    // if she wants the curry spinach dish back in this gallery.
     gallery: [
       { image: "wbho/wbho-lamb-spit.png", caption: "Whole lamb on the spit", alt: "A whole lamb roasting on the spit with open flame." },
-      // TODO: replace with real photo (original wbho-meats-spit is gone)
-      { image: "wbho/wbho-curry-spinach.png", caption: "Creamed curry spinach", alt: "Creamed curry spinach in a serving dish." },
       { image: "wbho/wbho-rice-pilaf.png", caption: "Wild rice pilaf salad", alt: "Wild rice pilaf salad with lemon." },
       { image: "wbho/wbho-glazed-chicken.png", caption: "Glazed chicken", alt: "Glazed sesame-topped chicken in a tray." },
     ],

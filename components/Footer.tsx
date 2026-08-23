@@ -39,7 +39,19 @@ export default function Footer() {
       </div>
 
       <div className="section relative z-10 pb-28 pt-12 md:pb-12">
-        <div className="flex flex-col items-center gap-6 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:text-left">
+        {/* "Book a Service" — pulled out of the identity/contact row and into
+            its own small corner link (2026-08-23, per TK: it was crowding
+            the logo). Smaller than the old full-size btn-ember, and
+            positioned so it can never sit on top of the badge or Nguni
+            Strength mark below it. */}
+        <Link
+          href="/book"
+          className="btn-ember absolute right-6 top-6 z-20 !px-4 !py-2 text-xs sm:right-8 sm:top-8"
+        >
+          Book a Service
+        </Link>
+
+        <div className="flex flex-col items-center gap-6 pt-10 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:pt-0 lg:text-left">
           {/* Identity — the badge alone, then the bull mark paired with its
               own line, since Nguni Strength is a distinct second venture. */}
           <div className="flex shrink-0 items-center gap-4">
@@ -93,10 +105,6 @@ export default function Footer() {
               {siteConfig.contact.instagramHandle}
             </a>
           </div>
-
-          <Link href="/book" className="btn-ember shrink-0">
-            Book a Service
-          </Link>
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-2 border-t border-gold/15 pt-6 text-center font-body text-xs text-smoke sm:flex-row sm:items-center sm:justify-between sm:text-left">

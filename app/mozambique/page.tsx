@@ -266,13 +266,17 @@ export default function MozambiquePage() {
         and served alongside freshly baked herb butter P&atilde;o.
       </Chapter>
 
-      {/* ── IV · His Own Name on the Banner — deliberately NOT the shared
+      {/* ── IV · That's My Name Up There — deliberately NOT the shared
           Chapter template. No usable real caption exists for this photo,
           and a fourth round of authored filler in the same repeated
           two-column layout is what TK flagged as not working ("do
           something with that space"). Instead: a full-bleed banner
           moment that pulls the sign's own text out as large display
-          type — the photo's subject becomes the copy. ─────────────────── */}
+          type — the photo's subject becomes the copy. Title renamed
+          2026-08-23 per TK, from the plain descriptive "His Own Name on
+          the Banner" to something that reads like Biggy's own voice
+          (playful, proud, first-person — matching his real Instagram
+          captions) rather than a caption written about him. ──────────── */}
       <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-ink sm:min-h-[70vh]">
         <Image
           src="/images/mozambique/mozambique-stall.png"
@@ -291,7 +295,7 @@ export default function MozambiquePage() {
         <div className="section relative z-10 w-full pb-14 pt-24 sm:pb-20">
           <Reveal>
             <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
-              IV · His Own Name on the Banner
+              IV · That&rsquo;s My Name Up There
             </p>
             <p className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
               Martin &lsquo;Biggy&rsquo; Mhlongo
