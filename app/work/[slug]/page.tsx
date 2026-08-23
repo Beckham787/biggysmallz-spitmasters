@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy, displayTitle } from "@/lib/case-studies";
 import Reveal from "@/components/Reveal";
 import CaseStudyMedia from "@/components/CaseStudyMedia";
-import CtaBand from "@/components/CtaBand";
 
 type Params = { params: { slug: string } };
 
@@ -146,11 +145,6 @@ export default function CaseStudyPage({ params }: Params) {
         </div>
       </section>
 
-      <CtaBand
-        eyebrow=""
-        heading="Planning something like this?"
-        sub="Tell Biggy the date and the kind of event — he'll shape the food around it."
-      />
     </>
   );
 }

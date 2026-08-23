@@ -66,22 +66,24 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact — one compact line */}
-          <p className="font-body italic text-cream-dim">
+          {/* Contact — wraps onto its own lines on narrow phones instead
+              of running off-screen; each item is its own flex child so a
+              break can happen between any two of them, not just inside one. */}
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 font-body italic text-cream-dim">
             <a
               href={`tel:${siteConfig.contact.phoneE164}`}
               className="transition-colors hover:text-gold"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
-            <span className="mx-2 text-cream-dim/30">·</span>
+            <span className="text-cream-dim/30">·</span>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="transition-colors hover:text-gold"
+              className="break-all transition-colors hover:text-gold sm:break-normal"
             >
               {siteConfig.contact.email}
             </a>
-            <span className="mx-2 text-cream-dim/30">·</span>
+            <span className="text-cream-dim/30">·</span>
             <a
               href={siteConfig.contact.instagramUrl}
               target="_blank"
@@ -90,7 +92,7 @@ export default function Footer() {
             >
               {siteConfig.contact.instagramHandle}
             </a>
-          </p>
+          </div>
 
           <Link href="/book" className="btn-ember shrink-0">
             Book a Service

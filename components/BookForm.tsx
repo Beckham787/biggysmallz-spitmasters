@@ -107,7 +107,7 @@ export default function BookForm() {
           autoComplete="name"
           required
           className={fieldClass}
-          placeholder="Who should Biggy ask for?"
+          placeholder="Who should we ask for?"
         />
       </div>
 
@@ -144,8 +144,7 @@ export default function BookForm() {
         </div>
       </fieldset>
       <p className="-mt-3 text-sm text-smoke">
-        Leave a phone number or an email — whichever suits you. At least one,
-        please.
+        Leave a phone number or an email — whichever suits you.
       </p>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -195,7 +194,7 @@ export default function BookForm() {
 
       <div>
         <label htmlFor="message" className={labelClass}>
-          Anything you&rsquo;d like Biggy to know?
+          Anything you&rsquo;d like us to know?
         </label>
         <textarea
           id="message"

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { whatsappUrl } from "@/lib/site-config";
 
@@ -11,9 +12,29 @@ import { whatsappUrl } from "@/lib/site-config";
  * Hidden on desktop (the nav keeps a visible "Book a Date" button) and on the
  * /book page itself, where the form is already the focus. Respects the safe
  * area and meets the 44px touch-target minimum.
+ *
+ * Also hides itself once the footer scrolls into view (2026-08-23, per TK:
+ * it was sitting on top of the footer's own contact line) — an
+ * IntersectionObserver watches the page's <footer>, and the button fades
+ * out the moment any part of it is visible, rather than trying to add
+ * clearance padding for a button that's meant to disappear instead.
  */
 export default function FloatingCta() {
   const pathname = usePathname();
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { rootMargin: "0px 0px 0px 0px" },
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, [pathname]);
+
   if (pathname === "/book") return null;
 
   return (
@@ -22,7 +43,10 @@ export default function FloatingCta() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Message Biggy on WhatsApp"
-      className="btn-ember fixed bottom-5 right-5 z-40 !px-5 !py-3 shadow-ember-lg md:hidden"
+      aria-hidden={footerVisible}
+      className={`btn-ember fixed bottom-5 right-5 z-40 !px-5 !py-3 shadow-ember-lg transition-opacity duration-300 md:hidden ${
+        footerVisible ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
       style={{ marginBottom: "env(safe-area-inset-bottom)" }}
     >
       <svg

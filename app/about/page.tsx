@@ -16,11 +16,14 @@ export const metadata: Metadata = {
 };
 
 /**
- * Every shot of the team, crossfading, current uniform only. Do NOT add
- * team-whole-lamb-spit-about-us.JPG or BKXN2117.JPG back in — both show the
- * retired bold-red-sleeve uniform, flagged by Biggy as never to be used.
- * QDTG5587.JPG and TFHJ0477.JPG are also excluded — different event, All
- * Gold-branded red aprons/caps, not the Biggy Smallz uniform at all.
+ * Every shot in public/images/team/, crossfading — TK's call (2026-08-23):
+ * "you must add all of those pictures regardless of the uniform, that's the
+ * only place where that uniform is allowed." So the retired bold-red-sleeve
+ * uniform (team-whole-lamb-spit-about-us.JPG, BKXN2117.JPG) and the All
+ * Gold-branded sponsor-event shots (QDTG5587.JPG, TFHJ0477.JPG) are IN here
+ * deliberately, on THIS page only — still off-limits everywhere else on the
+ * site. They're interleaved rather than grouped together, per TK: "Don't
+ * put the old uniform after each other, mix it in."
  */
 const team = [
   {
@@ -32,12 +35,20 @@ const team = [
     alt: "Five of the crew posing together in the back kitchen, in blacks.",
   },
   {
+    image: "team/team-whole-lamb-spit-about-us.JPG",
+    alt: "The full crew around a whole lamb on the spit, some in the earlier red-sleeve uniform.",
+  },
+  {
     image: "team/team-wedding-staff.JPG",
     alt: "Kitchen and front-of-house staff together outside a wedding venue.",
   },
   {
     image: "team/team-backyard-braai.JPG",
     alt: "Three of the crew working the grill at a backyard braai.",
+  },
+  {
+    image: "team/BKXN2117.JPG",
+    alt: "Two of the crew laughing while pounding pap together, in the earlier uniform.",
   },
   {
     image: "team/team-luna-event.png",
@@ -48,12 +59,20 @@ const team = [
     alt: "Biggy in his black apron, branded with the Biggy Smallz Spitmasters patch.",
   },
   {
+    image: "team/QDTG5587.JPG",
+    alt: "The crew prepping orders at an outdoor stall, in All Gold-branded aprons for a sponsor event.",
+  },
+  {
     image: "team/JLXW1612.JPG",
     alt: "The crew in matching black shirts, laughing together between service.",
   },
   {
     image: "team/JUAY6960.JPG",
     alt: "The team goofing around in black shirts and patches after a shift.",
+  },
+  {
+    image: "team/TFHJ0477.JPG",
+    alt: "The crew grilling rolls together at the same outdoor sponsor event.",
   },
   {
     image: "team/MZCR6136.JPG",
@@ -199,7 +218,7 @@ export default function AboutPage() {
 
             <Reveal className="lg:col-span-7" as="div" delay={120}>
               <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
-                The founder
+                Head Honcho
               </p>
               <h2 className="mt-3 text-3xl text-cream sm:text-4xl">
                 Martin &ldquo;Biggy&rdquo; Mhlongo

@@ -57,11 +57,11 @@ export default function Nav() {
           : "bg-gradient-to-b from-ink/70 to-transparent"
       }`}
     >
-      <nav className="section flex items-center justify-between py-5">
+      <nav className="section flex items-center justify-between gap-4 py-5">
         <Link
           href="/"
           aria-label={`${siteConfig.name} — home`}
-          className="font-display uppercase tracking-[0.14em] text-sm text-cream"
+          className="max-w-[9.5rem] font-display text-xs uppercase leading-tight tracking-[0.1em] text-cream sm:max-w-none sm:text-sm sm:leading-normal sm:tracking-[0.14em]"
         >
           {siteConfig.name}
         </Link>
@@ -75,7 +75,7 @@ export default function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="nav-menu"
-            className="group flex items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-gold"
+            className="group flex shrink-0 items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-gold"
           >
             <span className="font-display text-xs uppercase tracking-[0.24em]">
               Menu
