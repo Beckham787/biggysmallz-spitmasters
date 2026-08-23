@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { caseStudies, getCaseStudy } from "@/lib/case-studies";
+import { caseStudies, getCaseStudy, displayTitle } from "@/lib/case-studies";
 import Reveal from "@/components/Reveal";
 import CaseStudyMedia from "@/components/CaseStudyMedia";
 import CtaBand from "@/components/CtaBand";
@@ -22,10 +22,10 @@ export function generateMetadata({ params }: Params): Metadata {
     study.slideshowImages?.[0].image ??
     study.gallery[0]?.image;
   return {
-    title: study.title,
+    title: displayTitle(study),
     description: `${study.teaser} — ${where}. A Biggy Smallz Spitmasters case study.`,
     openGraph: {
-      title: `${study.title} · Biggy Smallz Spitmasters`,
+      title: `${displayTitle(study)} · Biggy Smallz Spitmasters`,
       description: study.teaser,
       images: ogImage ? [`/images/${ogImage}`] : undefined,
     },
@@ -50,7 +50,7 @@ export default function CaseStudyPage({ params }: Params) {
             </Link>
             <p className="eyebrow mb-3">{study.category}</p>
             <h1 className="text-balance text-4xl font-bold leading-[0.98] text-cream sm:text-5xl md:text-6xl">
-              {study.title}
+              {displayTitle(study)}
             </h1>
             <p className="mt-3 font-display uppercase tracking-stamp text-sm text-smoke">
               {study.venue ? `${study.venue} · ${study.date}` : study.date}
@@ -147,6 +147,7 @@ export default function CaseStudyPage({ params }: Params) {
       </section>
 
       <CtaBand
+        eyebrow=""
         heading="Planning something like this?"
         sub="Tell Biggy the date and the kind of event — he'll shape the food around it."
       />

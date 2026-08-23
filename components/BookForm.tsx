@@ -68,35 +68,37 @@ export default function BookForm() {
     return (
       <div
         role="status"
-        className="rounded-sm border border-ember/40 bg-coal p-10 text-center"
+        className="rounded-sm border border-gold/30 bg-coal p-10 text-center"
       >
-        <h2 className="text-3xl text-cream">Thank you</h2>
-        <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-cream/90">
-          Biggy will be in touch personally — by phone or email — to talk it
-          through. No deposit, no commitment yet. Just the start of a
-          conversation.
+        <h2 className="font-display text-2xl uppercase tracking-[0.02em] text-cream">
+          Thank You
+        </h2>
+        <p className="mx-auto mt-4 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
+          Biggy will be in touch personally — by phone, WhatsApp or email —
+          to talk it through. No deposit, no commitment yet. Just the start
+          of a conversation.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="btn-ghost mt-8"
         >
-          Send another
+          Send Another
         </button>
       </div>
     );
   }
 
   const fieldClass =
-    "w-full rounded-sm border border-cream/20 bg-coal px-4 py-3 text-cream placeholder:text-smoke transition-colors focus:border-ember focus:outline-none";
+    "w-full rounded-sm border border-cream/15 bg-coal/60 px-4 py-3 font-body text-cream placeholder:text-smoke transition-colors focus:border-gold focus:outline-none";
   const labelClass =
-    "mb-2 block font-display uppercase tracking-stamp text-sm text-cream-dim";
+    "mb-2 block font-display text-xs uppercase tracking-[0.14em] text-cream-dim";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div>
         <label htmlFor="name" className={labelClass}>
-          Your name <span className="text-ember-bright">*</span>
+          Your name <span className="text-gold">*</span>
         </label>
         <input
           id="name"
@@ -230,7 +232,7 @@ export default function BookForm() {
         >
           {status === "submitting" ? "Sending…" : "Send to Biggy"}
         </button>
-        <p className="text-sm text-smoke">No deposit. No commitment yet.</p>
+        <p className="font-body italic text-sm text-smoke">Yours in flavour.</p>
       </div>
     </form>
   );

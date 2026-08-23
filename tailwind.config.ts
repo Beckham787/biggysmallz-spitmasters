@@ -28,11 +28,13 @@ const config: Config = {
         wood: "#4a3527",
       },
       fontFamily: {
-        // Archivo — crisp grotesque workhorse: stamps, labels, UI, body.
-        display: ["var(--font-display)", "Archivo", "sans-serif"],
-        body: ["var(--font-display)", "Archivo", "sans-serif"],
-        // Fraunces — optical display serif: headlines only (the appetite voice).
-        serif: ["var(--font-serif)", "Fraunces", "Georgia", "serif"],
+        // Cinzel — carved small-caps display serif. Headings, eyebrows, nav,
+        // buttons, stamped labels. The "fine-dining entrance" direction,
+        // picked 2026-08-22.
+        display: ["var(--font-display)", "Cinzel", "Georgia", "serif"],
+        serif: ["var(--font-display)", "Cinzel", "Georgia", "serif"],
+        // EB Garamond — classic book serif. Paragraph copy, often italic.
+        body: ["var(--font-body)", "EB Garamond", "Georgia", "serif"],
       },
       letterSpacing: {
         stamp: "0.18em",

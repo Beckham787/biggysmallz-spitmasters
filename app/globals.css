@@ -17,13 +17,14 @@
     @apply bg-ink text-cream font-body;
   }
 
-  /* Headings carry the brand's display voice — Fraunces, mixed-case, with a
-     touch of negative tracking so it reads tight and considered at large
-     sizes. Matches the hero treatment site-wide. Per-heading size and weight
-     utilities still apply (page heroes use font-bold; the homepage hero 600). */
+  /* Headings carry the brand's display voice — Cinzel, a carved small-caps
+     serif with real restaurant-signage presence. A touch of positive
+     tracking, medium weight — considered and unhurried rather than tight and
+     punchy. Individual pages add uppercase + wider tracking for hero-scale
+     moments; this is the sitewide baseline. */
   h1, h2, h3, h4 {
-    @apply font-serif font-semibold;
-    letter-spacing: -0.015em;
+    @apply font-serif font-medium;
+    letter-spacing: 0.01em;
   }
 
   /* Visible, on-brand focus ring for keyboard users. */

@@ -3,9 +3,10 @@ import { whatsappUrl } from "@/lib/site-config";
 import Reveal from "@/components/Reveal";
 
 /**
- * CtaBand — the warm closing band that ends every page. A fire-lit ember pool,
- * one primary "Book a Date" action, and a quiet WhatsApp fallback so booking is
- * always one obvious step. Keeps the conversion message consistent site-wide.
+ * CtaBand — the quiet closing band that ends a page. Fine-dining-entrance
+ * register: Cinzel eyebrow, a heading in the sitewide serif voice, italic
+ * EB Garamond sub-copy, one primary "Book a Service" action and a quiet
+ * WhatsApp fallback. Keeps the conversion message consistent site-wide.
  */
 export default function CtaBand({
   eyebrow = "Start the conversation",
@@ -17,15 +18,19 @@ export default function CtaBand({
   sub?: string;
 }) {
   return (
-    <section className="relative grain glow-ember overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-28">
-      <div className="section relative z-10 text-center">
+    <section className="border-t border-cream/10 bg-ink py-20 sm:py-28">
+      <div className="section text-center">
         <Reveal>
-          <p className="eyebrow mb-4">{eyebrow}</p>
-          <h2 className="mx-auto max-w-2xl text-balance text-3xl text-cream sm:text-4xl">
+          {eyebrow && (
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              {eyebrow}
+            </p>
+          )}
+          <h2 className="mx-auto mt-4 max-w-2xl font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
             {heading}
           </h2>
           {sub && (
-            <p className="mx-auto mt-5 max-w-prose text-lg leading-relaxed text-cream-dim">
+            <p className="mx-auto mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
               {sub}
             </p>
           )}

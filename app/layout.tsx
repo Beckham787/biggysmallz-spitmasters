@@ -1,26 +1,29 @@
 import type { Metadata } from "next";
-import { Archivo, Fraunces } from "next/font/google";
+import { Cinzel, EB_Garamond } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
 import "./globals.css";
 
-// Utility / body face — Archivo, a crisp warm grotesque. Carries the stamped
-// uppercase labels, navigation, buttons and body copy. Distinct, not default.
-const sans = Archivo({
+// Display face — Cinzel, a carved small-caps serif with real restaurant-
+// signage/menu-header presence. Carries headings, eyebrows, nav, buttons and
+// stamped labels. The "walking into a fine-dining room" direction, picked
+// 2026-08-22 — replaces the earlier Archivo/Fraunces/Anton system.
+const display = Cinzel({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-display",
   display: "swap",
 });
 
-// Display face — Fraunces, an optical "old-style" serif with craft and
-// appetite. Used large and mixed-case for headlines; italic carries flavour.
-const serif = Fraunces({
+// Body face — EB Garamond, a classic book serif. Carries paragraph copy,
+// often set in italic for a quiet, menu-card warmth.
+const body = EB_Garamond({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-serif",
+  weight: ["400", "500"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -76,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen bg-ink text-cream antialiased">
         {/* Skip link for keyboard users */}
         <a

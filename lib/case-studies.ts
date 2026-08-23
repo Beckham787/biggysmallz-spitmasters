@@ -37,6 +37,24 @@ export type CaseStudy = {
   featured?: boolean;
 };
 
+/**
+ * Slugs whose event was for a private client — per Biggy's instruction, we
+ * never show the client's name publicly. `displayTitle()` swaps the title
+ * for "<category> · <venue>" (or just the category) wherever a title is
+ * rendered — card, detail-page heading, and page `<title>`/OG metadata.
+ * `lib` intro/quote copy for these two events has also been rewritten to
+ * drop the client's name from the prose itself.
+ *
+ * wbho-site-braai is deliberately left alone — WBHO is a company, not a
+ * private individual, so its name reads as ordinary B2B social proof.
+ */
+export const ANONYMISE_SLUGS = new Set(["rob-leah-wedding", "malinga-40th"]);
+
+export function displayTitle(study: CaseStudy): string {
+  if (!ANONYMISE_SLUGS.has(study.slug)) return study.title;
+  return study.venue ? `${study.category} · ${study.venue}` : study.category;
+}
+
 export const caseStudies: CaseStudy[] = [
   {
     slug: "rob-leah-wedding",
@@ -47,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     teaser:
       "A harvest-style spread built to bring people together, spark conversation, and celebrate love through food.",
     intro: [
-      "A wedding as beautiful as the setting deserved a table to match. For Rob & Leah's special day at Moyres Venue, the team pulled out all the stops — a harvest-style spread designed to bring people together, spark conversation, and celebrate love through food.",
+      "A wedding as beautiful as the setting deserved a table to match. For a couple's special day at Moyres Venue, the team pulled out all the stops — a harvest-style spread designed to bring people together, spark conversation, and celebrate love through food.",
       "The undeniable star of the table was the jamón: hand-carved, beautifully aged and packed with flavour, enjoyed from the first plate to the last and proudly carved by Chef Sikolethu.",
     ],
     quote: "A wedding as beautiful as the setting deserved a table to match.",
@@ -87,7 +105,7 @@ export const caseStudies: CaseStudy[] = [
     teaser:
       "A milestone marked in true style — every bite handpicked, a reflection of the man being celebrated.",
     intro: [
-      "We had the honour of serving Mr Malinga and his guests for his 40th birthday — a milestone marked in true style. Every bite on the menu was handpicked, a reflection of his favourites, curated to be shared with the people closest to his heart.",
+      "We had the honour of hosting a milestone 40th birthday celebration, marked in true style. Every bite on the menu was handpicked, a reflection of the guest of honour's favourites, curated to be shared with the people closest to his heart.",
       "From rich, hearty dishes to beautifully layered flavours, the table told a story of abundance, love, and legacy. It wasn't just a meal — it was an experience of opulence, laughter, and moments that will be cherished for years to come.",
     ],
     quote: "The table told a story of abundance, love, and legacy.",
