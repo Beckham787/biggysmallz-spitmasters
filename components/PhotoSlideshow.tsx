@@ -3,7 +3,15 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export type SlideshowImage = { image: string; alt: string };
+export type SlideshowImage = {
+  image: string;
+  alt: string;
+  /** Tailwind arbitrary object-position, e.g. "object-top" or
+   *  "object-[center_15%]" — for a photo whose subject sits close to
+   *  one edge, so a wide/short crop box doesn't cut them off.
+   *  Defaults to center. (2026-08-24, per TK's sitewide crop audit.) */
+  objectPosition?: string;
+};
 
 /**
  * PhotoSlideshow — a small set of photos that crossfade on a timer.
@@ -68,7 +76,7 @@ export default function PhotoSlideshow({
           fill
           priority={priority && i === 0}
           sizes={sizes}
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`object-cover ${img.objectPosition ?? ""} transition-opacity duration-1000 ease-in-out ${
             i === active ? "opacity-100" : "opacity-0"
           } ${imageClassName}`}
         />

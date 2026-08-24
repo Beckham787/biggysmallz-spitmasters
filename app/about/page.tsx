@@ -57,10 +57,12 @@ const team = [
   {
     image: "team/FCMP5695.JPG",
     alt: "Biggy in his black apron, branded with the Biggy Smallz Spitmasters patch.",
+    objectPosition: "object-top",
   },
   {
     image: "team/QDTG5587.JPG",
     alt: "The crew prepping orders at an outdoor stall, in All Gold-branded aprons for a sponsor event.",
+    objectPosition: "object-top",
   },
   {
     image: "team/JLXW1612.JPG",
@@ -69,6 +71,7 @@ const team = [
   {
     image: "team/JUAY6960.JPG",
     alt: "The team goofing around in black shirts and patches after a shift.",
+    objectPosition: "object-[center_15%]",
   },
   {
     image: "team/TFHJ0477.JPG",
@@ -81,6 +84,7 @@ const team = [
   {
     image: "team/NELI7719.JPG",
     alt: "The crew celebrating together on the dance floor of a wedding venue.",
+    objectPosition: "object-[center_10%]",
   },
 ];
 
@@ -191,7 +195,7 @@ export default function AboutPage() {
             <div className="mt-10">
               <PhotoSlideshow
                 images={team}
-                aspectClassName="aspect-[4/5] sm:aspect-[16/9]"
+                aspectClassName="aspect-[4/5] sm:aspect-[3/2]"
                 sizes="(min-width: 640px) 90vw, 100vw"
                 intervalMs={2400}
               />

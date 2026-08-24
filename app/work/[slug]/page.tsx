@@ -74,7 +74,7 @@ export default function CaseStudyPage({ params }: Params) {
           <Reveal>
             <CaseStudyMedia
               study={study}
-              aspectClassName="aspect-[4/5] sm:aspect-[16/9]"
+              aspectClassName="aspect-[4/5] sm:aspect-[3/2]"
               sizes="(min-width: 1024px) 72rem, 100vw"
               priority
             />
