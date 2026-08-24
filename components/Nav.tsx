@@ -1,10 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
+// 2026-08-24, Biggy's feedback pass: the nav wordmark was a small text
+// link ("Biggy Smallz Spitmasters") pinned to the left. Per TK/Biggy:
+// "'Get in my belly' must replace 'Biggy Smallz Spitmasters.'" First pass
+// carried the badge image absolutely centered in the bar -- but taking the
+// link out of flow like that meant the nav's own height was set only by
+// the (much shorter) menu button, so the taller logo, centered on that
+// short bar, overflowed upward and got clipped against the fixed header's
+// top edge. Read as "the logo is cropped badly." Per TK's follow-up
+// ("position it on the left side"), it's back to an ordinary in-flow flex
+// child on the left -- the bar grows to fit it, so nothing overflows or
+// clips -- paired inline with "Get in my belly" instead of the old
+// business-name text.
 const links = [
   { href: "/about", label: "About Us" },
   { href: "/work", label: "Our Work" },
@@ -57,13 +70,23 @@ export default function Nav() {
           : "bg-gradient-to-b from-ink/70 to-transparent"
       }`}
     >
-      <nav className="section flex items-center justify-between gap-4 py-5">
+      <nav className="section flex items-center justify-between gap-4 py-3">
         <Link
           href="/"
           aria-label={`${siteConfig.name} — home`}
-          className="max-w-[9.5rem] font-display text-xs uppercase leading-tight tracking-[0.1em] text-cream sm:max-w-none sm:text-sm sm:leading-normal sm:tracking-[0.14em]"
+          className="flex shrink-0 items-center gap-3"
         >
-          {siteConfig.name}
+          <Image
+            src="/logo.png"
+            alt=""
+            width={200}
+            height={148}
+            className="h-12 w-auto sm:h-16"
+            priority
+          />
+          <span className="hidden whitespace-nowrap font-display text-[0.55rem] uppercase tracking-[0.2em] text-gold sm:inline sm:text-[0.62rem] sm:tracking-[0.24em]">
+            Get in my belly
+          </span>
         </Link>
 
         {/* Menu trigger — a slender small-caps label with a hairline that

@@ -43,15 +43,15 @@ export default function HomePage() {
         <div className="section relative z-10 max-w-xl">
           <Reveal>
             <p className="font-display text-[0.6rem] uppercase tracking-[0.38em] text-gold">
-              Est. {siteConfig.established} · Mpumalanga Lowveld
+              Est. {siteConfig.established}
             </p>
             <h1 className="mt-6 font-display text-4xl uppercase tracking-[0.04em] text-cream sm:text-5xl lg:text-6xl">
               Get in my belly
             </h1>
             <div className="mx-auto mt-7 h-px w-11 bg-gold" />
             <p className="mx-auto mt-7 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
-              Personal chef catering, brought to wherever your table is —
-              from whole-fire spitbraai to a quiet seven-course evening.
+              Personal chef service, brought to wherever your table is —
+              from fire feasts to a 7-course tasting menu.
             </p>
           </Reveal>
         </div>
@@ -118,26 +118,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── On air ────────────────────────────────────────────────────────
-          Kept separate from the As seen on / Catch me on lists further
-          down per TK: a stray Instagram-crop logo didn't belong among the
-          official show/festival marks there, so it gets its own quiet
-          line instead — placed right under Upcoming per TK. */}
-      <section className="border-t border-cream/10 bg-ink py-6">
-        <div className="section text-center">
+      {/* ── On air — bumped up from a quiet caption line to a proper card,
+          per TK: "He can't really see the 'on air' section." Real padding,
+          a bordered box, and type sized like the rest of the page instead
+          of one small grey line. Still kept separate from the As seen on /
+          Catch me on lists further down — a stray Instagram-crop logo
+          didn't belong among the official show/festival marks there.
+          2026-08-24: TK dropped the actual "The Affair" show banner to use
+          as the card's background. It's already dark (black honeycomb +
+          red swoosh) so it doesn't need HeroPhoto-level dimming, just a
+          gradient dark enough at the edges/bottom that the card's own
+          border and the "Listen to the episode" link stay legible over
+          whatever part of the image lands under them. */}
+      <section className="border-t border-cream/10 bg-ink py-16 sm:py-20">
+        <div className="section max-w-xl">
           <Reveal>
-            <p className="font-display text-xs uppercase tracking-[0.14em] text-smoke">
-              On air ·{" "}
-              <a
-                href={siteConfig.onAir.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-cream-dim underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold"
-              >
-                {siteConfig.onAir.label}
-              </a>
-              , {siteConfig.onAir.detail}
-            </p>
+            <div className="relative overflow-hidden border border-gold/25 px-8 py-10 text-center sm:px-12">
+              <Image
+                src="/images/on-air-the-affair.jpg"
+                alt=""
+                fill
+                sizes="(min-width: 640px) 36rem, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-ink/55" />
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(120% 90% at 50% 50%, rgba(11,10,9,0) 0%, rgba(11,10,9,0.45) 60%, rgba(11,10,9,0.9) 100%)",
+                }}
+              />
+              <div className="relative z-10">
+                <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+                  On air
+                </p>
+                <p className="mt-4 font-display text-xl uppercase tracking-[0.03em] text-cream sm:text-2xl">
+                  {siteConfig.onAir.label}
+                </p>
+                <p className="mt-3 font-body italic text-cream-dim">
+                  {siteConfig.onAir.detail}
+                </p>
+                <a
+                  href={siteConfig.onAir.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-block font-display text-xs uppercase tracking-[0.16em] text-gold underline decoration-gold/40 underline-offset-4 transition-colors hover:text-ember-bright"
+                >
+                  Listen to the episode
+                </a>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

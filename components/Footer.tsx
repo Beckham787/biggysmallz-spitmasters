@@ -29,10 +29,40 @@ import { siteConfig } from "@/lib/site-config";
  * badge + Nguni Strength marks in the identity row are untouched and stay
  * fully legible at every width.
  *
- * - "Flavoured by Nguni Strength" (TK: "that's his other business... we'll
+ * - "Powered by Nguni Strength" (TK: "that's his other business... we'll
  *   build a website for it if we get this one right") is paired directly
- *   with the bull mark rather than floating in a caption line — the
- *   wording was "Powered by," changed to "Flavoured by" per TK.
+ *   with the bull mark rather than floating in a caption line. Briefly
+ *   "Flavoured by," changed back to "Powered by" per TK/Biggy feedback.
+ *
+ * 2026-08-24, Biggy's feedback pass:
+ * - Identity badge was squeezing the wide rectangular logo into a plain
+ *   1:1 box (explicit width/height with no object-fit), which stretched
+ *   it — "the logo at the footer looks weird and squeezed." Fixed with a
+ *   dedicated /images/footer-badge.png: the same crossed-utensils +
+ *   "SPITMASTERS" ribbon crop used elsewhere, padded to a true square so
+ *   the circle mask doesn't distort it.
+ * - That first square-padded version still read as "cropped badly" —
+ *   the crop had the ribbon's chevron tips touching the square's left/
+ *   right edges with zero margin, so the rounded-full circle mask cut
+ *   into them. Padding it enough to clear a circle just made the next
+ *   problem: the artwork is a wide, flat ribbon (roughly 2:1), so fitting
+ *   it inside a circle with real margin left most of the circle empty —
+ *   at the actual 56px render size the badge read as a tiny illegible
+ *   smudge. Tried a plain wide box next (a custom /images/footer-badge.png
+ *   crop, no clip-shape) -- fixed the clipping but was still a bespoke
+ *   asset with its own sizing quirks.
+ * - Per TK: "see how the logo shows in the header, use that same logo in
+ *   the footer" -- simplest fix is the one that stops relitigating crops
+ *   altogether. Footer badge is now the same /logo.png file as Nav.tsx,
+ *   at the same aspect ratio, object-contain, no clip-shape -- whatever
+ *   reads correctly in the header reads the same way here.
+ * - Layout was side-by-side (identity left, contact right) from lg up,
+ *   with text-left to match. Per "all text to be centered," both rows now
+ *   stay in a centered stack at every width instead of switching to a
+ *   left-aligned row on desktop.
+ * - Added Biggy's personal Instagram after the business one, per TK:
+ *   "cell first then email address, then the instagram link then his
+ *   private instagram link @Biggy013."
  */
 export default function Footer() {
   return (
@@ -71,16 +101,16 @@ export default function Footer() {
           Book a Service
         </Link>
 
-        <div className="flex flex-col items-center gap-6 pt-10 text-center lg:flex-row lg:items-center lg:justify-between lg:gap-8 lg:pt-0 lg:text-left">
+        <div className="flex flex-col items-center gap-6 pt-10 text-center lg:gap-8 lg:pt-0">
           {/* Identity — the badge alone, then the bull mark paired with its
               own line, since Nguni Strength is a distinct second venture. */}
           <div className="flex shrink-0 items-center gap-4">
             <Image
               src="/logo.png"
               alt={`${siteConfig.name} badge, Est. ${siteConfig.established}`}
-              width={56}
-              height={56}
-              className="h-12 w-12 shrink-0 rounded-full"
+              width={200}
+              height={148}
+              className="h-14 w-auto shrink-0 object-contain sm:h-16"
             />
             <div className="flex items-center gap-2.5 border-l border-gold/15 pl-4">
               <Image
@@ -91,16 +121,18 @@ export default function Footer() {
                 className="h-9 w-auto shrink-0"
               />
               <span className="font-display text-[0.58rem] uppercase leading-tight tracking-[0.18em] text-smoke">
-                Flavoured by
+                Powered by
                 <br />
                 Nguni Strength
               </span>
             </div>
           </div>
 
-          {/* Contact — wraps onto its own lines on narrow phones instead
-              of running off-screen; each item is its own flex child so a
-              break can happen between any two of them, not just inside one. */}
+          {/* Contact — cell, email, business Instagram, then Biggy's
+              personal Instagram, in that order per TK. Wraps onto its own
+              lines on narrow phones instead of running off-screen; each
+              item is its own flex child so a break can happen between any
+              two of them, not just inside one. */}
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 font-body italic text-cream-dim">
             <a
               href={`tel:${siteConfig.contact.phoneE164}`}
@@ -124,10 +156,19 @@ export default function Footer() {
             >
               {siteConfig.contact.instagramHandle}
             </a>
+            <span className="text-cream-dim/30">·</span>
+            <a
+              href={siteConfig.contact.privateInstagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-gold"
+            >
+              {siteConfig.contact.privateInstagramHandle}
+            </a>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-2 border-t border-gold/15 pt-6 text-center font-body text-xs text-smoke sm:flex-row sm:items-center sm:justify-between sm:text-left">
+        <div className="mt-10 flex flex-col items-center gap-2 border-t border-gold/15 pt-6 text-center font-body text-xs text-smoke">
           <p>
             © {siteConfig.established}–{new Date().getFullYear()}{" "}
             {siteConfig.name}. All rights reserved.

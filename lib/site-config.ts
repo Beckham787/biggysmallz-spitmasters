@@ -36,6 +36,10 @@ export const siteConfig = {
     email: "biggy@biggysmallzspitmasters.co.za",
     instagramHandle: "@biggysmallzspitmasters",
     instagramUrl: "https://www.instagram.com/biggysmallzspitmasters",
+    // Biggy's personal account — added to the footer contact line per TK,
+    // after the business Instagram.
+    privateInstagramHandle: "@Biggy013",
+    privateInstagramUrl: "https://www.instagram.com/Biggy013",
   },
 
   // [CONFIRM] exact areas Martin wants named.
@@ -163,5 +167,5 @@ export const whatsappUrl = `https://wa.me/${siteConfig.contact.phoneE164.replace
   "+",
   "",
 )}?text=${encodeURIComponent(
-  "Hi Biggy, I'd love to talk about an event.",
+  'Hey Biggy! Time for my "GET IN MY BELLY" experience....',
 )}`;
