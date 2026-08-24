@@ -70,7 +70,15 @@ export const siteConfig = {
       logo: "/logos/rate-my-plate.png",
       logoClass: "h-16",
     },
-  ] as { name: string; logo?: string; logoClass?: string }[],
+    {
+      // Biggy's "Fun Food Friday" appearance on RISE fm's "The Affair With
+      // Tlotlang Moletsane" (3 July 2026) -- links straight to the episode
+      // instead of a logo (the only source was a low-res Instagram
+      // screenshot crop, which didn't hold up next to the others here).
+      name: "Rise FM",
+      href: "https://iono.fm/e/1692201",
+    },
+  ] as { name: string; logo?: string; logoClass?: string; href?: string }[],
 
   catchMeOn: [
     {

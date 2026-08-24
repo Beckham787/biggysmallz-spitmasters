@@ -196,7 +196,7 @@ function CreditGroup({
   items,
 }: {
   label: string;
-  items: { name: string; logo?: string; logoClass?: string }[];
+  items: { name: string; logo?: string; logoClass?: string; href?: string }[];
 }) {
   return (
     <div>
@@ -204,31 +204,50 @@ function CreditGroup({
         {label}
       </p>
       <ul className="flex flex-wrap items-start justify-center gap-x-10 gap-y-8 text-center">
-        {items.map((item) => (
-          <li
-            key={item.name}
-            className="flex w-32 flex-col items-center gap-3 sm:w-36"
-          >
-            {item.logo && (
-              <span
-                className={`relative block w-full opacity-80 transition-opacity duration-300 hover:opacity-100 ${
-                  item.logoClass ?? "h-12"
-                }`}
-              >
-                <Image
-                  src={item.logo}
-                  alt={`${item.name} logo`}
-                  fill
-                  sizes="(min-width: 640px) 10rem, 8rem"
-                  className="object-contain"
-                />
+        {items.map((item) => {
+          const content = (
+            <>
+              {item.logo && (
+                <span
+                  className={`relative block w-full opacity-80 transition-opacity duration-300 hover:opacity-100 ${
+                    item.logoClass ?? "h-12"
+                  }`}
+                >
+                  <Image
+                    src={item.logo}
+                    alt={`${item.name} logo`}
+                    fill
+                    sizes="(min-width: 640px) 10rem, 8rem"
+                    className="object-contain"
+                  />
+                </span>
+              )}
+              <span className="font-display uppercase tracking-[0.14em] text-xs text-cream-dim transition-colors group-hover:text-gold">
+                {item.name}
               </span>
-            )}
-            <span className="font-display uppercase tracking-[0.14em] text-xs text-cream-dim">
-              {item.name}
-            </span>
-          </li>
-        ))}
+            </>
+          );
+
+          return (
+            <li
+              key={item.name}
+              className="flex w-32 flex-col items-center gap-3 sm:w-36"
+            >
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col items-center gap-3"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div className="flex flex-col items-center gap-3">{content}</div>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
