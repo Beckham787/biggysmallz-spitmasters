@@ -46,27 +46,36 @@ export const metadata: Metadata = {
     "Lowveld catering",
     siteConfig.name,
   ],
+  // The link-share preview (WhatsApp/iMessage/socials) deliberately mirrors
+  // the homepage hero rather than the neutral SEO title/description above —
+  // per TK: "I want the home page hero to show when I send the link." Same
+  // headline ("Get in my belly"), same subhead, and the hero's own source
+  // photo (undimmed — the page darkens it with an overlay for the moody
+  // entrance, but the raw shot is the punchier thumbnail here). Every other
+  // page sets its own openGraph/twitter block and is unaffected.
   openGraph: {
     type: "website",
     locale: "en_ZA",
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
-    description: siteConfig.description,
+    title: `${siteConfig.name} — Get in my belly.`,
+    description:
+      "Personal chef catering, brought to wherever your table is — from whole-fire spitbraai to a quiet seven-course evening.",
     images: [
       {
-        url: "/images/mozambique/mozambique-lamb-spit.png",
-        width: 1200,
-        height: 1200,
-        alt: "A whole lamb on the cross-spit over open coals — Biggy Smallz Spitmasters.",
+        url: "/images/home-hero.png",
+        width: 1280,
+        height: 1265,
+        alt: "Biggy carving a whole roasted lamb straight off the spit — Biggy Smallz Spitmasters.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
-    description: siteConfig.description,
-    images: ["/images/mozambique/mozambique-lamb-spit.png"],
+    title: `${siteConfig.name} — Get in my belly.`,
+    description:
+      "Personal chef catering, brought to wherever your table is — from whole-fire spitbraai to a quiet seven-course evening.",
+    images: ["/images/home-hero.png"],
   },
   alternates: {
     canonical: siteConfig.url,
