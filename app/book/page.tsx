@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Book a Service",
+  alternates: { canonical: "/book" },
   description:
     "Tell Biggy the date and the kind of event, and how to reach you. He'll take it from there — personally, by phone, WhatsApp or email. No deposit, no commitment.",
   openGraph: {

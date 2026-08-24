@@ -84,6 +84,7 @@ const years = ["2022", "2023", "2024", "2025", "2026"];
 
 export const metadata: Metadata = {
   title: "Mozambique Barbecue Festival",
+  alternates: { canonical: "/mozambique" },
   description:
     "Every October since 2022, Biggy's crossed the border for the Mozambique Barbecue Festival — whole animals on the coals at Campus da UEM, Maputo. Five years running.",
   openGraph: {

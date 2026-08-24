@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import "./globals.css";
 
 // Display face — Cinzel, a carved small-caps serif with real restaurant-
@@ -40,10 +41,15 @@ export const metadata: Metadata = {
     "spit braai catering",
     "personal chef",
     "personal chef Mbombela",
+    "personal chef Nelspruit",
     "private dining Nelspruit",
     "fire catering",
     "whole lamb spit",
     "Lowveld catering",
+    "catering company Mpumalanga",
+    "catering companies Nelspruit",
+    "wedding caterer Mbombela",
+    "event catering South Africa",
     siteConfig.name,
   ],
   // The link-share preview (WhatsApp/iMessage/socials) deliberately mirrors
@@ -96,6 +102,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="min-h-screen bg-ink text-cream antialiased">
+        <LocalBusinessSchema />
         {/* Skip link for keyboard users */}
         <a
           href="#main"

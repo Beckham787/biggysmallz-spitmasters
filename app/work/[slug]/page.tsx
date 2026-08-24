@@ -22,6 +22,7 @@ export function generateMetadata({ params }: Params): Metadata {
     study.gallery[0]?.image;
   return {
     title: displayTitle(study),
+    alternates: { canonical: `/work/${params.slug}` },
     description: `${study.teaser} — ${where}. A Biggy Smallz Spitmasters case study.`,
     openGraph: {
       title: `${displayTitle(study)} · Biggy Smallz Spitmasters`,

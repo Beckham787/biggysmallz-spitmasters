@@ -8,6 +8,7 @@ import CaseStudyMedia from "@/components/CaseStudyMedia";
 
 export const metadata: Metadata = {
   title: "Our Work",
+  alternates: { canonical: "/work" },
   description:
     "What Biggy Smallz Spitmasters does, and the real events that show it — personal chef dinners, weddings, milestone birthdays, corporate site braais and private fine dining.",
   openGraph: {

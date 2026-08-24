@@ -5,6 +5,7 @@ import PhotoSlideshow from "@/components/PhotoSlideshow";
 
 export const metadata: Metadata = {
   title: "About Us",
+  alternates: { canonical: "/about" },
   description:
     "Biggy Smallz Spitmasters — a personal chef and catering company built on fire. From spit-braais in 2017 to fine-dining tables for hundreds today, based in the Mpumalanga Lowveld and catering across South Africa.",
   openGraph: {
