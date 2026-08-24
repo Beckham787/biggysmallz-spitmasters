@@ -57,17 +57,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Upcoming — the big events on the calendar. Poster where one
-          exists, a plain typographic card where it doesn't. ────────────── */}
+      {/* ── Public appearances — festivals/screenings Biggy is showing up
+          to, not a booking calendar. Renamed from "On the calendar" /
+          "Upcoming" per TK: that framing read like he's unavailable those
+          days, when multiple teams mean an appearance never blocks a
+          private booking. Poster where one exists, a plain typographic
+          card where it doesn't. ────────────────────────────────────────── */}
       <section className="bg-ink py-24 sm:py-32">
         <div className="section max-w-4xl">
           <Reveal>
             <div className="text-center">
               <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
-                On the calendar
+                Public appearances
               </p>
               <h2 className="mt-4 font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
-                Upcoming
+                Catch us live
               </h2>
             </div>
           </Reveal>
