@@ -32,25 +32,43 @@ export default function BookForm() {
       return;
     }
 
-    const payload = {
-      name,
-      phone,
-      email,
-      eventDate: dateUnsure ? "Not sure yet" : (data.get("eventDate") as string) || "Not specified",
-      eventType: (data.get("eventType") as string) || "Not specified",
-      message: (data.get("message") as string)?.trim() || "",
-    };
+    const eventDate = dateUnsure ? "Not sure yet" : (data.get("eventDate") as string) || "Not specified";
+    const eventType = (data.get("eventType") as string) || "Not specified";
+    const message = (data.get("message") as string)?.trim() || "";
+
+    // Submitted directly to Web3Forms from the browser (not through our own
+    // API route). Web3Forms' free tier blocks server-to-server calls with a
+    // Cloudflare challenge -- their own docs say client-side is the
+    // supported path, and the access key is designed to be public/embeddable
+    // in client code (see NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local).
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
     setStatus("submitting");
     try {
-      const res = await fetch("/api/book", {
+      if (!accessKey) {
+        throw new Error("Booking form isn't configured yet.");
+      }
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New booking enquiry — ${name}${
+            eventType !== "Not specified" ? ` (${eventType})` : ""
+          }`,
+          from_name: `${siteConfig.name} — Booking`,
+          Name: name,
+          Phone: phone || "—",
+          Email: email || "—",
+          "Event date": eventDate,
+          "Event type": eventType,
+          Message: message || "—",
+        }),
       });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body?.error || "Something went wrong.");
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || body?.success === false) {
+        throw new Error(body?.message || "Something went wrong.");
       }
       setStatus("success");
       form.reset();

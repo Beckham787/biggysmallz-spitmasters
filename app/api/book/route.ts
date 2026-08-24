@@ -4,6 +4,20 @@ import { siteConfig } from "@/lib/site-config";
 /**
  * POST /api/book — Book a Date submissions.
  *
+ * NOTE (2026-08-24): BookForm.tsx no longer calls this route for the default
+ * Web3Forms path -- it POSTs straight to Web3Forms from the browser instead.
+ * Web3Forms' free tier blocks server-to-server calls with a Cloudflare
+ * challenge (403 "Just a moment..."), which is what this route hit in
+ * production. Their own docs: "It is recommended that you use the API
+ * client/browser side, not server side. Server side usage requires paid
+ * plan + server IP whitelisting."
+ *
+ * This route (and its Web3Forms branch below) is kept for reference and for
+ * the Resend path, which IS meant to run server-side. If you ever flip
+ * EMAIL_PROVIDER back to "web3forms" and re-point the form at this route,
+ * expect the same 403 unless Web3Forms is on a paid plan with this
+ * deployment's IPs whitelisted.
+ *
  * Sends the booking details to the owner's inbox. The provider is swappable via
  * the EMAIL_PROVIDER env var ("web3forms" | "resend"). Keys live server-side in
  * .env.local (see .env.local.example) and never reach the browser.
