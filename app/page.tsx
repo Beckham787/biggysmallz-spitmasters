@@ -177,13 +177,36 @@ export default function HomePage() {
       </section>
 
       {/* ── As seen on / Catch me on ─────────────────────────────────────── */}
-      <section className="border-y border-cream/10 bg-ink py-12">
+      <section className="border-t border-cream/10 bg-ink py-12">
         <div className="section grid gap-10 sm:grid-cols-2 sm:gap-6">
           <Reveal>
             <CreditGroup label="As seen on" items={siteConfig.asSeenOn} />
           </Reveal>
           <Reveal delay={100}>
             <CreditGroup label="Catch me on" items={siteConfig.catchMeOn} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── On air ────────────────────────────────────────────────────────
+          Kept separate from the As seen on / Catch me on lists above per
+          TK: a stray Instagram-crop logo didn't belong among the official
+          show/festival marks, so this lives as its own quiet line instead. */}
+      <section className="border-y border-cream/10 bg-ink py-6">
+        <div className="section text-center">
+          <Reveal>
+            <p className="font-display text-xs uppercase tracking-[0.14em] text-smoke">
+              On air ·{" "}
+              <a
+                href={siteConfig.onAir.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cream-dim underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold"
+              >
+                {siteConfig.onAir.label}
+              </a>
+              , {siteConfig.onAir.detail}
+            </p>
           </Reveal>
         </div>
       </section>

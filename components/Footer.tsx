@@ -4,40 +4,25 @@ import { siteConfig } from "@/lib/site-config";
 
 /**
  * Footer — pared down 2026-08-23 per TK: "The footer has too many things,"
- * then given a subtle watermark background + a Nguni Strength re-pair
- * 2026-08-23:
+ * given a subtle watermark background + a Nguni Strength re-pair the same
+ * day, then had that watermark REMOVED again 2026-08-24 per TK: "some of
+ * the words are covering the logo, even on mobile view... let the logo
+ * show fully and clearly." The watermark sat absolutely centered over the
+ * whole footer regardless of how tall the mobile stack (identity + contact
+ * + copyright rows) got, so its own baked-in text ("BIGGY SMALLZ
+ * SPITMASTERS", "EST. 2017") ended up crossing behind the real foreground
+ * logos and the contact/copyright text at most viewport heights. Simplest
+ * durable fix: drop it -- the two small foreground marks (badge + Nguni
+ * Strength bull) below are unaffected and already render clean.
  *
- * - The Biggy Smallz badge now sits as a large, faint watermark behind the
- *   whole footer (retinted with the same grayscale/sepia/hue-rotate recipe
- *   used to bring the Mozambique festival logo into the gold palette, then
- *   dropped to very low opacity so it reads as texture, not a second logo).
  * - "Flavoured by Nguni Strength" (TK: "that's his other business... we'll
- *   build a website for it if we get this one right") is now paired
- *   directly with the bull mark rather than floating in a caption line —
- *   the wording was "Powered by," changed to "Flavoured by" per TK.
+ *   build a website for it if we get this one right") is paired directly
+ *   with the bull mark rather than floating in a caption line — the
+ *   wording was "Powered by," changed to "Flavoured by" per TK.
  */
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-cream/10 bg-charcoal">
-      {/* Watermark — the main badge, huge and faint, tinted to sit inside
-          the palette rather than reading as a crisp second logo. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 opacity-[0.07]"
-      >
-        <Image
-          src="/logo.png"
-          alt=""
-          width={640}
-          height={640}
-          className="h-[150px] w-[150px] object-contain sm:h-[190px] sm:w-[190px]"
-          style={{
-            filter:
-              "grayscale(1) sepia(0.55) saturate(2.2) hue-rotate(-8deg) brightness(0.9) contrast(0.95)",
-          }}
-        />
-      </div>
-
       <div className="section relative z-10 pb-28 pt-12 md:pb-12">
         {/* "Book a Service" — pulled out of the identity/contact row and into
             its own small corner link (2026-08-23, per TK: it was crowding
