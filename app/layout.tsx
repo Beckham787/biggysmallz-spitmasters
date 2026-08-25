@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
+import StudioMark from "@/components/StudioMark";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import "./globals.css";
 
@@ -114,6 +115,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <FloatingCta />
         <Footer />
+        <StudioMark />
       </body>
     </html>
   );
