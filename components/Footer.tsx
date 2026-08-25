@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
+import StudioMark from "@/components/StudioMark";
 
 /**
  * Footer — pared down 2026-08-23 per TK: "The footer has too many things,"
@@ -176,6 +177,7 @@ export default function Footer() {
           <p className="font-display text-[0.6rem] uppercase tracking-[0.2em]">
             {siteConfig.serviceAreaShort}
           </p>
+          <StudioMark />
         </div>
       </div>
     </footer>
