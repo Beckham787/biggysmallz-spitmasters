@@ -7,7 +7,8 @@ import HeroPhoto from "@/components/HeroPhoto";
 
 // Upcoming big events — hand-maintained for now. Move to its own data file
 // once a full events page exists. SA Barbecue Festival left out on purpose:
-// Biggy isn't attending this year.
+// Biggy isn't attending this year. Bush Escape (29 August, Malelane) removed
+// 2026-09-01 — the event has already passed.
 const upcomingEvents = [
   {
     name: "Mozambique Barbecue Festival",
@@ -15,13 +16,6 @@ const upcomingEvents = [
     venue: "Maputo, Mozambique",
     poster: "/images/mozambique/mozambique-2026-poster.jpg",
     posterAlt: "Mozambique Barbecue Festival 2026 poster confirming Biggy Smallz as a featured chef.",
-  },
-  {
-    name: "Bush Escape — Springboks vs All Blacks",
-    date: "29 August",
-    venue: "Malelane",
-    poster: "/images/events/bush-escape-2026-poster.jpg",
-    posterAlt: "Bush Escape poster — Springboks vs All Blacks live screening, Malelane, 29 August.",
   },
 ];
 
@@ -76,9 +70,17 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2">
+          <div
+            className={`mt-14 grid gap-8 ${
+              upcomingEvents.length > 1 ? "sm:grid-cols-2" : "justify-center"
+            }`}
+          >
             {upcomingEvents.map((event, i) => (
-              <Reveal key={event.name} delay={i * 120}>
+              <Reveal
+                key={event.name}
+                delay={i * 120}
+                className={upcomingEvents.length === 1 ? "w-full max-w-sm" : undefined}
+              >
                 <div className="border border-gold/20">
                   {event.poster ? (
                     <div className="relative aspect-[3/4] w-full overflow-hidden">
