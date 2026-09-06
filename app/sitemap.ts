@@ -4,7 +4,7 @@ import { caseStudies } from "@/lib/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
-  const staticRoutes = ["", "/about", "/work", "/book", "/mozambique"];
+  const staticRoutes = ["", "/about", "/work", "/book", "/mozambique", "/privacy", "/terms", "/faq"];
   const now = new Date();
   const staticEntries = staticRoutes.map((path) => ({
     url: `${base}${path}`,

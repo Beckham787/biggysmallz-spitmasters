@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, EB_Garamond } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
+import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FloatingCta from "@/components/FloatingCta";
@@ -114,6 +115,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <FloatingCta />
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

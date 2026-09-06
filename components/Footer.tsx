@@ -177,6 +177,19 @@ export default function Footer() {
           <p className="font-display text-[0.6rem] uppercase tracking-[0.2em]">
             {siteConfig.serviceAreaShort}
           </p>
+          <div className="flex items-center gap-2 pt-1">
+            <Link href="/privacy" className="transition-colors hover:text-gold">
+              Privacy
+            </Link>
+            <span className="text-smoke/40">·</span>
+            <Link href="/terms" className="transition-colors hover:text-gold">
+              Terms
+            </Link>
+            <span className="text-smoke/40">·</span>
+            <Link href="/faq" className="transition-colors hover:text-gold">
+              FAQ
+            </Link>
+          </div>
           <StudioMark />
         </div>
       </div>
