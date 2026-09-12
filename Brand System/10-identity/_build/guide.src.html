@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biggy Smallz Spitmasters — Brand Guide</title>
+<meta name="description" content="The mark, the lockups, the palette and the type for Biggy Smallz Spitmasters. Built by TK Studio.">
+<link rel="icon" href="{{FAVICON_DATA}}">
+<style>
+/* ------------------------------------------------------------------ fonts
+   Subsetted and embedded so this file works with no network — it gets
+   opened on a phone at a handover. */
+@font-face{font-family:Fraunces;font-weight:900;font-style:normal;
+  font-display:block;src:url({{FONT_FRAUNCES}}) format('woff2')}
+@font-face{font-family:Archivo;font-weight:400;font-style:normal;
+  font-display:block;src:url({{FONT_ARCHIVO_400}}) format('woff2')}
+@font-face{font-family:Archivo;font-weight:600;font-style:normal;
+  font-display:block;src:url({{FONT_ARCHIVO_600}}) format('woff2')}
+
+/* ----------------------------------------------------------------- tokens
+   The five brand colours, plus two grounds derived from Charcoal and one
+   reading tint derived from Ash (see the Colour section — Ash itself is
+   3.8:1 on Charcoal, under the 4.5:1 floor for body text). */
+:root{
+  --charcoal:#171412; --pit:#0E0C0B; --well:#201C19;
+  --bone:#F3E8D5; --ember:#E6531A; --flame:#B52A18;
+  --ash:#77716A; --ash-lift:#8C857E;
+  --line:#2C2622;
+  --gut:clamp(20px,5vw,64px);
+  --measure:66ch;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--charcoal); color:var(--bone);
+  font:400 clamp(15px,1.05vw,17px)/1.65 Archivo,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 var(--gut)}
+
+/* -------------------------------------------------------------- typography */
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:900;
+  letter-spacing:-.015em;line-height:1.02;margin:0}
+h1{font-size:clamp(38px,7.4vw,76px)}
+h2{font-size:clamp(27px,4.4vw,44px)}
+h3{font-size:clamp(17px,2vw,21px);letter-spacing:0;line-height:1.2}
+p{margin:0 0 1.05em;max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+strong{font-weight:600;color:var(--bone)}
+.lede{font-size:clamp(16px,1.5vw,20px);line-height:1.5;color:var(--bone)}
+.muted{color:var(--ash-lift)}
+.mono{font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;letter-spacing:.02em}
+
+/* the eyebrow marker is the mark's own rod-and-tip — the one borrowed
+   device on this page; everything else stays quiet */
+.eyebrow{display:flex;align-items:center;gap:10px;
+  font:600 11px/1 Archivo,sans-serif;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ember);margin:0 0 18px}
+.eyebrow svg{width:26px;height:auto;flex:none;color:var(--ember)}
+
+/* --------------------------------------------------------------- structure */
+section{padding:clamp(46px,6vw,82px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.head{margin-bottom:clamp(28px,4vw,44px)}
+.head p{margin-top:14px}
+
+/* ------------------------------------------------------------------- hero */
+.hero{background:var(--pit);padding:0;border:0;overflow:hidden;
+  position:relative}
+.hero .wrap{padding-top:clamp(28px,5vw,48px);
+  padding-bottom:clamp(52px,8vw,96px)}
+.masthead{display:flex;flex-wrap:wrap;gap:8px 18px;
+  justify-content:space-between;align-items:baseline;
+  font:600 11px/1.6 Archivo,sans-serif;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ash-lift);
+  padding-bottom:clamp(40px,7vw,80px)}
+.masthead b{color:var(--bone);font-weight:600}
+.bleed{margin:0 calc(var(--gut)*-1) clamp(34px,5vw,54px);
+  overflow:hidden}
+.bleed svg{display:block;width:150%;margin-left:-52%;height:auto;
+  color:var(--bone)}
+.hero h1{margin-top:clamp(30px,4.5vw,52px)}
+.hero .lede{margin-top:18px}
+.hero-mark{width:clamp(150px,22vw,214px);height:auto;display:block;
+  color:var(--bone)}
+
+/* ---------------------------------------------------------------- specimens */
+.well{background:var(--well);border:1px solid var(--line);
+  padding:clamp(24px,4vw,48px);display:flex;align-items:center;
+  justify-content:center;min-height:150px}
+.well.light{background:var(--bone);border-color:var(--bone)}
+.well.ember{background:var(--ember);border-color:var(--ember)}
+.well svg{display:block;width:100%;height:auto}
+.grid{display:grid;gap:14px}
+.grid>figure{display:flex;flex-direction:column}
+.grid>figure>.well{flex:1}
+.g2{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.cap{font:600 10px/1.5 Archivo,sans-serif;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash-lift);margin-top:10px}
+.cap b{color:var(--bone);font-weight:600}
+figure{margin:0}
+
+/* -------------------------------------------------------- reduction strip */
+.reduce{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(16px,3vw,34px)}
+.reduce figure{display:flex;flex-direction:column;align-items:center;gap:8px}
+.reduce .box{background:var(--well);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center}
+.reduce svg{display:block;color:var(--bone)}
+
+/* ------------------------------------------------------------- clear space */
+.clearspace{position:relative;background:var(--well);
+  border:1px solid var(--line);padding:clamp(30px,5vw,56px);
+  min-height:232px;display:flex;align-items:center;justify-content:center}
+.cs-inner{position:relative;display:block;width:100%}
+.cs-inner svg{display:block;width:100%;height:auto;color:var(--bone)}
+.cs-frame{position:absolute;border:1px dashed var(--ember);opacity:.8;
+  pointer-events:none}
+.cs-note{display:flex;align-items:center;gap:10px;margin-top:16px;
+  font:600 10px/1.4 Archivo,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ash-lift)}
+.cs-key{width:12px;height:12px;border:1px dashed var(--ember);flex:none}
+
+/* ----------------------------------------------------------------- colour */
+.swatches{display:grid;gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(158px,1fr))}
+.sw{background:var(--well);border:1px solid var(--line);padding:16px;display:flex;
+  flex-direction:column;justify-content:space-between;min-height:152px}
+.sw .chip{height:52px;margin:-16px -16px 16px;
+  box-shadow:inset 0 0 0 1px var(--line)}
+.sw .name{font:600 13px/1.3 Archivo,sans-serif;color:var(--bone)}
+.sw .hex{font:400 12px/1.6 Archivo,sans-serif;color:var(--ash-lift);
+  letter-spacing:.06em}
+.sw .role{font:400 12px/1.45 Archivo,sans-serif;color:var(--ash-lift);
+  margin-top:8px}
+.ratio{display:flex;height:52px;border:1px solid var(--line);overflow:hidden;
+  margin-top:6px}
+.ratio div{display:flex;align-items:flex-end;padding:6px 8px;
+  font:600 10px/1 Archivo,sans-serif;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;overflow:hidden}
+
+/* ------------------------------------------------------------------- type */
+.spec{border-top:1px solid var(--line);padding:18px 0;
+  display:grid;gap:6px 24px;grid-template-columns:1fr}
+@media(min-width:640px){.spec{grid-template-columns:200px 1fr;align-items:baseline}}
+.spec dt{font:600 11px/1.5 Archivo,sans-serif;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ash-lift)}
+.spec dd{margin:0}
+.tspec{font-family:Fraunces,Georgia,serif;font-weight:900;
+  font-size:clamp(30px,5.5vw,54px);line-height:1;letter-spacing:-.02em;
+  margin:0 0 6px}
+.tspec-b{font:400 clamp(15px,1.5vw,18px)/1.55 Archivo,sans-serif;
+  max-width:var(--measure)}
+
+/* ------------------------------------------------------------------ never */
+.never{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:600px){.never{grid-template-columns:repeat(2,1fr)}}
+.never .well{min-height:132px;position:relative;overflow:hidden}
+.never .well::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom right,transparent calc(50% - .6px),
+    var(--flame) calc(50% - .6px),var(--flame) calc(50% + .6px),
+    transparent calc(50% + .6px));opacity:.85}
+.never svg{color:var(--bone)}
+.never .x-stretch svg{transform:scaleX(1.42)}
+.never .x-colour svg{color:#C8A24B}
+.never .x-fx svg{filter:drop-shadow(0 5px 7px rgba(0,0,0,.85));
+  color:#D9CDBA}
+.never .x-fx svg *{stroke:var(--flame);stroke-width:4;paint-order:stroke}
+.never h3{margin-top:12px}
+.never p{font-size:14px;color:var(--ash-lift);margin-top:5px}
+
+/* ---------------------------------------------------------------- footer */
+footer{background:var(--pit);padding:clamp(44px,7vw,84px) 0;
+  border-top:1px solid var(--line)}
+.files{display:grid;gap:10px 28px;margin:26px 0 0;padding:0;list-style:none;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.files li{border-top:1px solid var(--line);padding-top:10px;
+  font:400 13px/1.5 Archivo,sans-serif;color:var(--ash-lift)}
+.files b{display:block;color:var(--bone);font-weight:600;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:3px}
+.colophon{margin-top:clamp(36px,6vw,60px);padding-top:22px;
+  border-top:1px solid var(--line);
+  font:400 12px/1.6 Archivo,sans-serif;color:var(--ash-lift);
+  display:flex;flex-wrap:wrap;gap:6px 22px;justify-content:space-between}
+.colophon b{color:var(--bone);font-weight:600}
+
+/* ----------------------------------------------------------------- motion
+   One moment: the spit advances along its own axis on load. Nothing else
+   moves. */
+@keyframes advance{from{transform:translateX(-7%);opacity:0}
+  to{transform:translateX(0);opacity:1}}
+.bleed svg{animation:advance 1.15s cubic-bezier(.16,.84,.3,1) both}
+@media(prefers-reduced-motion:reduce){
+  .bleed svg{animation:none}
+  *{transition:none!important}
+}
+:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+
+@media(max-width:479px){
+  .masthead{flex-direction:column;gap:4px}
+  .ratio div{font-size:9px;letter-spacing:.04em;padding:6px 5px}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================================================================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="masthead">
+      <span><b>Biggy Smallz Spitmasters</b> &nbsp;·&nbsp; Brand guide</span>
+      <span>TK Studio &nbsp;·&nbsp; September 2026</span>
+    </div>
+
+    <div class="bleed">{{SVG_ICON_SINGLE_D}}</div>
+
+    {{SVG_WORDMARK_STACKED_BONE_HERO}}
+
+    <h1>The mark,<br>and how to use it.</h1>
+    <p class="lede muted" style="margin-top:20px">The strategy was already
+      right. What was missing was something you could put on a profile
+      picture, a favicon and an apron. This is it — plus the rules that
+      keep it looking like one brand wherever it lands.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP}} The icon</p>
+    <h2>The Spit</h2>
+    <p class="muted">Two forms on a skewer — a big one and a small one. It is
+      the spit, and it is Biggy and Smallz. No flames, no badge, nothing off
+      the avoid-list. <strong>The pointed tip is load-bearing:</strong> without
+      it the mark reads as a dumbbell. Keep the tip, always.</p>
+  </div>
+
+  <div class="grid g2">
+    <figure>
+      <div class="well">{{SVG_ICON_BONE_A}}</div>
+      <figcaption class="cap"><b>Bone</b> on charcoal — the default</figcaption>
+    </figure>
+    <figure>
+      <div class="well light">{{SVG_ICON_CHARCOAL_A}}</div>
+      <figcaption class="cap"><b>Charcoal</b> on bone</figcaption>
+    </figure>
+  </div>
+
+  <h3 style="margin:clamp(34px,5vw,52px) 0 6px">Three cuts, one drawing</h3>
+  <p class="muted" style="margin-bottom:24px">Same mark, redrawn for the size
+    it has to survive. Use the smallest cut that still has air around it.</p>
+
+  <div class="grid g3">
+    <figure>
+      <div class="well">{{SVG_ICON_BONE_B}}</div>
+      <figcaption class="cap"><b>Standard</b> — 40px and up</figcaption>
+    </figure>
+    <figure>
+      <div class="well">{{SVG_ICON_SMALL_BONE}}</div>
+      <figcaption class="cap"><b>Small</b> — 20 to 40px. Thicker rod,
+        bigger forms</figcaption>
+    </figure>
+    <figure>
+      <div class="well">{{SVG_ICON_CONDENSED_BONE}}</div>
+      <figcaption class="cap"><b>Condensed</b> — favicon only.
+        Never the logo</figcaption>
+    </figure>
+  </div>
+
+  <h3 style="margin:clamp(34px,5vw,52px) 0 20px">It holds at size</h3>
+  <div class="reduce">
+    <figure><div class="box" style="width:120px;height:120px">
+      {{SVG_ICON_SMALL_BONE_R1}}</div>
+      <figcaption class="cap mono">120</figcaption></figure>
+    <figure><div class="box" style="width:64px;height:64px">
+      {{SVG_ICON_SMALL_BONE_R2}}</div>
+      <figcaption class="cap mono">64</figcaption></figure>
+    <figure><div class="box" style="width:40px;height:40px">
+      {{SVG_ICON_SMALL_BONE_R3}}</div>
+      <figcaption class="cap mono">40</figcaption></figure>
+    <figure><div class="box" style="width:24px;height:24px">
+      {{SVG_ICON_CONDENSED_BONE_R4}}</div>
+      <figcaption class="cap mono">24</figcaption></figure>
+    <figure><div class="box" style="width:16px;height:16px">
+      {{SVG_ICON_CONDENSED_BONE_R5}}</div>
+      <figcaption class="cap mono">16</figcaption></figure>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP_B}} The wordmark</p>
+    <h2>All three words,<br>equal weight</h2>
+    <p class="muted">Fraunces at weight 900 — a heavy display serif, because a
+      serif says <em>chef, kitchen, table, occasion</em>, where every braai
+      competitor reaches for a condensed sans and ends up looking like a man
+      with a trailer. The three lines lock to one width, so the block keeps
+      its shape at any size. <strong>Spitmasters is never a caption.</strong></p>
+  </div>
+
+  <div class="grid g2">
+    <figure>
+      <div class="well">{{SVG_WORDMARK_STACKED_BONE}}</div>
+      <figcaption class="cap"><b>Stacked</b> — the primary wordmark</figcaption>
+    </figure>
+    <figure>
+      <div class="well">{{SVG_WORDMARK_HORIZONTAL_BONE}}</div>
+      <figcaption class="cap"><b>Horizontal</b> — for wide, shallow spaces:
+        headers, signage, a vehicle</figcaption>
+    </figure>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <figure>
+      <div class="well" style="min-height:230px">{{SVG_LOCKUP_BONE}}</div>
+      <figcaption class="cap"><b>Combined lockup</b> — spit above wordmark.
+        Use where there is room to be formal</figcaption>
+    </figure>
+    <figure>
+      <div class="well light" style="min-height:230px">{{SVG_LOCKUP_CHARCOAL}}</div>
+      <figcaption class="cap"><b>Combined lockup</b> on bone</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP_C}} Clear space &amp; minimum size</p>
+    <h2>Give it air</h2>
+    <p class="muted">One rule, measured off the mark itself so it scales
+      automatically: <strong>leave clear space equal to the small form —
+      the little circle on the spit</strong> — on all four sides. For the
+      wordmark alone, use the height of the SPITMASTERS caps. Nothing else
+      goes inside that boundary. Not a tagline, not a phone number, not a
+      photo edge.</p>
+  </div>
+
+  <div class="grid g2" style="align-items:start">
+    <figure>
+      <div class="clearspace">
+        <div class="cs-inner">
+          {{SVG_ICON_BONE_CS}}
+          <span class="cs-frame" style="inset:-61.8% -16.5%"></span>
+        </div>
+      </div>
+      <figcaption class="cap"><b>The spit</b> — clear space = the small
+        form's diameter</figcaption>
+    </figure>
+    <figure>
+      <div class="clearspace">
+        <div class="cs-inner">
+          {{SVG_WORDMARK_STACKED_BONE_CS}}
+          <span class="cs-frame" style="inset:-12.2% -7.4%"></span>
+        </div>
+      </div>
+      <figcaption class="cap"><b>The wordmark</b> — clear space = the
+        SPITMASTERS cap height</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-note"><span class="cs-key"></span>
+    Minimum clear space — keep everything outside it</div>
+
+  <h3 style="margin:clamp(34px,5vw,52px) 0 4px">Minimum size</h3>
+  <p class="muted" style="margin-bottom:18px">Below these, use the next cut
+    down — or use the spit on its own.</p>
+  <dl class="spec">
+    <dt>Spit · standard</dt>
+    <dd>40&nbsp;px wide on screen &nbsp;·&nbsp; 15&nbsp;mm in print</dd>
+  </dl>
+  <dl class="spec">
+    <dt>Spit · small cut</dt>
+    <dd>20&nbsp;px wide on screen &nbsp;·&nbsp; 8&nbsp;mm in print</dd>
+  </dl>
+  <dl class="spec">
+    <dt>Spit · condensed cut</dt>
+    <dd>16&nbsp;px — favicon and app icon only</dd>
+  </dl>
+  <dl class="spec">
+    <dt>Stacked wordmark</dt>
+    <dd>88&nbsp;px wide on screen &nbsp;·&nbsp; 30&nbsp;mm in print</dd>
+  </dl>
+  <dl class="spec">
+    <dt>Horizontal wordmark</dt>
+    <dd>132&nbsp;px wide on screen &nbsp;·&nbsp; 45&nbsp;mm in print</dd>
+  </dl>
+  <dl class="spec">
+    <dt>Combined lockup</dt>
+    <dd>110&nbsp;px wide on screen &nbsp;·&nbsp; 38&nbsp;mm in print</dd>
+  </dl>
+  <dl class="spec" style="border-bottom:1px solid var(--line)">
+    <dt>Embroidery &amp; woven</dt>
+    <dd>Use the single-ink file. The spit stitches down to 25&nbsp;mm;
+      below that, drop the wordmark and stitch the spit alone.</dd>
+  </dl>
+</section>
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP_D}} Colour</p>
+    <h2>Charcoal anchors.<br>Orange activates.</h2>
+    <p class="muted">Five colours, and the discipline is in the ratio, not the
+      list. <strong>Orange and red are punctuation, never wallpaper.</strong>
+      If a layout looks hot, the answer is less orange, not a different
+      orange.</p>
+  </div>
+
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#171412"></div>
+      <div><div class="name">Charcoal Black</div>
+      <div class="hex mono">#171412</div></div>
+      <div class="role">Primary dark background</div></div>
+    <div class="sw"><div class="chip" style="background:#F3E8D5"></div>
+      <div><div class="name">Bone White</div>
+      <div class="hex mono">#F3E8D5</div></div>
+      <div class="role">Primary light background</div></div>
+    <div class="sw"><div class="chip" style="background:#E6531A"></div>
+      <div><div class="name">Ember Orange</div>
+      <div class="hex mono">#E6531A</div></div>
+      <div class="role">CTA, energy, highlights</div></div>
+    <div class="sw"><div class="chip" style="background:#B52A18"></div>
+      <div><div class="name">Flame Red</div>
+      <div class="hex mono">#B52A18</div></div>
+      <div class="role">Secondary accent, small graphic moments</div></div>
+    <div class="sw"><div class="chip" style="background:#77716A"></div>
+      <div><div class="name">Ash Grey</div>
+      <div class="hex mono">#77716A</div></div>
+      <div class="role">Labels and metadata only</div></div>
+  </div>
+
+  <h3 style="margin:clamp(34px,5vw,52px) 0 14px">The ratio</h3>
+  <div class="ratio">
+    <div style="background:#171412;color:#F3E8D5;flex:60">60% Charcoal / Bone</div>
+    <div style="background:#3A342F;color:#F3E8D5;flex:25">25% Photography</div>
+    <div style="background:#E6531A;color:#171412;flex:10">10% Ember</div>
+    <div style="background:#B52A18;color:#F3E8D5;flex:5">5%</div>
+  </div>
+  <p class="cap" style="margin-top:10px">Roughly, every time — a poster, a
+    Reel, an invoice</p>
+
+  <h3 style="margin:clamp(34px,5vw,52px) 0 6px">Two contrast rules worth
+    knowing</h3>
+  <p class="muted"><strong>Ash Grey is a label colour, not a reading
+    colour.</strong> On charcoal it measures 3.8:1, under the 4.5:1 floor for
+    body text. For secondary text on screen use <span class="mono">#8C857E</span>
+    — the same grey lifted to 5.0:1. That is what this page uses.</p>
+  <p class="muted"><strong>On an ember field, set type in charcoal, not
+    bone.</strong> Charcoal on ember is 4.9:1; bone on ember is 3.1:1 and only
+    safe for large display type. This is why the profile picture is a charcoal
+    spit on orange, not the other way round.</p>
+</section>
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP_E}} Type</p>
+    <h2>Two families.<br>That is enough.</h2>
+    <p class="muted">The personality comes from photography, scale and
+      cropping. Typography's job is to be certain, not decorative — so don't
+      add a third face to make something feel creative.</p>
+  </div>
+
+  <div style="border-top:1px solid var(--line);padding-top:clamp(24px,4vw,36px)">
+    <p class="cap" style="margin:0 0 14px">Display &nbsp;·&nbsp; Fraunces 900</p>
+    <p class="tspec">GET IN MY BELLY.</p>
+    <p class="muted" style="font-size:14px">Headlines, campaign lines,
+      experience names, the wordmark itself. Uppercase, tight, short. If it
+      needs more than six words, it is body copy.</p>
+  </div>
+
+  <div style="border-top:1px solid var(--line);margin-top:clamp(28px,4vw,40px);
+              padding-top:clamp(24px,4vw,36px)">
+    <p class="cap" style="margin:0 0 14px">Text &nbsp;·&nbsp; Archivo
+      400 / 600</p>
+    <p class="tspec-b">Big fire. Big flavour. Biggy Smallz brings live-fire
+      cooking, generous hospitality and a little theatre to your gathering.
+      Menus, prices, booking information, navigation — everything that has to
+      be read rather than felt.</p>
+  </div>
+
+  <dl class="spec" style="margin-top:clamp(30px,5vw,44px)">
+    <dt>Hero headline</dt><dd>Fraunces 900 · uppercase · tight</dd></dl>
+  <dl class="spec"><dt>Experience name</dt>
+    <dd>Fraunces 900 · uppercase</dd></dl>
+  <dl class="spec"><dt>Body copy</dt>
+    <dd>Archivo 400 · sentence case · generous line height</dd></dl>
+  <dl class="spec"><dt>Buttons &amp; labels</dt>
+    <dd>Archivo 600 · uppercase · letterspaced</dd></dl>
+  <dl class="spec" style="border-bottom:1px solid var(--line)">
+    <dt>Accent face</dt><dd>None. Not a script, not a marker, not a
+      chalkboard.</dd></dl>
+
+  <p class="muted" style="margin-top:26px;font-size:14px">Both are free on
+    Google Fonts. <strong>The live site still runs the previous pairing
+    (Oswald / Montserrat)</strong> — rolling the new type across the site is
+    scheduled separately, so the site and these files will differ for a short
+    while. The logo files themselves have the type outlined, so they never
+    depend on a font being installed.</p>
+</section>
+
+<!-- ==================================================================== -->
+<section>
+  <div class="head">
+    <p class="eyebrow">{{SVG_TIP_F}} Never</p>
+    <h2>Four ways to<br>break it</h2>
+    <p class="muted">Everything else is a judgement call. These four are not.</p>
+  </div>
+
+  <div class="never">
+    <figure>
+      <div class="well x-stretch">{{SVG_ICON_SINGLE_N1}}</div>
+      <h3>Never stretch it</h3>
+      <p>Scale both dimensions together. If it doesn't fit, use a different
+        lockup.</p>
+    </figure>
+    <figure>
+      <div class="well x-colour">{{SVG_ICON_SINGLE_N2}}</div>
+      <h3>Never recolour it</h3>
+      <p>Bone, charcoal, or one flat ink. No gold, no gradient, no team
+        colours.</p>
+    </figure>
+    <figure>
+      <div class="well x-fx">{{SVG_ICON_SINGLE_N3}}</div>
+      <h3>Never add effects</h3>
+      <p>No drop shadows, outlines, bevels or glows. The mark is flat.</p>
+    </figure>
+    <figure>
+      <div class="well">{{SVG_WORDMARK_WRONG}}</div>
+      <h3>Never demote Spitmasters</h3>
+      <p>It is part of the name, not a caption. Don't rebuild the lockup by
+        hand — use the files.</p>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================================================================== -->
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">{{SVG_TIP_G}} The files</p>
+    <h2 style="font-size:clamp(22px,3.4vw,34px)">What you were sent</h2>
+    <ul class="files">
+      <li><b>svg/</b>Every mark, vector, in bone, charcoal and single-ink.
+        Send these to any printer, signwriter or embroiderer.</li>
+      <li><b>png/</b>The same marks at 512, 1024 and 2048&nbsp;px wide,
+        transparent background. For Canva, WhatsApp and anything that won't
+        take an SVG.</li>
+      <li><b>social/</b>1080×1080 profile pictures, orange and charcoal.
+        Paste straight into Instagram and WhatsApp.</li>
+      <li><b>favicon/</b>16, 32, 48, 180&nbsp;px, plus .ico and .svg for the
+        website tab.</li>
+      <li><b>brand-guide.html</b>This page. Works offline — the fonts are
+        inside the file.</li>
+      <li><b>bios.md</b>Instagram and WhatsApp bio copy, ready to paste.</li>
+    </ul>
+
+    <div class="colophon">
+      <span><b>Biggy Smallz Spitmasters</b> — identity and guide by
+        TK&nbsp;Studio, September 2026</span>
+      <span>biggysmallzspitmasters.co.za</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>proof</title>
+<style>
+  :root { --charcoal:#171412; --bone:#F3E8D5; --ember:#E6531A; --ash:#77716A; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#0d0b0a; font-family:system-ui,sans-serif; }
+  #stage { width:1400px; padding:40px; background:#0d0b0a; color:var(--bone); }
+  h2 { font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+       color:var(--ash); font-weight:600; margin:36px 0 12px; }
+  .row { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .card { background:var(--charcoal); padding:28px; display:flex;
+          align-items:center; justify-content:center; }
+  .card.light { background:var(--bone); }
+  .card.ember { background:var(--ember); }
+  .cap { font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+         color:var(--ash); margin-top:6px; text-align:center; }
+  .circ { border-radius:50%; overflow:hidden; }
+  figure { margin:0; }
+</style>
+<div id="stage">
+
+<h2>Icon — The Spit (standard) on charcoal / bone / ember</h2>
+<div class="row">
+  <figure><div class="card"><img src="../svg/spit-icon-bone.svg" width="260"></div><div class="cap">bone</div></figure>
+  <figure><div class="card light"><img src="../svg/spit-icon-charcoal.svg" width="260"></div><div class="cap">charcoal</div></figure>
+  <figure><div class="card ember"><img src="../svg/spit-icon-charcoal.svg" width="260"></div><div class="cap">charcoal on ember</div></figure>
+</div>
+
+<h2>Icon reduction — standard vs small-size variant</h2>
+<div class="row">
+  <figure><div class="card"><img src="../svg/spit-icon-bone.svg" width="120"></div><div class="cap">std 120</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-bone.svg" width="64"></div><div class="cap">std 64</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-bone.svg" width="32"></div><div class="cap">std 32</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-bone.svg" width="16"></div><div class="cap">std 16</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-small-bone.svg" width="64"></div><div class="cap">small 64</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-small-bone.svg" width="32"></div><div class="cap">small 32</div></figure>
+  <figure><div class="card"><img src="../svg/spit-icon-small-bone.svg" width="16"></div><div class="cap">small 16</div></figure>
+</div>
+
+<h2>Stacked wordmark</h2>
+<div class="row">
+  <figure><div class="card"><img src="../svg/wordmark-stacked-bone.svg" width="280"></div><div class="cap">bone</div></figure>
+  <figure><div class="card light"><img src="../svg/wordmark-stacked-charcoal.svg" width="280"></div><div class="cap">charcoal</div></figure>
+  <figure><div class="card"><img src="../svg/wordmark-stacked-bone.svg" width="110"></div><div class="cap">110</div></figure>
+  <figure><div class="card"><img src="../svg/wordmark-stacked-bone.svg" width="70"></div><div class="cap">70</div></figure>
+</div>
+
+<h2>Horizontal wordmark</h2>
+<div class="row">
+  <figure><div class="card"><img src="../svg/wordmark-horizontal-bone.svg" width="380"></div><div class="cap">bone</div></figure>
+  <figure><div class="card light"><img src="../svg/wordmark-horizontal-charcoal.svg" width="240"></div><div class="cap">charcoal 240</div></figure>
+  <figure><div class="card"><img src="../svg/wordmark-horizontal-bone.svg" width="130"></div><div class="cap">130</div></figure>
+</div>
+
+<h2>Combined lockup</h2>
+<div class="row">
+  <figure><div class="card"><img src="../svg/lockup-stacked-bone.svg" width="260"></div><div class="cap">bone</div></figure>
+  <figure><div class="card light"><img src="../svg/lockup-stacked-charcoal.svg" width="180"></div><div class="cap">charcoal 180</div></figure>
+  <figure><div class="card"><img src="../svg/lockup-stacked-single.svg" width="140" style="color:var(--bone)"></div><div class="cap">single 140</div></figure>
+</div>
+
+<h2>Circle crop test — profile picture candidates</h2>
+<div class="row">
+  <figure><div class="card ember circ" style="width:220px;height:220px;padding:0">
+    <img src="../svg/spit-icon-charcoal.svg" width="92"></div><div class="cap">icon 42% on ember</div></figure>
+  <figure><div class="card circ" style="width:220px;height:220px;padding:0">
+    <img src="../svg/spit-icon-bone.svg" width="92"></div><div class="cap">icon 42% on charcoal</div></figure>
+  <figure><div class="card circ" style="width:220px;height:220px;padding:0">
+    <img src="../svg/wordmark-stacked-bone.svg" width="112"></div><div class="cap">stacked wordmark</div></figure>
+  <figure><div class="card ember circ" style="width:110px;height:110px;padding:0">
+    <img src="../svg/spit-icon-small-charcoal.svg" width="46"></div><div class="cap">small @110</div></figure>
+  <figure><div class="card ember circ" style="width:56px;height:56px;padding:0">
+    <img src="../svg/spit-icon-small-charcoal.svg" width="24"></div><div class="cap">small @56</div></figure>
+</div>
+
+</div>

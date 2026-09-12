@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 72" width="172" height="72" role="img" aria-label="Biggy Smallz Spitmasters">
+  <!-- Biggy Smallz Spitmasters — The Spit icon (condensed favicon cut) (single). TK Studio. Text outlined; no font dependency. -->
+  <title>Biggy Smallz Spitmasters</title>
+  <g transform="translate(0 -9)">
+    <g fill="currentColor">
+    <rect x="0" y="36" width="132" height="18" rx="3"/>
+    <path d="M132 32 L172 45 L132 58 Z"/>
+    <circle cx="36" cy="45" r="36"/>
+    <circle cx="100" cy="45" r="22"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 100">
+  <!-- WORKING COPY — live text, requires Fraunces 900. Do not ship. Edit here, then re-run build_marks.py to regenerate the outlined production files. -->
+  <text x="151.5" y="42" font-family="Fraunces" font-weight="900" font-size="42" letter-spacing="-0.8" text-anchor="middle" fill="#F3E8D5">BIGGY SMALLZ</text>
+  <rect x="38.51" y="56" width="226" height="4" rx="2" fill="#E6531A"/>
+  <text x="151.5" y="84" font-family="Fraunces" font-weight="900" font-size="20" textLength="226" lengthAdjust="spacing" text-anchor="middle" fill="#F3E8D5">SPITMASTERS</text>
+</svg>
