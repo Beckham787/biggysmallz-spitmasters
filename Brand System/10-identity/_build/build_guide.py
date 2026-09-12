@@ -40,7 +40,9 @@ TEXT_CHARS = (
 
 def subset_b64(filename, text):
     """Subset a TTF to `text`, compress to woff2, return a data: URI."""
-    font = TTFont(os.path.join(FONTS, filename))
+    # recalcTimestamp=False, or fontTools rewrites head.modified at save
+    # time and undoes the pin below.
+    font = TTFont(os.path.join(FONTS, filename), recalcTimestamp=False)
     opts = subset.Options()
     opts.layout_features = ["*"]
     opts.name_IDs = ["*"]
@@ -49,6 +51,10 @@ def subset_b64(filename, text):
     sub = subset.Subsetter(options=opts)
     sub.populate(text=text)
     sub.subset(font)
+    # fontTools stamps head.modified with the build time, which would make
+    # the embedded base64 — and so this whole file — differ on every run.
+    # Pin both dates so a rebuild is byte-identical and the repo stays quiet.
+    font["head"].created = font["head"].modified = 3814473600  # 2024-01-01
     font.flavor = "woff2"
     buf = io.BytesIO()
     font.save(buf)
