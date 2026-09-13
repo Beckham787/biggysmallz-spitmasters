@@ -108,10 +108,19 @@ and chosen by TK on 2026-09-12:
 
 ## Two things to know before the next pass
 
-- **Type.** The guide documents **Fraunces 900 + Archivo** as the type
-  system. The live site still runs the previous pairing (Oswald / Montserrat)
-  from `../04-colour-type-system/`, and that document has not been updated.
-  Rolling the new type across the site is scheduled separately.
+- **Type — three systems, none agreeing.** The guide documents **Fraunces 900
+  + Archivo**. `../04-colour-type-system/` documents **Oswald + Montserrat**.
+  The live site actually ships **Cinzel + EB Garamond** (the "fine-dining
+  entrance" direction picked 2026-08-22). So the Oswald/Montserrat pairing in
+  the docs is not "the current site" — it is not anywhere. Rolling the new type
+  across the site is scheduled separately; doc 04 needs correcting either way.
+  *(Corrected 2026-09-13 — this file and the guide previously said the site ran
+  Oswald/Montserrat, which was wrong.)*
+- **Accent colour mismatch.** The neutrals in this guide match the live site
+  closely (charcoal and bone are within a few RGB points). The accent is not:
+  Ember here is `#E6531A`; the site ships `#c1432d`. Assets built from this
+  guide — including the profile picture — will read as a different orange from
+  the site they link to until one of the two moves.
 - **Palette.** Unchanged, and the site was not touched. One addition: the
   guide documents **#8C857E** as the on-screen tint for secondary text,
   because Ash Grey (#77716A) measures 3.8:1 on Charcoal — under the 4.5:1
