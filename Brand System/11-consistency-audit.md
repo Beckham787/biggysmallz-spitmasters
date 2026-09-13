@@ -35,6 +35,52 @@ Site/lib/content.ts`, and the Obsidian vault.
 
 ---
 
+## 0 · The published email address cannot receive mail — ✓ verified
+
+`biggysmallzspitmasters.co.za` has **no MX records.** Confirmed against two
+independent resolvers (Google and Cloudflare), both returning NOERROR — a
+genuine absence, not a failed lookup. Controls pass: the domain's A record
+resolves, and a known-good domain returns its MX normally.
+
+**So `biggy@biggysmallzspitmasters.co.za` is a dead address. Anyone who emails
+it gets a bounce.**
+
+It is published as a clickable `mailto:` in three places:
+
+| File | What it says |
+|---|---|
+| `app/book/page.tsx` | "Email biggy@biggysmallzspitmasters.co.za" — on the booking page |
+| `app/privacy/page.tsx` | twice, including as the contact for data-deletion requests |
+| `app/api/book/route.ts` | the **fallback destination** for booking emails when `OWNER_EMAIL` is unset |
+
+The privacy one carries the most risk: a POPIA data-deletion request sent to
+that address bounces, and the page is the documented route for making one.
+
+**Where enquiries actually land is not in the codebase.** The booking form
+posts to Web3Forms from the browser (commit `f75835c`), so the destination is
+whatever address is registered against the access key in the Web3Forms
+dashboard — invisible from here. That is very likely the working inbox, and
+plausibly the `…@gmail.com` the parallel pass reported on Facebook. **Ask
+Martin which inbox he actually reads.**
+
+### This is a studio-wide pattern, not a Biggy problem
+
+| Domain | MX | Publishes |
+|---|---|---|
+| biggysmallzspitmasters.co.za | **none** | `biggy@…co.za` — **bounces** |
+| imagobearer.co.za | **none** | `hello@imagobearer.co.za` — **bounces** |
+| izanolihleroads.co.za | none | a gmail — honest, works |
+| meetingpointstudio.co.za | **none** | — |
+
+Two live sites publish addresses that cannot receive mail. Imago Dei's matters
+too: it has trialing users and publishes `hello@` as its contact.
+
+**Two ways out, both TK's call:** set up mail (or forwarding) on the domains at
+the registrar, or publish the address that actually works. The second is free
+and takes one commit; the first is the one that looks professional.
+
+---
+
 ## 1 · The accent colour does not match — ✓ verified
 
 This is the one that matters on Monday. The neutrals are fine; the accent is not.
@@ -257,11 +303,14 @@ Nothing on the live site was touched. Everything else above is reported only.
 
 ## Fix before Monday — cheapest first
 
-1. **The Instagram bio** — three spelling errors and, reportedly, no link. Ten
+1. **Decide which email address is real** — and either publish that one or set
+   up mail on the domain. The site currently tells customers, and POPIA
+   requesters, to write to an address that bounces. §0.
+2. **The Instagram bio** — three spelling errors and, reportedly, no link. Ten
    minutes, on the surface the handover points at. **Confirm the errors first.**
-2. **Settle the address and the email.** One province, one inbox, everywhere.
-3. **Add Facebook to `sameAs`** in `LocalBusinessSchema.tsx`. One line.
-4. **Delete the duplicate root Brand System folder.**
+3. **Settle the street address.** One province everywhere.
+4. **Add Facebook to `sameAs`** in `LocalBusinessSchema.tsx`. One line.
+5. **Delete the duplicate root Brand System folder.**
 
 ## Decisions, not fixes
 
