@@ -34,6 +34,15 @@ Get in my belly.
 *132 characters.* Says what it is in the first line, where it is in the
 second, keeps the line that's already the brand's, ends on the action.
 
+> **Check before using this one.** It names *fire feasts, private dining,
+> seven-course tables* — and the live site does not sell under those names. It
+> sells six categories: Fine Dining, The Traveling Chef, 3-7 Course Plated
+> Service, VIP Events, Large-Scale Catering, The Ultimate Braaimaster. A
+> visitor arriving from this bio will not find the three things it promised.
+> Until the site and doc 03 agree, **use the plainest alternate below**, which
+> claims nothing the site cannot back up. See `../11-consistency-audit.md`
+> section 3.
+
 **Alternate — shorter, more attitude**
 
 ```
