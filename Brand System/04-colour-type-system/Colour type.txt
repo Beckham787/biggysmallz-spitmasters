@@ -1,0 +1,311 @@
+Biggy Smallz Spitmasters — Typography & Colour System
+1. Primary display font
+Oswald
+
+Use: Canva + website display typography.
+
+Why Oswald: It gives Biggy Smallz the condensed, high-impact headline behaviour the direction calls for, but feels more contemporary and editorial than a heavier “BBQ badge” typeface. Canva itself uses Oswald in its font-pairing guidance, alongside Montserrat, and describes the combination as a deliberate narrow/wide contrast.
+
+It is especially suited to the brand’s existing oversized-word device:
+
+FIRE
+FEAST
+BRAAI
+BIG
+EAT
+SERVE
+CHEF
+
+Recommended weights
+Oswald Bold — hero headlines, campaigns, experience names
+Oswald SemiBold — subheads, supporting statements
+Oswald Medium — occasional labels or smaller editorial headings
+Usage
+
+Use predominantly UPPERCASE.
+
+Keep headlines short. Oswald works best when the words themselves are doing the heavy lifting.
+
+Good:
+
+GET IN MY BELLY.
+
+Good:
+
+THE FIRE IS ON.
+
+Good:
+
+SEVEN COURSES.
+ONE TABLE.
+
+Avoid long paragraphs in Oswald.
+
+2. Secondary body font
+Montserrat
+
+Use: body copy, navigation, menus, descriptions, pricing, booking information and website UI.
+
+Canva explicitly recommends Montserrat/Oswald as a pairing, making it a practical choice for a Canva-led identity rather than a font that needs special installation.
+
+Montserrat brings a useful counterbalance to Oswald: wider, cleaner and calmer, while still feeling contemporary enough for a food-experience brand.
+
+Recommended weights
+Montserrat Regular — body copy
+Montserrat Medium — navigation, labels, supporting information
+Montserrat SemiBold — buttons, key information, short emphasis
+Montserrat Bold — very limited; use for important UI or promotional emphasis
+Usage
+
+Sentence case should be the default for body copy.
+
+Use generous line spacing and relatively short paragraphs.
+
+Example:
+
+Big fire. Big flavour. Biggy Smallz brings live-fire cooking, generous hospitality and a little theatre to your gathering.
+
+This follows the approved direction of keeping website copy short, confident and conversational, rather than sounding like corporate catering copy.
+
+3. Optional accent font
+None
+
+I would not add an accent font.
+
+A handwritten or script face would push the brand towards rustic BBQ, lifestyle-market or “craft food” territory and introduce visual noise.
+
+The personality should come from:
+
+Oswald + photography + scale + cropping + colour.
+
+That is much more ownable and practical.
+
+4. Font weights & usage rules
+Element	Font	Weight	Case
+Hero headline	Oswald	Bold	UPPERCASE
+Campaign headline	Oswald	Bold	UPPERCASE
+Experience name	Oswald	SemiBold/Bold	UPPERCASE
+Subheading	Oswald	SemiBold	UPPERCASE or Title Case
+Body copy	Montserrat	Regular	Sentence case
+Navigation	Montserrat	Medium	UPPERCASE or Sentence case
+Button	Montserrat	SemiBold	UPPERCASE
+Small labels	Montserrat	Medium	UPPERCASE
+Price / key number	Oswald	Bold	As appropriate
+Three rules for designers
+
+1. Oswald creates impact.
+2. Montserrat creates clarity.
+3. Photography creates personality.
+
+Do not use typography to manufacture personality that should already be coming from the imagery.
+
+5. Heading, subheading, body & button examples
+Hero heading
+
+GET IN MY BELLY.
+
+Oswald Bold
+Uppercase
+Very large
+Tight line spacing
+
+Alternative heading
+
+BIG FIRE.
+BIG FLAVOUR.
+
+Oswald Bold
+
+Subheading
+
+FIRE FEASTS FOR PEOPLE WHO LIKE TO EAT
+
+Oswald SemiBold
+
+Body
+
+Montserrat Regular:
+
+From generous spitbraais to intimate seven-course dinners, Biggy Smallz brings the fire, the food and the personality to your table.
+
+Button
+
+BOOK YOUR EXPERIENCE
+
+Montserrat SemiBold, uppercase.
+
+The website should retain BOOK YOUR EXPERIENCE as the primary action rather than feeling like a conventional catering enquiry site.
+
+6. Primary colour palette
+
+I would retain the approved palette exactly.
+
+Colour	HEX	Primary role
+Charcoal Black	#171412	Main dark background
+Ember Orange	#E6531A	CTA, energy, highlights
+Flame Red	#B52A18	Secondary accent
+Bone White	#F3E8D5	Main light background
+Ash Grey	#77716A	Secondary information
+
+The approved application ratio is:
+
+60% Charcoal / Bone
+25% Photography
+10% Ember Orange
+5% Flame Red / Ash
+
+That ratio is important. The orange and red should remain punctuation, not wallpaper.
+
+7. Supporting & neutral colours
+
+I would keep supporting colours extremely restrained.
+
+Core neutrals
+Charcoal Black — #171412
+Bone White — #F3E8D5
+
+These are the brand’s visual foundation.
+
+Secondary neutral
+Ash Grey — #77716A
+
+Use for:
+
+metadata
+secondary labels
+timestamps
+location information
+less-important UI content
+
+Do not use Ash Grey for important body copy on Bone White; its contrast is not strong enough for comfortable accessibility.
+
+Warm support
+
+Use photography itself to introduce additional warmth through:
+
+timber
+skin tones
+smoke
+embers
+food colour
+ceramics
+natural materials
+
+That is preferable to expanding the palette into lots of browns and “African-inspired” earth tones, which could make the brand drift into rustic territory.
+
+8. Colour combinations to avoid
+Avoid these as standard text treatments
+
+Flame Red text on Charcoal
+Too weak for normal-sized text.
+
+Ember Orange text on Bone White
+Works for large display type, but is too low-contrast for normal body copy.
+
+Ash Grey text on Charcoal
+Not strong enough for primary reading text.
+
+Ash Grey on Bone White
+Use only for minor metadata, not body copy.
+
+Ember Orange + Flame Red together as large areas
+They are too close in value and hue. The result becomes hot, busy and less sophisticated.
+
+Also avoid
+
+Charcoal + orange + red + multiple coloured text blocks in one composition.
+
+The brand will feel much stronger when one accent colour is doing the job.
+
+9. Accessibility for text over photographs
+
+This matters particularly because the approved direction calls for full-bleed photography and typography over photography.
+
+For web content, WCAG AA calls for at least 4.5:1 contrast for normal text and 3:1 for large text.
+
+Practical Biggy Smallz rule
+
+Never place important copy directly over a photograph just because it looks good in the layout.
+
+Instead:
+
+Option A — Dark image:
+Use Bone White text.
+
+Option B — Light image:
+Use Charcoal text.
+
+Option C — Busy photograph:
+Add a controlled dark or light overlay behind the text.
+
+Option D — Uncertain contrast:
+Move the text into a solid Charcoal/Bone area.
+
+Best photographic overlay
+
+For dark images, use a subtle Charcoal Black overlay, not a heavy black gradient that makes the photograph look artificially processed.
+
+Important distinction
+
+Large hero typography gives you more flexibility, but smaller website copy, navigation and buttons should still be designed for reliable contrast. WCAG specifically notes that larger text has a lower minimum contrast threshold because it is easier to distinguish.
+
+10. The simplest colour rule
+
+Use this as the designer’s one-line rule:
+
+Charcoal anchors. Bone breathes. Orange activates. Red punctuates. Ash informs. Photography brings the heat.
+
+Or, even simpler:
+
+Dark = authority
+
+Charcoal for major backgrounds, hero sections and strong brand statements.
+
+Light = clarity
+
+Bone for menus, information, copy-heavy sections and quieter layouts.
+
+Orange = action
+
+Use Ember Orange for buttons, calls to action, key words and moments that need attention.
+
+Red = emphasis
+
+Use Flame Red sparingly for small graphic accents, highlights or campaign moments.
+
+Ash = secondary
+
+Use Ash Grey for supporting information only.
+
+Recommended final system
+TYPOGRAPHY
+
+PRIMARY DISPLAY
+Oswald Bold / SemiBold
+
+SECONDARY BODY
+Montserrat Regular / Medium / SemiBold
+
+ACCENT
+None
+
+COLOUR
+
+#171412 — Charcoal Black
+#F3E8D5 — Bone White
+#E6531A — Ember Orange
+#B52A18 — Flame Red
+#77716A — Ash Grey
+
+The visual hierarchy
+
+OSWALD = BIG STATEMENT
+MONTSERRAT = EASY INFORMATION
+CHARCOAL + BONE = BRAND FOUNDATION
+ORANGE = ENERGY
+RED = PUNCTUATION
+PHOTOGRAPHY = EMOTION
+
+That gives Biggy Smallz a system that should remain recognisable whether it is sitting on an Instagram Reel, WhatsApp flyer, wedding proposal, festival poster or website hero — without becoming a generic restaurant, rustic braai brand or over-luxury private chef identity. The approved direction explicitly prioritises simple reproduction across Instagram, WhatsApp, print and web, with authentic photography and strong, restrained typography doing the work.
+
+One caveat: Canva’s font library is large and changing, but Canva currently documents both Oswald and Montserrat as available font choices/pairings, and its recent expansion significantly broadened the platform’s font library.

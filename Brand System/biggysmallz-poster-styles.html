@@ -1,0 +1,258 @@
+<title>BiggySmallz Launch — Poster Style Directions</title>
+<style>
+  :root{
+    --paper:#F5F1E8; --paper-2:#EBE5D6; --ink:#17150F; --ink-soft:#4a453a;
+    --line:rgba(23,21,15,.14); --frame:#F5F1E8; --frame-ink:#17150F;
+    --muted:#807760; --accent:#B8722E;
+    --serif:"Hoefler Text","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier New",ui-monospace,monospace;
+    --cond:"Arial Narrow",Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --frame:#17150F; --frame-ink:#F5F1E8; --line:rgba(245,241,232,.14); --muted:#9a8f76; }
+  }
+  :root[data-theme="light"]{ --frame:#F5F1E8; --frame-ink:#17150F; --line:rgba(23,21,15,.14); --muted:#807760; }
+  :root[data-theme="dark"]{ --frame:#17150F; --frame-ink:#F5F1E8; --line:rgba(245,241,232,.14); --muted:#9a8f76; }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--frame);color:var(--frame-ink);
+    font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .wrap{max-width:1180px;margin:0 auto;padding:clamp(1.5rem,4vw,3.5rem) clamp(1rem,4vw,2.5rem) 4rem}
+
+  header.masthead{border-bottom:1px solid var(--line);padding-bottom:1.6rem;margin-bottom:2.2rem}
+  .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.7rem,4vw,2.9rem);line-height:1.05;margin:.5rem 0 .4rem;text-wrap:balance;letter-spacing:-.01em}
+  .lede{max-width:60ch;color:var(--muted);font-size:.98rem}
+  .lede b{color:var(--frame-ink);font-weight:600}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:clamp(1.1rem,2.4vw,1.9rem)}
+  .tile{display:flex;flex-direction:column;gap:.75rem}
+  .poster{position:relative;aspect-ratio:2/3;border-radius:3px;overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.2),0 18px 40px -22px rgba(0,0,0,.55);isolation:isolate}
+  .cap{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem}
+  .cap b{font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:.01em}
+  .cap span{font-family:var(--mono);font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;text-align:right}
+  .cap small{display:block;color:var(--muted);font-family:var(--sans);font-weight:400;font-size:.8rem;letter-spacing:0;margin-top:.15rem;text-transform:none}
+
+  /* shared poster primitives */
+  .p{position:absolute;inset:0;display:flex;flex-direction:column;padding:9%}
+  .brandline{font-weight:800;letter-spacing:.02em;line-height:.92}
+  .fill{flex:1}
+
+  /* ---------- 1 · MINIMALISM ---------- */
+  .m{background:#F3F0E9;color:#1c1a15}
+  .m .p{justify-content:space-between;text-align:center;align-items:center}
+  .m .top{font-family:var(--mono);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:#8a8272}
+  .m svg{width:34%;stroke:#1c1a15;fill:none;stroke-width:2.4}
+  .m .word{font-family:var(--serif);font-size:1.05rem;letter-spacing:.02em}
+  .m .dot{width:5px;height:5px;border-radius:50%;background:#C0492B;margin:.9rem auto 0}
+  .m .bot{font-family:var(--mono);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:#8a8272}
+
+  /* ---------- 2 · RETRO ---------- */
+  .r{background:#F0D9A8;color:#3A1E0E}
+  .r::before{content:"";position:absolute;inset:0;
+    background:repeating-conic-gradient(from 0deg at 50% 38%, #E4A62C 0deg 12deg, #E9B84f 12deg 24deg);
+    opacity:.85}
+  .r::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 120%,rgba(192,73,43,.9),transparent 60%)}
+  .r .p{z-index:1;justify-content:space-between;text-align:center;align-items:center}
+  .r .est{font-family:var(--cond);font-weight:700;letter-spacing:.35em;font-size:.62rem;text-transform:uppercase;background:#3A1E0E;color:#F0D9A8;padding:.3em .9em;border-radius:2em}
+  .r .big{font-family:"Cooper Black","Rockwell",var(--serif);font-weight:900;font-size:clamp(1.9rem,7vw,2.7rem);line-height:.86;color:#3A1E0E;text-shadow:3px 3px 0 #F0D9A8;text-transform:uppercase}
+  .r .sub{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:#7a2f16}
+  .r .rband{font-family:"Cooper Black",var(--serif);background:#C0492B;color:#F0D9A8;font-size:.8rem;letter-spacing:.05em;padding:.35em 1em;border-radius:2em;text-transform:uppercase}
+
+  /* ---------- 3 · FUTURISTIC ---------- */
+  .f{background:#070810;color:#eaf2ff}
+  .f::before{content:"";position:absolute;inset:0;opacity:.5;
+    background:linear-gradient(rgba(120,150,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,255,.10) 1px,transparent 1px);
+    background-size:22px 22px;mask:radial-gradient(120% 90% at 50% 30%,#000,transparent 75%)}
+  .f .glow{position:absolute;left:50%;top:34%;width:56%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle,rgba(255,60,172,.55),rgba(122,92,255,.25) 45%,transparent 70%);filter:blur(2px)}
+  .f .ring{position:absolute;left:50%;top:34%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+    border:1.5px solid #00E5FF;box-shadow:0 0 18px #00e5ff,inset 0 0 18px rgba(0,229,255,.6)}
+  .f .p{z-index:1;justify-content:flex-end;text-align:center;align-items:center;gap:.5rem}
+  .f .tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:#7fdfff}
+  .f .big{font-family:var(--mono);font-weight:700;font-size:clamp(1.4rem,5.4vw,2rem);letter-spacing:.06em;line-height:1;
+    text-transform:uppercase;background:linear-gradient(90deg,#FF3CAC,#7A5CFF,#00E5FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .f .meta{font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:#8ea6d6;text-transform:uppercase}
+
+  /* ---------- 4 · GLASSMORPHISM ---------- */
+  .g{background:linear-gradient(150deg,#FF8A3D,#C64AA0 52%,#3A2E6E)}
+  .g::before{content:"";position:absolute;width:44%;aspect-ratio:1;border-radius:50%;top:12%;right:-8%;
+    background:radial-gradient(circle,#FFD27A,#FF7A3D 60%,transparent 72%);filter:blur(6px);opacity:.9}
+  .g .p{z-index:1;justify-content:center;align-items:center}
+  .g .card{width:100%;padding:12% 9%;text-align:center;border-radius:16px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);
+    -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 20px 40px -20px rgba(0,0,0,.5);color:#fff}
+  .g .est{font-family:var(--mono);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85}
+  .g .big{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,5.6vw,2.1rem);line-height:.98;margin:.5rem 0;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+  .g .chip{display:inline-block;margin-top:.6rem;font-family:var(--sans);font-weight:600;font-size:.66rem;letter-spacing:.06em;
+    padding:.4em 1em;border-radius:2em;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45);text-transform:uppercase}
+
+  /* ---------- 5 · EDITORIAL (their register) ---------- */
+  .e{background:#12100E;color:#EFE7DA}
+  .e .p{justify-content:space-between;text-align:center;align-items:center;padding:11% 9%}
+  .e .est{font-family:var(--mono);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:#C79A4B}
+  .e .mid{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+  .e .big{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,7.5vw,2.9rem);line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+  .e .rule{width:34px;height:1px;background:#C79A4B}
+  .e .sub{font-family:var(--serif);font-style:italic;font-size:.86rem;color:#cbbfae;max-width:22ch}
+  .e .meta{font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#8a806c}
+
+  /* ---------- 6 · SURREAL ---------- */
+  .s{background:linear-gradient(#F3C9A8 0%,#D89CB0 40%,#8E86C0 72%,#4B4680 100%);color:#241f3a}
+  .s .sun{position:absolute;left:50%;top:30%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle at 50% 45%,#FFF3D6,#FFC98A 55%,#F49A6A 78%);box-shadow:0 0 60px rgba(255,200,140,.6)}
+  .s .plate{position:absolute;left:50%;top:62%;width:52%;aspect-ratio:1;transform:translate(-50%,-50%) rotate(-8deg);border-radius:50%;
+    background:radial-gradient(circle,#efe9f2,#c9c1d6 70%,#a89fbf);box-shadow:0 30px 40px -18px rgba(40,25,60,.5)}
+  .s .flame{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) rotate(6deg);font-size:2.4rem;filter:drop-shadow(0 8px 10px rgba(60,20,10,.4))}
+  .s .horizon{position:absolute;left:-10%;right:-10%;top:64%;height:1px;background:rgba(40,25,60,.35);transform:rotate(-4deg)}
+  .s .p{z-index:2;justify-content:space-between;text-align:center;align-items:center}
+  .s .est{font-family:var(--mono);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:#4a3f66}
+  .s .big{font-family:var(--serif);font-weight:600;font-style:italic;font-size:clamp(1.5rem,5.8vw,2.15rem);line-height:.96;color:#211b3a;text-shadow:0 2px 0 rgba(255,255,255,.35)}
+  .s .meta{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:#463b63}
+
+  /* ---------- 7 · GRAFFITI ---------- */
+  .gf{background:#2b2b2e}
+  .gf::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(80% 60% at 20% 10%,rgba(255,46,99,.35),transparent 55%),
+      radial-gradient(70% 50% at 90% 80%,rgba(0,240,181,.28),transparent 55%),
+      repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 2px,transparent 2px 5px),
+      linear-gradient(#37363a,#232227)}
+  .gf .p{z-index:1;justify-content:space-between;align-items:flex-start;text-align:left}
+  .gf .est{font-family:var(--mono);font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:#ffe600;transform:rotate(-3deg)}
+  .gf .big{font-family:"Arial Black",Impact,var(--sans);font-weight:900;font-size:clamp(2rem,8vw,2.9rem);line-height:.82;text-transform:uppercase;
+    color:#FFE600;-webkit-text-stroke:2px #101012;text-stroke:2px #101012;text-shadow:5px 5px 0 rgba(255,46,99,.9);transform:rotate(-3deg)}
+  .gf .drip{position:absolute;width:6px;height:26px;border-radius:0 0 6px 6px;background:#FFE600;bottom:34%;opacity:.9}
+  .gf .drip:nth-of-type(1){left:22%} .gf .drip:nth-of-type(2){left:38%;height:18px} .gf .drip:nth-of-type(3){left:66%;height:30px}
+  .gf .tag{font-family:"Brush Script MT","Comic Sans MS",cursive;font-size:1.15rem;color:#00F0B5;transform:rotate(-6deg);text-shadow:2px 2px 0 #101012}
+  .gf .meta{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:#e8e6ea;background:#101012;padding:.25em .6em;transform:rotate(-2deg)}
+
+  footer{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.2rem;color:var(--muted);font-size:.82rem;max-width:66ch}
+  @media (prefers-reduced-motion:no-preference){
+    .poster{transition:transform .3s ease, box-shadow .3s ease}
+    .poster:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.25),0 28px 55px -24px rgba(0,0,0,.7)}
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">MeetingPoint Studio · Poster directions</p>
+    <h1>Biggy Smallz Spitmasters — The Launch</h1>
+    <p class="lede">Seven graphic-design directions for the launch poster, each shown as a working thumbnail. Pick the language that fits the moment and I'll build it out full-size. <b>Date &amp; venue are placeholders</b> — send me the real details and any hero photo, and the direction we choose gets the proper treatment.</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1 MINIMALISM -->
+    <div class="tile">
+      <div class="poster m">
+        <div class="p">
+          <div class="top">Biggy Smallz · Est. 2017</div>
+          <svg viewBox="0 0 60 90" aria-hidden="true"><path d="M30 8 C42 26 46 34 40 52 C36 64 24 66 20 54 C18 62 12 60 12 50 C12 38 24 30 30 8 Z"/></svg>
+          <div>
+            <div class="word">The Launch</div>
+            <div class="dot"></div>
+          </div>
+          <div class="bot">04.10.26 — Maputo</div>
+        </div>
+      </div>
+      <div class="cap"><b>Minimalism<small>Quiet, premium, all whitespace</small></b><span>01</span></div>
+    </div>
+
+    <!-- 2 RETRO -->
+    <div class="tile">
+      <div class="poster r">
+        <div class="p">
+          <div class="est">Est · 2017</div>
+          <div>
+            <div class="big">Biggy<br>Smallz</div>
+            <div class="sub">Spitmasters · Fire Feasts</div>
+          </div>
+          <div class="rband">Grand Launch · 04 Oct</div>
+        </div>
+      </div>
+      <div class="cap"><b>Retro / 70s<small>Warm, nostalgic, groovy</small></b><span>02</span></div>
+    </div>
+
+    <!-- 3 FUTURISTIC -->
+    <div class="tile">
+      <div class="poster f">
+        <div class="glow"></div><div class="ring"></div>
+        <div class="p">
+          <div class="tag">Fire · Reimagined</div>
+          <div class="big">Biggy Smallz<br>The Launch</div>
+          <div class="meta">04 · 10 · 26 — Maputo</div>
+        </div>
+      </div>
+      <div class="cap"><b>Futuristic<small>Neon, high-tech, night</small></b><span>03</span></div>
+    </div>
+
+    <!-- 4 GLASSMORPHISM -->
+    <div class="tile">
+      <div class="poster g">
+        <div class="p">
+          <div class="card">
+            <div class="est">Personal Chef · Est. 2017</div>
+            <div class="big">Biggy Smallz<br>Launch</div>
+            <div class="chip">Sat 04 Oct · Maputo</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>Glassmorphism<small>Frosted, modern, soft light</small></b><span>04</span></div>
+    </div>
+
+    <!-- 5 EDITORIAL -->
+    <div class="tile">
+      <div class="poster e">
+        <div class="p">
+          <div class="est">Est. 2017</div>
+          <div class="mid">
+            <div class="big">Biggy<br>Smallz</div>
+            <div class="rule"></div>
+            <div class="sub">Fire feasts &amp; a seven-course tasting menu</div>
+          </div>
+          <div class="meta">The Launch · 04 Oct · Maputo</div>
+        </div>
+      </div>
+      <div class="cap"><b>Editorial<small>Their site's register — refined</small></b><span>05</span></div>
+    </div>
+
+    <!-- 6 SURREAL -->
+    <div class="tile">
+      <div class="poster s">
+        <div class="sun"></div><div class="horizon"></div>
+        <div class="plate"></div><div class="flame">🔥</div>
+        <div class="p">
+          <div class="est">Est. 2017</div>
+          <div class="big">A Feast<br>from Fire</div>
+          <div class="meta">Biggy Smallz · Launch · 04 Oct</div>
+        </div>
+      </div>
+      <div class="cap"><b>Surreal<small>Dreamlike, unexpected, artful</small></b><span>06</span></div>
+    </div>
+
+    <!-- 7 GRAFFITI -->
+    <div class="tile">
+      <div class="poster gf">
+        <span class="drip"></span><span class="drip"></span><span class="drip"></span>
+        <div class="p">
+          <div class="est">Since '17 · Spitmasters</div>
+          <div class="big">Biggy<br>Smallz</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;align-items:flex-start">
+            <div class="tag">the launch!</div>
+            <div class="meta">04 OCT · Maputo</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><b>Graffiti<small>Street, loud, high-energy</small></b><span>07</span></div>
+    </div>
+
+  </div>
+
+  <footer>
+    Thumbnails are direction studies, not final artwork — type, spacing and imagery get refined once you pick one. All are original layouts (no stock templates). Tell me the winner, the real launch date/venue, and drop me a hero photo; I can produce print-ready artwork here or set it up in Canva.
+  </footer>
+</div>
