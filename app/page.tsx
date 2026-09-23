@@ -224,7 +224,7 @@ export default function HomePage() {
               >
                 <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal sm:aspect-[4/3]">
                   <Image
-                    src="/images/wedding-rob-leah/wedding-rob-leah-plating.png"
+                    src="/images/wedding-moyres/wedding-moyres-plating.png"
                     alt="Biggy and Chef Sikolethu plating together at the table."
                     fill
                     sizes="(min-width: 1024px) 58vw, 100vw"

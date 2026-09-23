@@ -130,7 +130,7 @@ export const siteConfig = {
       title: "VIP Events",
       blurb:
         "Discreet, high-touch catering for the occasions that matter most.",
-      image: "malinga/malinga-40th-canape-spread.png",
+      image: "milestone-40th/milestone-40th-canape-spread.png",
       alt: "A layered welcome-canapé spread on white linen for a milestone celebration.",
     },
     {

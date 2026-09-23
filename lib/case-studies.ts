@@ -48,7 +48,7 @@ export type CaseStudy = {
  * wbho-site-braai is deliberately left alone — WBHO is a company, not a
  * private individual, so its name reads as ordinary B2B social proof.
  */
-export const ANONYMISE_SLUGS = new Set(["rob-leah-wedding", "malinga-40th"]);
+export const ANONYMISE_SLUGS = new Set(["wedding-moyres-venue", "milestone-40th-birthday"]);
 
 export function displayTitle(study: CaseStudy): string {
   if (!ANONYMISE_SLUGS.has(study.slug)) return study.title;
@@ -57,7 +57,7 @@ export function displayTitle(study: CaseStudy): string {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "rob-leah-wedding",
+    slug: "wedding-moyres-venue",
     category: "Wedding",
     title: "Rob & Leah's Wedding",
     venue: "Moyres Venue",
@@ -78,28 +78,28 @@ export const caseStudies: CaseStudy[] = [
     // stand-ins on this case study.
     slideshowImages: [
       {
-        image: "wedding-rob-leah/slide.JPG",
+        image: "wedding-moyres/slide.JPG",
         alt: "Biggy and Chef Sikolethu shaking hands over the harvest buffet, guests mingling behind them.",
       },
       {
-        image: "wedding-rob-leah/slide2.png",
+        image: "wedding-moyres/slide2.png",
         alt: "Biggy plating at the harvest buffet.",
       },
       {
-        image: "wedding-rob-leah/slide3.png",
+        image: "wedding-moyres/slide3.png",
         alt: "A guest serving herself from the harvest spread.",
       },
     ],
     instagramUrl: "https://www.instagram.com/reel/DZc7JL7sOaD/",
     gallery: [
-      { image: "wedding-rob-leah/1.JPG", caption: "The jamón, hand-carved to order", alt: "Biggy hand-carving the jamón centerpiece for the harvest table." },
-      { image: "wedding-rob-leah/2.JPG", caption: "Canapés and platters from the spread", alt: "A spread of canapés, dips, cheese and fruit platters from the harvest table." },
-      { image: "wedding-rob-leah/3.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
+      { image: "wedding-moyres/1.JPG", caption: "The jamón, hand-carved to order", alt: "Biggy hand-carving the jamón centerpiece for the harvest table." },
+      { image: "wedding-moyres/2.JPG", caption: "Canapés and platters from the spread", alt: "A spread of canapés, dips, cheese and fruit platters from the harvest table." },
+      { image: "wedding-moyres/3.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
     ],
     featured: true,
   },
   {
-    slug: "malinga-40th",
+    slug: "milestone-40th-birthday",
     category: "Milestone Birthday",
     title: "Mr Malinga's 40th",
     date: "April 2026",
@@ -115,18 +115,18 @@ export const caseStudies: CaseStudy[] = [
     // fills the slideshow slot, and the Caesar salad is added to the
     // gallery alongside it.
     slideshowImages: [
-      { image: "malinga/malinga-40th-canape-spread.png", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga/SHIM3192.JPG", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
-      { image: "malinga/malinga-40th-green-beans.png", alt: "Sautéed green bean and basil pesto salad, plated long." },
+      { image: "milestone-40th/milestone-40th-canape-spread.png", alt: "A layered welcome-canapé spread on white linen." },
+      { image: "milestone-40th/SHIM3192.JPG", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
+      { image: "milestone-40th/milestone-40th-green-beans.png", alt: "Sautéed green bean and basil pesto salad, plated long." },
     ],
     instagramUrl: "https://www.instagram.com/reel/DXKPBrIDPCs/",
     gallery: [
-      { image: "malinga/malinga-40th-canape-spread.png", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
-      { image: "malinga/malinga-canape-tower.png", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
-      { image: "malinga/SHIM3192.JPG", caption: "Whole roasted fish, herb and chilli crust", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
-      { image: "malinga/SKRE5721.JPG", caption: "Caesar salad, shaved parmesan", alt: "A Caesar salad with croutons and shaved parmesan." },
-      { image: "malinga/malinga-40th-green-beans.png", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
-      { image: "malinga/malinga-green-goddess.png", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
+      { image: "milestone-40th/milestone-40th-canape-spread.png", caption: "Welcome canapés", alt: "A layered welcome-canapé spread on white linen." },
+      { image: "milestone-40th/milestone-40th-canape-tower.png", caption: "Slider canapé tower", alt: "A tower of slider canapés on a white platter." },
+      { image: "milestone-40th/SHIM3192.JPG", caption: "Whole roasted fish, herb and chilli crust", alt: "A whole roasted fish, herb and chilli crusted, in a chafing dish." },
+      { image: "milestone-40th/SKRE5721.JPG", caption: "Caesar salad, shaved parmesan", alt: "A Caesar salad with croutons and shaved parmesan." },
+      { image: "milestone-40th/milestone-40th-green-beans.png", caption: "Sautéed green bean & basil pesto salad", alt: "Sautéed green bean and basil pesto salad with feta." },
+      { image: "milestone-40th/milestone-40th-green-goddess.png", caption: "Chopped green goddess salad", alt: "A chopped green goddess salad." },
     ],
   },
   {

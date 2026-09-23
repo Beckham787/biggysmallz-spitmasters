@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "About Us · Biggy Smallz Spitmasters",
     description:
       "A personal chef and catering company built on fire — from spit-braais to plated, course-by-course dining.",
-    images: ["/images/wedding-rob-leah/wedding-rob-leah-plating.png"],
+    images: ["/images/wedding-moyres/wedding-moyres-plating.png"],
   },
 };
 
