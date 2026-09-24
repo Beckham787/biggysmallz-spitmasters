@@ -34,7 +34,7 @@ export default function BookPage() {
       <div className="section">
         <div className="mx-auto max-w-2xl">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               Book a Service
             </p>
             <h1 className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">
@@ -65,7 +65,7 @@ export default function BookPage() {
 
           <Reveal delay={160}>
             <div id="book-form" className="mt-16 scroll-mt-28">
-              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                 Or, tell him here
               </p>
               <div className="mt-6">
@@ -77,14 +77,14 @@ export default function BookPage() {
           {/* Direct contact for those who'd rather reach out themselves */}
           <Reveal delay={200}>
             <div className="mt-16 border-t border-gold/20 pt-10">
-              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                 Rather reach out yourself?
               </p>
               <ul className="mt-5 space-y-3 font-body text-lg italic text-cream-dim">
                 <li>
                   <a
                     href={`tel:${siteConfig.contact.phoneE164}`}
-                    className="transition-colors hover:text-gold"
+                    className="transition-colors hover:text-paper"
                   >
                     Call or text {siteConfig.contact.phoneDisplay}
                   </a>
@@ -94,7 +94,7 @@ export default function BookPage() {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-gold"
+                    className="transition-colors hover:text-paper"
                   >
                     Message on WhatsApp
                   </a>
@@ -102,7 +102,7 @@ export default function BookPage() {
                 <li>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="transition-colors hover:text-gold"
+                    className="transition-colors hover:text-paper"
                   >
                     Email {siteConfig.contact.email}
                   </a>
@@ -112,7 +112,7 @@ export default function BookPage() {
                     href={siteConfig.contact.instagramUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-gold"
+                    className="transition-colors hover:text-paper"
                   >
                     Instagram {siteConfig.contact.instagramHandle}
                   </a>

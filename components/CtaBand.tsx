@@ -22,7 +22,7 @@ export default function CtaBand({
       <div className="section text-center">
         <Reveal>
           {eyebrow && (
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               {eyebrow}
             </p>
           )}

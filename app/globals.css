@@ -23,13 +23,13 @@
      punchy. Individual pages add uppercase + wider tracking for hero-scale
      moments; this is the sitewide baseline. */
   h1, h2, h3, h4 {
-    @apply font-serif font-medium;
+    @apply font-serif font-semibold uppercase;
     letter-spacing: 0.01em;
   }
 
   /* Visible, on-brand focus ring for keyboard users. */
   :focus-visible {
-    outline: 2px solid theme("colors.ember-bright");
+    outline: 2px solid theme("colors.paper");
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -51,13 +51,13 @@
      voice with its own weight, so headings using this class (e.g. footer) keep
      the stamp look rather than picking up the serif heading treatment. */
   .eyebrow {
-    @apply font-display font-medium uppercase tracking-stamp text-xs sm:text-sm text-ember-bright;
+    @apply font-display font-medium uppercase tracking-stamp text-xs sm:text-sm text-paper;
   }
 
   /* Primary ember button — warm shadow, gentle lift on hover. */
   .btn-ember {
     @apply inline-flex items-center justify-center gap-2 rounded-sm bg-ember
-           px-7 py-3.5 font-display uppercase tracking-stamp text-sm text-cream
+           px-7 py-3.5 font-display uppercase tracking-stamp text-sm text-paper
            shadow-ember transition duration-300 hover:-translate-y-0.5
            hover:bg-ember-bright hover:shadow-ember-lg
            focus-visible:bg-ember-bright;
@@ -75,9 +75,9 @@
   .photo-veil {
     background: linear-gradient(
       to bottom,
-      rgba(8, 7, 6, 0.55) 0%,
-      rgba(8, 7, 6, 0.35) 35%,
-      rgba(8, 7, 6, 0.75) 100%
+      rgba(22, 21, 23, 0.55) 0%,
+      rgba(22, 21, 23, 0.35) 35%,
+      rgba(22, 21, 23, 0.75) 100%
     );
   }
 }
@@ -89,17 +89,17 @@
   .glow-top {
     background-image: radial-gradient(
       120% 80% at 50% -10%,
-      rgba(193, 67, 45, 0.12) 0%,
-      rgba(193, 67, 45, 0) 55%
+      rgba(149, 41, 38, 0.12) 0%,
+      rgba(149, 41, 38, 0) 55%
     );
   }
 
   .glow-center {
     background-image: radial-gradient(
       90% 90% at 50% 45%,
-      rgba(193, 67, 45, 0.1) 0%,
-      rgba(74, 53, 39, 0.06) 35%,
-      rgba(193, 67, 45, 0) 70%
+      rgba(149, 41, 38, 0.1) 0%,
+      rgba(63, 63, 65, 0.06) 35%,
+      rgba(149, 41, 38, 0) 70%
     );
   }
 
@@ -107,9 +107,9 @@
   .glow-ember {
     background-image: radial-gradient(
       100% 130% at 50% 120%,
-      rgba(224, 103, 63, 0.22) 0%,
-      rgba(193, 67, 45, 0.14) 30%,
-      rgba(193, 67, 45, 0) 65%
+      rgba(149, 41, 38, 0.22) 0%,
+      rgba(149, 41, 38, 0.14) 30%,
+      rgba(149, 41, 38, 0) 65%
     );
   }
 
@@ -142,15 +142,15 @@
     background-image:
       radial-gradient(
         125% 78% at 50% 120%,
-        rgba(242, 133, 75, 0.32) 0%,
-        rgba(193, 67, 45, 0.2) 24%,
-        rgba(143, 47, 28, 0.1) 44%,
-        rgba(193, 67, 45, 0) 68%
+        rgba(149, 41, 38, 0.32) 0%,
+        rgba(149, 41, 38, 0.2) 24%,
+        rgba(149, 41, 38, 0.1) 44%,
+        rgba(149, 41, 38, 0) 68%
       ),
       radial-gradient(
         80% 55% at 80% 114%,
-        rgba(232, 179, 106, 0.14) 0%,
-        rgba(232, 179, 106, 0) 55%
+        rgba(149, 41, 38, 0.14) 0%,
+        rgba(149, 41, 38, 0) 55%
       );
   }
 
@@ -159,17 +159,7 @@
      coals. drop-shadow follows the glyph alpha (text-shadow can't, since the
      fill is transparent for the clip). */
   .seared {
-    background-image: linear-gradient(
-      178deg,
-      #ffd9a8 0%,
-      #f2854b 32%,
-      #e0673f 58%,
-      #c1432d 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 0 26px rgba(224, 103, 63, 0.45));
+    color: #FFFFFF; /* was an ember gradient: new colours + red-on-dark text; now solid white (identity rule) */
   }
 }
 

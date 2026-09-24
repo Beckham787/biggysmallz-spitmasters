@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="section relative z-10 max-w-xl">
           <Reveal>
-            <p className="font-display text-[0.6rem] uppercase tracking-[0.38em] text-gold">
+            <p className="font-display text-[0.6rem] uppercase tracking-[0.38em] text-paper">
               Est. {siteConfig.established}
             </p>
             <h1 className="mt-6 font-display text-4xl uppercase tracking-[0.04em] text-cream sm:text-5xl lg:text-6xl">
@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="section max-w-4xl">
           <Reveal>
             <div className="text-center">
-              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                 Public appearances
               </p>
               <h2 className="mt-4 font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
@@ -94,7 +94,7 @@ export default function HomePage() {
                     </div>
                   ) : (
                     <div className="flex aspect-[3/4] w-full flex-col items-center justify-center bg-coal px-6 text-center">
-                      <p className="font-display text-[0.6rem] uppercase tracking-[0.28em] text-gold">
+                      <p className="font-display text-[0.6rem] uppercase tracking-[0.28em] text-paper">
                         {event.date}
                       </p>
                       <p className="mt-4 font-display text-xl uppercase leading-snug tracking-[0.02em] text-cream">
@@ -148,11 +148,11 @@ export default function HomePage() {
                 className="absolute inset-0"
                 style={{
                   backgroundImage:
-                    "radial-gradient(120% 90% at 50% 50%, rgba(11,10,9,0) 0%, rgba(11,10,9,0.45) 60%, rgba(11,10,9,0.9) 100%)",
+                    "radial-gradient(120% 90% at 50% 50%, rgba(22,21,23,0) 0%, rgba(22,21,23,0.45) 60%, rgba(22,21,23,0.9) 100%)",
                 }}
               />
               <div className="relative z-10">
-                <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+                <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                   On air
                 </p>
                 <p className="mt-4 font-display text-xl uppercase tracking-[0.03em] text-cream sm:text-2xl">
@@ -165,7 +165,7 @@ export default function HomePage() {
                   href={siteConfig.onAir.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-block font-display text-xs uppercase tracking-[0.16em] text-gold underline decoration-gold/40 underline-offset-4 transition-colors hover:text-ember-bright"
+                  className="mt-6 inline-block font-display text-xs uppercase tracking-[0.16em] text-paper underline decoration-gold/40 underline-offset-4 transition-colors hover:text-paper"
                 >
                   Listen to the episode
                 </a>
@@ -182,7 +182,7 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-5">
               <Reveal>
-                <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+                <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                   Recently
                 </p>
                 <h2 className="mt-3 text-3xl text-cream sm:text-4xl">
@@ -284,7 +284,7 @@ function CreditGroup({
                   />
                 </span>
               )}
-              <span className="font-display uppercase tracking-[0.14em] text-xs text-cream-dim transition-colors group-hover:text-gold">
+              <span className="font-display uppercase tracking-[0.14em] text-xs text-cream-dim transition-colors group-hover:text-paper">
                 {item.name}
               </span>
             </>

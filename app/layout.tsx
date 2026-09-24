@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, EB_Garamond } from "next/font/google";
+import localFont from "next/font/local";
 import { siteConfig } from "@/lib/site-config";
 import { Analytics } from "@vercel/analytics/next";
 import Nav from "@/components/Nav";
@@ -8,23 +8,25 @@ import FloatingCta from "@/components/FloatingCta";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import "./globals.css";
 
-// Display face — Cinzel, a carved small-caps serif with real restaurant-
-// signage/menu-header presence. Carries headings, eyebrows, nav, buttons and
-// stamped labels. The "walking into a fine-dining room" direction, picked
-// 2026-08-22 — replaces the earlier Archivo/Fraunces/Anton system.
-const display = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+// Stage 7 rollout (2026-09-24): the identity's two voices, self-hosted from
+// brand-identity/_build/fonts (SIL OFL), so the site never waits on Google.
+// Oswald — loud: headlines, eyebrows, nav, buttons. Source Serif 4 — quiet:
+// everything you read.
+const display = localFont({
+  src: [
+    { path: "./fonts/oswald-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/oswald-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-display",
   display: "swap",
 });
 
-// Body face — EB Garamond, a classic book serif. Carries paragraph copy,
-// often set in italic for a quiet, menu-card warmth.
-const body = EB_Garamond({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "500"],
+const body = localFont({
+  src: [
+    { path: "./fonts/source-serif-4-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/source-serif-4-latin-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/source-serif-4-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
   variable: "--font-body",
   display: "swap",
 });
@@ -74,12 +76,16 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Get in my belly.`,
     description:
       "Personal chef catering, brought to wherever your table is — from whole-fire spitbraai to a quiet seven-course evening.",
+    // Stage 7 (2026-09-24): rebuilt in the identity at Facebook's link size
+    // (1200x630): Biggy slicing at the Mozambique Barbecue Festival, the
+    // redrawn badge, "Get in my belly." in Oswald. The old 1040x1040 image had
+    // the retired Cinzel type burned in. Source: brand/rollout/templates.
     images: [
       {
-        url: "/images/home-hero-og.png",
-        width: 1040,
-        height: 1040,
-        alt: "Get in my belly — Biggy Smallz Spitmasters. Biggy carving a whole roasted lamb straight off the spit.",
+        url: "/images/og-2026.png",
+        width: 1200,
+        height: 630,
+        alt: "Get in my belly. Biggy Smallz Spitmasters: Biggy slicing meat at the Mozambique Barbecue Festival, beside the Spitmasters badge.",
       },
     ],
   },
@@ -88,7 +94,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Get in my belly.`,
     description:
       "Personal chef catering, brought to wherever your table is — from whole-fire spitbraai to a quiet seven-course evening.",
-    images: ["/images/home-hero-og.png"],
+    images: ["/images/og-2026.png"],
   },
   alternates: {
     canonical: siteConfig.url,

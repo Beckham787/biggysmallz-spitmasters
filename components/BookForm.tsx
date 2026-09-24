@@ -116,7 +116,7 @@ export default function BookForm() {
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div>
         <label htmlFor="name" className={labelClass}>
-          Your name <span className="text-gold">*</span>
+          Your name <span className="text-paper">*</span>
         </label>
         <input
           id="name"
@@ -224,12 +224,12 @@ export default function BookForm() {
       </div>
 
       {clientError && (
-        <p role="alert" className="text-sm text-ember-bright">
+        <p role="alert" className="text-sm text-paper">
           {clientError}
         </p>
       )}
       {status === "error" && (
-        <p role="alert" className="text-sm text-ember-bright">
+        <p role="alert" className="text-sm text-paper">
           {errorMsg} You can also reach Biggy directly on{" "}
           <a
             href={`tel:${siteConfig.contact.phoneE164}`}

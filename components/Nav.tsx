@@ -76,15 +76,18 @@ export default function Nav() {
           aria-label={`${siteConfig.name} — home`}
           className="flex shrink-0 items-center gap-3"
         >
+          {/* The 2017 badge, redrawn (brand-identity/svg/lockup-white.svg).
+              60px tall = 81px wide: the badge's 80px minimum. */}
           <Image
-            src="/logo.png"
+            src="/brand/lockup-white.svg"
             alt=""
-            width={200}
-            height={148}
-            className="h-12 w-auto sm:h-16"
+            width={1596}
+            height={1182}
+            unoptimized
+            className="h-[60px] w-auto sm:h-16"
             priority
           />
-          <span className="hidden whitespace-nowrap font-display text-[0.55rem] uppercase tracking-[0.2em] text-gold sm:inline sm:text-[0.62rem] sm:tracking-[0.24em]">
+          <span className="hidden whitespace-nowrap font-display text-[0.55rem] uppercase tracking-[0.2em] text-paper sm:inline sm:text-[0.62rem] sm:tracking-[0.24em]">
             Get in my belly
           </span>
         </Link>
@@ -98,7 +101,7 @@ export default function Nav() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="nav-menu"
-            className="group flex shrink-0 items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-gold"
+            className="group flex shrink-0 items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-paper"
           >
             <span className="font-display text-xs uppercase tracking-[0.24em]">
               Menu
@@ -135,7 +138,7 @@ export default function Nav() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={`block px-5 py-3 font-display text-sm uppercase tracking-[0.12em] transition-colors ${
-                      active ? "text-gold" : "text-cream/90 hover:text-gold"
+                      active ? "text-paper" : "text-cream/90 hover:text-paper"
                     }`}
                   >
                     {link.label}

@@ -25,7 +25,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         No — every event is quoted individually, based on guest count, menu
         and travel. Tell us about your event through{" "}
-        <Link href="/book" className="text-gold underline underline-offset-4 decoration-gold/40 transition-colors hover:text-ember-bright">
+        <Link href="/book" className="text-paper underline underline-offset-4 decoration-gold/40 transition-colors hover:text-paper">
           Book a Service
         </Link>{" "}
         and we&rsquo;ll come back to you with a quote.
@@ -50,7 +50,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
       <>
         There&rsquo;s no fixed menu — every plate is built around your event
         and guest count. Have a look through{" "}
-        <Link href="/work" className="text-gold underline underline-offset-4 decoration-gold/40 transition-colors hover:text-ember-bright">
+        <Link href="/work" className="text-paper underline underline-offset-4 decoration-gold/40 transition-colors hover:text-paper">
           Our Work
         </Link>{" "}
         for examples of what we&rsquo;ve cooked before, then tell us what
@@ -69,7 +69,7 @@ export default function FaqPage() {
     <>
       <section className="bg-ink pb-16 pt-36 sm:pt-44">
         <div className="section max-w-2xl">
-          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
             FAQ
           </p>
           <h1 className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">

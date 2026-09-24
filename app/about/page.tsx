@@ -184,7 +184,7 @@ export default function AboutPage() {
         <div className="section">
           <Reveal>
             <div className="text-center">
-              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                 Behind the fire
               </p>
               <h2 className="mt-4 font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
@@ -222,7 +222,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal className="lg:col-span-7" as="div" delay={120}>
-              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+              <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                 Head Honcho
               </p>
               <h2 className="mt-3 text-3xl text-cream sm:text-4xl">
@@ -291,7 +291,7 @@ export default function AboutPage() {
 
         <div className="section relative z-10 max-w-xl py-20">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               More than the plate
             </p>
             <h2 className="mt-4 font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">

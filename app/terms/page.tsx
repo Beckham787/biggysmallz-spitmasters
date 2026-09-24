@@ -71,7 +71,7 @@ const sections: { heading: string; body: React.ReactNode }[] = [
       <>
         We may update these terms from time to time. Continuing to use the
         site means you accept the current version — see our{" "}
-        <Link href="/privacy" className="text-gold underline underline-offset-4 decoration-gold/40 transition-colors hover:text-ember-bright">
+        <Link href="/privacy" className="text-paper underline underline-offset-4 decoration-gold/40 transition-colors hover:text-paper">
           Privacy Policy
         </Link>{" "}
         for how we handle your details.
@@ -85,7 +85,7 @@ const sections: { heading: string; body: React.ReactNode }[] = [
         Questions about these terms — reach us at{" "}
         <a
           href={`mailto:${siteConfig.contact.email}`}
-          className="text-gold underline underline-offset-4 decoration-gold/40 transition-colors hover:text-ember-bright"
+          className="text-paper underline underline-offset-4 decoration-gold/40 transition-colors hover:text-paper"
         >
           {siteConfig.contact.email}
         </a>
@@ -100,7 +100,7 @@ export default function TermsPage() {
     <>
       <section className="bg-ink pb-16 pt-36 sm:pt-44">
         <div className="section max-w-2xl">
-          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
             Legal
           </p>
           <h1 className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">
@@ -116,7 +116,7 @@ export default function TermsPage() {
         <div className="section max-w-2xl space-y-10">
           {sections.map((s) => (
             <div key={s.heading}>
-              <h2 className="font-display text-sm uppercase tracking-[0.18em] text-gold">
+              <h2 className="font-display text-sm uppercase tracking-[0.18em] text-paper">
                 {s.heading}
               </h2>
               <p className="mt-3 font-body leading-relaxed text-cream-dim">

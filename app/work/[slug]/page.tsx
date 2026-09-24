@@ -44,7 +44,7 @@ export default function CaseStudyPage({ params }: Params) {
           <Reveal>
             <Link
               href="/work"
-              className="mb-6 inline-block font-display uppercase tracking-stamp text-xs text-smoke underline-offset-4 hover:text-ember-bright hover:underline"
+              className="mb-6 inline-block font-display uppercase tracking-stamp text-xs text-smoke underline-offset-4 hover:text-paper hover:underline"
             >
               ← All our work
             </Link>
@@ -60,7 +60,7 @@ export default function CaseStudyPage({ params }: Params) {
                 href={study.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block font-display uppercase tracking-stamp text-sm text-ember-bright underline-offset-4 hover:underline"
+                className="mt-3 inline-block font-display uppercase tracking-stamp text-sm text-paper underline-offset-4 hover:underline"
               >
                 View on Instagram →
               </a>

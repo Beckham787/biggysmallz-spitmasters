@@ -28,7 +28,7 @@ export default function WorkPage() {
       <section className="bg-ink pb-16 pt-36 sm:pt-44">
         <div className="section max-w-2xl">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               Our Work
             </p>
             <h1 className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">
@@ -78,7 +78,7 @@ export default function WorkPage() {
                     }}
                   />
                 </div>
-                <p className="mt-6 font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+                <p className="mt-6 font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                   International Stage · Fifth Year Running
                 </p>
                 <h2 className="mt-3 font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
@@ -90,7 +90,7 @@ export default function WorkPage() {
                   for a crowd from across the region. This one gets its own
                   story.
                 </p>
-                <span className="mt-5 inline-block font-display text-sm uppercase tracking-[0.14em] text-gold underline-offset-4 group-hover:underline">
+                <span className="mt-5 inline-block font-display text-sm uppercase tracking-[0.14em] text-paper underline-offset-4 group-hover:underline">
                   Read the story →
                 </span>
               </div>
@@ -103,7 +103,7 @@ export default function WorkPage() {
       <section className="bg-ink pb-20 sm:pb-28">
         <div className="section">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               The range
             </p>
             <div className="mt-6 max-w-md divide-y divide-gold/15">
@@ -124,7 +124,7 @@ export default function WorkPage() {
       <section className="bg-charcoal py-20 sm:py-28">
         <div className="section">
           <Reveal>
-            <p className="text-center font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="text-center font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               Recent events
             </p>
           </Reveal>
@@ -144,10 +144,10 @@ export default function WorkPage() {
                       intervalMs={4200 + i * 400}
                     />
                     <div className="mt-5">
-                      <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+                      <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
                         {study.category}
                       </p>
-                      <h2 className="mt-2 text-2xl text-cream transition-colors duration-300 group-hover:text-gold sm:text-3xl">
+                      <h2 className="mt-2 text-2xl text-cream transition-colors duration-300 group-hover:text-paper sm:text-3xl">
                         {displayTitle(study)}
                       </h2>
                       <p className="mt-1 font-display text-xs uppercase tracking-[0.14em] text-smoke">
@@ -158,7 +158,7 @@ export default function WorkPage() {
                       <p className="mt-3 max-w-md font-body italic leading-relaxed text-cream-dim">
                         {study.teaser}
                       </p>
-                      <span className="mt-4 inline-block font-display text-sm uppercase tracking-[0.14em] text-cream/80 underline-offset-4 group-hover:text-gold group-hover:underline">
+                      <span className="mt-4 inline-block font-display text-sm uppercase tracking-[0.14em] text-cream/80 underline-offset-4 group-hover:text-paper group-hover:underline">
                         See the event →
                       </span>
                     </div>

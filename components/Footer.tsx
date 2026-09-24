@@ -68,27 +68,9 @@ import StudioMark from "@/components/StudioMark";
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-cream/10 bg-charcoal">
-      {/* Watermark — the main badge, spanning the entire footer as a soft,
-          blurred backdrop (not a discrete medallion, not crisp text), so
-          it reads as ambient background rather than a second logo the
-          foreground content lands on. See comment above for why blur +
-          low opacity, not just low opacity alone. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 opacity-[0.10]"
-      >
-        <Image
-          src="/logo.png"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-contain"
-          style={{
-            filter: "grayscale(1) brightness(1.5) contrast(0.6) blur(2px)",
-          }}
-        />
-      </div>
-
+      {/* Stage 7 (2026-09-24): the blurred, greyscaled logo watermark that
+          sat behind the footer is gone. The brand guide's "never" list rules
+          out recolouring or effects on the badge. */}
       <div className="section relative z-10 pb-28 pt-12 md:pb-12">
         {/* "Book a Service" — pulled out of the identity/contact row and into
             its own small corner link (2026-08-23, per TK: it was crowding
@@ -107,11 +89,12 @@ export default function Footer() {
               own line, since Nguni Strength is a distinct second venture. */}
           <div className="flex shrink-0 items-center gap-4">
             <Image
-              src="/logo.png"
+              src="/brand/lockup-white.svg"
               alt={`${siteConfig.name} badge, Est. ${siteConfig.established}`}
-              width={200}
-              height={148}
-              className="h-14 w-auto shrink-0 object-contain sm:h-16"
+              width={1596}
+              height={1182}
+              unoptimized
+              className="h-16 w-auto shrink-0 object-contain sm:h-20"
             />
             <div className="flex items-center gap-2.5 border-l border-gold/15 pl-4">
               <Image
@@ -137,14 +120,14 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 font-body italic text-cream-dim">
             <a
               href={`tel:${siteConfig.contact.phoneE164}`}
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-paper"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
             <span className="text-cream-dim/30">·</span>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="break-all transition-colors hover:text-gold sm:break-normal"
+              className="break-all transition-colors hover:text-paper sm:break-normal"
             >
               {siteConfig.contact.email}
             </a>
@@ -153,7 +136,7 @@ export default function Footer() {
               href={siteConfig.contact.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-paper"
             >
               {siteConfig.contact.instagramHandle}
             </a>
@@ -162,7 +145,7 @@ export default function Footer() {
               href={siteConfig.contact.privateInstagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-gold"
+              className="transition-colors hover:text-paper"
             >
               {siteConfig.contact.privateInstagramHandle}
             </a>
@@ -178,15 +161,15 @@ export default function Footer() {
             {siteConfig.serviceAreaShort}
           </p>
           <div className="flex items-center gap-2 pt-1">
-            <Link href="/privacy" className="transition-colors hover:text-gold">
+            <Link href="/privacy" className="transition-colors hover:text-paper">
               Privacy
             </Link>
             <span className="text-smoke/40">·</span>
-            <Link href="/terms" className="transition-colors hover:text-gold">
+            <Link href="/terms" className="transition-colors hover:text-paper">
               Terms
             </Link>
             <span className="text-smoke/40">·</span>
-            <Link href="/faq" className="transition-colors hover:text-gold">
+            <Link href="/faq" className="transition-colors hover:text-paper">
               FAQ
             </Link>
           </div>

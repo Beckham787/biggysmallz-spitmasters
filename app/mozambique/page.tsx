@@ -137,7 +137,7 @@ export default function MozambiquePage() {
 
         <div className="section relative z-10 w-full pb-14 pt-32 sm:pb-20">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               International Stage · Fifth Year Running
             </p>
             <h1 className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
@@ -155,7 +155,7 @@ export default function MozambiquePage() {
                   key={y}
                   className={`font-display text-xs uppercase tracking-[0.1em] ${
                     y === "2026"
-                      ? "text-gold"
+                      ? "text-paper"
                       : "text-cream-dim/60"
                   }`}
                 >
@@ -193,7 +193,7 @@ export default function MozambiquePage() {
             </div>
           </Reveal>
           <Reveal delay={120} className="sm:order-2">
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               I · Confirmed for the Fire
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
@@ -206,19 +206,19 @@ export default function MozambiquePage() {
             </p>
             <dl className="mt-7 space-y-2.5">
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-gold">
+                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
                   Date
                 </dt>
                 <dd className="font-body text-cream-dim">3 October 2026</dd>
               </div>
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-gold">
+                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
                   Venue
                 </dt>
                 <dd className="font-body text-cream-dim">Campus da UEM, Maputo</dd>
               </div>
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-gold">
+                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
                   Time
                 </dt>
                 <dd className="font-body text-cream-dim">12h00</dd>
@@ -295,7 +295,7 @@ export default function MozambiquePage() {
         />
         <div className="section relative z-10 w-full pb-14 pt-24 sm:pb-20">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               IV · That&rsquo;s My Name Up There
             </p>
             <p className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
@@ -316,7 +316,7 @@ export default function MozambiquePage() {
       <section className="bg-charcoal py-16 sm:py-24">
         <div className="section">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               V · Archives
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
@@ -344,7 +344,7 @@ export default function MozambiquePage() {
       <section className="border-y border-cream/10 bg-coal py-20 text-center sm:py-28">
         <div className="section">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-ember-bright">
+            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
               Since 2022
             </p>
             <p className="mt-5 font-display text-4xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
@@ -424,7 +424,7 @@ function Chapter({
           </div>
         </Reveal>
         <Reveal delay={120} className={textOrder}>
-          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-gold">
+          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
             {number} · {label}
           </p>
           <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
