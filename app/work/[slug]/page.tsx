@@ -55,16 +55,6 @@ export default function CaseStudyPage({ params }: Params) {
             <p className="mt-3 font-display uppercase tracking-stamp text-sm text-smoke">
               {study.venue ? `${study.venue} · ${study.date}` : study.date}
             </p>
-            {study.instagramUrl && (
-              <a
-                href={study.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-block font-display uppercase tracking-stamp text-sm text-paper underline-offset-4 hover:underline"
-              >
-                View on Instagram →
-              </a>
-            )}
           </Reveal>
         </div>
       </section>
@@ -146,6 +136,41 @@ export default function CaseStudyPage({ params }: Params) {
         </div>
       </section>
 
+      {/* Close — the site books, Instagram is the proof. The Instagram link
+          used to sit under the headline, so the first thing a visitor was
+          offered was a way off the site, and the page had no booking action
+          at all. Now it ends on "Book a date", with the post as a secondary. */}
+      <section className="border-t border-cream/10 bg-ink py-20 sm:py-28">
+        <div className="section text-center">
+          <Reveal>
+            <p className="eyebrow">Your table, next</p>
+            <h2 className="mx-auto mt-4 max-w-2xl text-balance font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
+              Want a day like this?
+            </h2>
+            <p className="mx-auto mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
+              Tell us the date, the place and how many are eating.
+            </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link href="/book" className="btn-ember text-base">
+                Book a date like this
+              </Link>
+              {study.instagramUrl && (
+                <a
+                  href={study.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost text-base"
+                >
+                  {study.instagramUrl.includes("/reel/")
+                    ? "Watch the reel"
+                    : "See the post"}{" "}
+                  on Instagram
+                </a>
+              )}
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }
