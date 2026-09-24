@@ -1,0 +1,7 @@
+{
+ "silhouette_iou": 0.9832,
+ "px_only_in_2017": 9504,
+ "px_only_in_redraw": 378,
+ "px_2017_total": 588257,
+ "note": "differences = speckle texture, fork needle tips (blunted 6px), anti-aliased edges"
+}

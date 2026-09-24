@@ -1,0 +1,72 @@
+[
+ {
+  "a": "Spitmasters Red",
+  "b": "Charcoal",
+  "ratio": 1.31,
+  "body_text": false,
+  "large_text": false
+ },
+ {
+  "a": "Spitmasters Red",
+  "b": "White",
+  "ratio": 8.01,
+  "body_text": true,
+  "large_text": true
+ },
+ {
+  "a": "Spitmasters Red",
+  "b": "Jacket Black",
+  "ratio": 2.27,
+  "body_text": false,
+  "large_text": false
+ },
+ {
+  "a": "Spitmasters Red",
+  "b": "Bone",
+  "ratio": 6.99,
+  "body_text": true,
+  "large_text": true
+ },
+ {
+  "a": "Charcoal",
+  "b": "White",
+  "ratio": 10.51,
+  "body_text": true,
+  "large_text": true
+ },
+ {
+  "a": "Charcoal",
+  "b": "Jacket Black",
+  "ratio": 1.73,
+  "body_text": false,
+  "large_text": false
+ },
+ {
+  "a": "Charcoal",
+  "b": "Bone",
+  "ratio": 9.17,
+  "body_text": true,
+  "large_text": true
+ },
+ {
+  "a": "White",
+  "b": "Jacket Black",
+  "ratio": 18.2,
+  "body_text": true,
+  "large_text": true
+ },
+ {
+  "a": "White",
+  "b": "Bone",
+  "ratio": 1.15,
+  "body_text": false,
+  "large_text": false
+ },
+ {
+  "a": "Jacket Black",
+  "b": "Bone",
+  "ratio": 15.89,
+  "body_text": true,
+  "large_text": true
+ }
+]

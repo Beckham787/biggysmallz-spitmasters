@@ -1,0 +1,17 @@
+{
+ "min_px": {
+  "lockup": 80,
+  "mark": 48,
+  "mark-small": 16,
+  "wordmark": 80,
+  "wordmark-wide": 150
+ },
+ "min_mm": {
+  "lockup": 41,
+  "mark": 24,
+  "mark-small": 21,
+  "wordmark": 23,
+  "wordmark-wide": 51
+ },
+ "print_floor_mm": 0.2
+}

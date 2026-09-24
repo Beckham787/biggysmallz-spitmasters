@@ -1,0 +1,57 @@
+{
+ "lockup": {
+  "ink": {
+   "p1_pct": 0.39,
+   "p5_pct": 0.49,
+   "median_pct": 1.95
+  },
+  "lettering": {
+   "p1_pct": 1.38,
+   "p5_pct": 1.52,
+   "median_pct": 1.87
+  }
+ },
+ "mark": {
+  "ink": {
+   "p1_pct": 0.49,
+   "p5_pct": 0.83,
+   "median_pct": 3.03
+  },
+  "lettering": {
+   "p1_pct": 1.61,
+   "p5_pct": 1.76,
+   "median_pct": 2.17
+  }
+ },
+ "mark-small": {
+  "ink": {
+   "p1_pct": 0.55,
+   "p5_pct": 0.96,
+   "median_pct": 4.28
+  }
+ },
+ "wordmark": {
+  "ink": {
+   "p1_pct": 0.49,
+   "p5_pct": 0.88,
+   "median_pct": 2.15
+  },
+  "lettering": {
+   "p1_pct": 1.61,
+   "p5_pct": 1.76,
+   "median_pct": 2.17
+  }
+ },
+ "wordmark-wide": {
+  "ink": {
+   "p1_pct": 0.22,
+   "p5_pct": 0.39,
+   "median_pct": 1.07
+  },
+  "lettering": {
+   "p1_pct": 0.71,
+   "p5_pct": 0.83,
+   "median_pct": 1.04
+  }
+ }
+}
