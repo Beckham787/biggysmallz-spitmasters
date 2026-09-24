@@ -49,7 +49,7 @@ TK approved part 1 (the site look). No clickable preview branch was wanted.
 | 05 | The identity | full reveal board | IG portrait 1080×1350 |
 | 06 | Link share | Facebook link 1200×630, now the site's OG image | 1200×630 |
 
-**Also counted here:** the Heritage Day posters made 2026-09-24 are in `brand/rollout/heritage-day-2026/`. Each one passed the checklist when it was made.
+**Also counted here:** the Heritage Day posters made 2026-09-24 are in `brand/rollout/heritage-day-2026/`. Re-run in Stage 8: two checks failed (see `08-governance.md` §5).
 
 **Site change (uncommitted, per TK):** the link-share image is now `public/images/og-2026.png`, set in `app/layout.tsx` and the schema. It replaces the 1040×1040 image that had the retired Cinzel type burned in. `tsc` is clean.
 
