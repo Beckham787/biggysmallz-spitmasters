@@ -145,14 +145,14 @@ export default function CaseStudyPage({ params }: Params) {
           <Reveal>
             <p className="eyebrow">Your table, next</p>
             <h2 className="mx-auto mt-4 max-w-2xl text-balance font-display text-2xl uppercase tracking-[0.02em] text-cream sm:text-3xl">
-              Want a day like this?
+              Get in my belly.
             </h2>
             <p className="mx-auto mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
               Tell us the date, the place and how many are eating.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/book" className="btn-ember text-base">
-                Book a date like this
+                Book a date
               </Link>
               {study.instagramUrl && (
                 <a
