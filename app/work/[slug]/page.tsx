@@ -139,7 +139,7 @@ export default function CaseStudyPage({ params }: Params) {
       {/* Close — the site books, Instagram is the proof. The Instagram link
           used to sit under the headline, so the first thing a visitor was
           offered was a way off the site, and the page had no booking action
-          at all. Now it ends on "Book a date", with the post as a secondary. */}
+          at all. Now it ends on "Book a Service", with the post as a secondary. */}
       <section className="border-t border-cream/10 bg-ink py-20 sm:py-28">
         <div className="section text-center">
           <Reveal>
@@ -152,7 +152,7 @@ export default function CaseStudyPage({ params }: Params) {
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link href="/book" className="btn-ember text-base">
-                Book a date
+                Book a Service
               </Link>
               {study.instagramUrl && (
                 <a
