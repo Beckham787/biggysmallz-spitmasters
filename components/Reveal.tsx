@@ -10,6 +10,9 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
  * once JS is present do we hide-then-fade. A pre-paint layout effect sets the
  * hidden state before the browser paints, so there is no flash of content.
  *
+ * Content already in view at load is never hidden or animated (keeps LCP
+ * honest); only below-the-fold content is revealed on scroll.
+ *
  * Honours prefers-reduced-motion (stays visible, no transition).
  */
 
@@ -46,14 +49,15 @@ export default function Reveal({
     const rect = el.getBoundingClientRect();
     const inView = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
 
-    // Hide before the browser paints — no flash of visible content.
-    setState("hidden");
+    // Already on screen at load (the hero, the first section): leave it
+    // "static", fully visible from the server-rendered paint. Hiding it and
+    // fading it back in made the browser report the largest contentful paint
+    // only when the fade ended (2026-10 keep sweep: LCP render delay ~2 s on
+    // the homepage). Only content below the fold gets the reveal.
+    if (inView) return;
 
-    if (inView) {
-      // Already on screen: reveal on the next frame for a gentle entrance.
-      const id = requestAnimationFrame(() => setState("shown"));
-      return () => cancelAnimationFrame(id);
-    }
+    // Below the fold: hide before the browser paints, so there is no flash.
+    setState("hidden");
 
     // Below the fold: reveal when scrolled into view.
     const obs = new IntersectionObserver(
