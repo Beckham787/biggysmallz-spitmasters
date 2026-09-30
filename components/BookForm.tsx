@@ -1,15 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+// Spam protection that costs the visitor nothing (craft floor §5): a hidden
+// honeypot field real people never see, plus a time trap. The submission is
+// only sent once the form has been open for MIN_FILL_MS. Both checks run
+// before anything leaves the browser.
+const MIN_FILL_MS = 3000;
+const HONEYPOT_FIELD = "company_website";
 
 export default function BookForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [dateUnsure, setDateUnsure] = useState(false);
   const [clientError, setClientError] = useState<string>("");
+  const openedAt = useRef<number>(Date.now());
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,6 +25,20 @@ export default function BookForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    // Honeypot: a filled hidden field means a bot. Look like a success and
+    // send nothing, so the bot learns nothing.
+    if (((data.get(HONEYPOT_FIELD) as string) || "").trim() !== "") {
+      setStatus("success");
+      return;
+    }
+
+    // Time trap: nobody fills this form in under three seconds. A real visitor
+    // (autofill + a quick tap) is asked to press Send again, never dropped.
+    if (Date.now() - openedAt.current < MIN_FILL_MS) {
+      setClientError("One moment, please check your details, then press Send again.");
+      return;
+    }
 
     const name = (data.get("name") as string)?.trim();
     const phone = (data.get("phone") as string)?.trim();
@@ -250,6 +272,21 @@ export default function BookForm() {
           {status === "submitting" ? "Sending…" : "Send to Biggy"}
         </button>
         <p className="font-body italic text-sm text-smoke">Yours in flavour.</p>
+      </div>
+      {/* Honeypot (last child, so the form's vertical rhythm is untouched): off-screen, out of the tab order and hidden from assistive
+          tech. Not display:none, which some bots skip. */}
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}
+      >
+        <label htmlFor={HONEYPOT_FIELD}>Leave this field empty</label>
+        <input
+          id={HONEYPOT_FIELD}
+          name={HONEYPOT_FIELD}
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
     </form>
   );
