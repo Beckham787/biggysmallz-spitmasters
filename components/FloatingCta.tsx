@@ -13,6 +13,11 @@ import { whatsappUrl } from "@/lib/site-config";
  * /book page itself, where the form is already the focus. Respects the safe
  * area and meets the 44px touch-target minimum.
  *
+ * Accessible name (WCAG 2.5.3 Label in Name): the aria-label starts with the
+ * visible text, "Chat to Biggy", so voice control can say what it sees. While
+ * the button is faded out over the footer it is also taken out of the tab
+ * order (aria-hidden on a focusable link is an axe violation).
+ *
  * Also hides itself once the footer scrolls into view (2026-08-23, per TK:
  * it was sitting on top of the footer's own contact line) — an
  * IntersectionObserver watches the page's <footer>, and the button fades
@@ -42,9 +47,10 @@ export default function FloatingCta() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Message Biggy on WhatsApp"
+      aria-label="Chat to Biggy on WhatsApp"
       aria-hidden={footerVisible}
-      className={`btn-ember fixed bottom-5 right-5 z-40 !px-5 !py-3 shadow-ember-lg transition-opacity duration-300 md:hidden ${
+      tabIndex={footerVisible ? -1 : undefined}
+      className={`btn-ember fixed bottom-5 right-5 z-40 min-h-[44px] !px-5 !py-3 shadow-ember-lg transition-opacity duration-300 md:hidden ${
         footerVisible ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       style={{ marginBottom: "env(safe-area-inset-bottom)" }}
