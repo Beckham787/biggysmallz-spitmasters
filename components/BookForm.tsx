@@ -10,7 +10,16 @@ type Status = "idle" | "submitting" | "success" | "error";
 // only sent once the form has been open for MIN_FILL_MS. Both checks run
 // before anything leaves the browser.
 const MIN_FILL_MS = 3000;
-const HONEYPOT_FIELD = "company_website";
+// The honeypot's name is a neutral token on purpose: any name, id or label that
+// reads like a real field ("company_website", "url", "phone2") can be
+// classified by Chrome's address-profile autofill, which ignores
+// autocomplete="off". A saved profile would then fill it for a real visitor
+// and the enquiry would be dropped.
+const HONEYPOT_FIELD = "hp_k7q2x";
+const TOO_FAST_MESSAGES = [
+  "One moment, please check your details, then press Send again.",
+  "Nearly there. Please check your details, then press Send once more.",
+];
 
 export default function BookForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -18,6 +27,7 @@ export default function BookForm() {
   const [dateUnsure, setDateUnsure] = useState(false);
   const [clientError, setClientError] = useState<string>("");
   const openedAt = useRef<number>(Date.now());
+  const tooFastPresses = useRef(0);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,7 +46,10 @@ export default function BookForm() {
     // Time trap: nobody fills this form in under three seconds. A real visitor
     // (autofill + a quick tap) is asked to press Send again, never dropped.
     if (Date.now() - openedAt.current < MIN_FILL_MS) {
-      setClientError("One moment, please check your details, then press Send again.");
+      // Alternate the wording so a second press inside the window changes the
+      // live region's text and screen readers announce it again.
+      setClientError(TOO_FAST_MESSAGES[tooFastPresses.current % 2]);
+      tooFastPresses.current += 1;
       return;
     }
 
@@ -286,6 +299,10 @@ export default function BookForm() {
           type="text"
           tabIndex={-1}
           autoComplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
+          data-form-type="other"
         />
       </div>
     </form>

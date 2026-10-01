@@ -10,8 +10,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
  * once JS is present do we hide-then-fade. A pre-paint layout effect sets the
  * hidden state before the browser paints, so there is no flash of content.
  *
- * Content already in view at load is never hidden or animated (keeps LCP
- * honest); only below-the-fold content is revealed on scroll.
+ * Content already in view at load is never hidden or animated, so nothing the
+ * server rendered on screen is hidden and then re-shown at hydration (on a slow
+ * phone that reversal could flicker). Only below-the-fold content is revealed
+ * on scroll. This is not an LCP change.
  *
  * Honours prefers-reduced-motion (stays visible, no transition).
  */
@@ -51,9 +53,10 @@ export default function Reveal({
 
     // Already on screen at load (the hero, the first section): leave it
     // "static", fully visible from the server-rendered paint. Hiding it and
-    // fading it back in made the browser report the largest contentful paint
-    // only when the fade ended (2026-10 keep sweep: LCP render delay ~2 s on
-    // the homepage). Only content below the fold gets the reveal.
+    // fading it back in would hide content that is already on screen and then
+    // re-show it: on the live site the hero briefly drops to 0.969 opacity and
+    // recovers, which could flicker on a slow phone. Only content below the
+    // fold gets the reveal. No LCP effect is claimed.
     if (inView) return;
 
     // Below the fold: hide before the browser paints, so there is no flash.
