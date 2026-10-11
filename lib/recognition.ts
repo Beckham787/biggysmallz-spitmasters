@@ -54,6 +54,9 @@ export const mediaCredits: MediaCredit[] = [
     name: "Rise FM — Fun Food Friday",
     medium: "Radio",
     credit: `${siteConfig.onAir.detail} · 3 July 2026`,
+    // Small source (98x129, from the Instagram post); crisp at this size, would
+    // soften if shown larger. Swap in an official file when one turns up.
+    logo: "/logos/rise-fm.png",
     href: siteConfig.onAir.href,
     linkLabel: "Listen to the episode",
   },
