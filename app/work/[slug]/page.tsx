@@ -5,8 +5,17 @@ import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy, displayTitle } from "@/lib/case-studies";
 import Reveal from "@/components/Reveal";
 import CaseStudyMedia from "@/components/CaseStudyMedia";
+import CtaBand from "@/components/CtaBand";
 
 type Params = { params: { slug: string } };
+
+/** "Starter — sesame-crusted salmon…" -> course label + the rest, so a menu
+ * caption can be scanned by course. Captions with no dash stay whole. */
+function splitCaption(caption: string): { label?: string; text: string } {
+  const at = caption.indexOf(" — ");
+  if (at < 1 || at > 24) return { text: caption };
+  return { label: caption.slice(0, at), text: caption.slice(at + 3) };
+}
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -36,6 +45,11 @@ export default function CaseStudyPage({ params }: Params) {
   const study = getCaseStudy(params.slug);
   if (!study) notFound();
 
+  // Biggy's pull line is editorial copy, not a client testimonial. Where the
+  // write-up already says the same sentence, repeating it adds nothing.
+  const showPullLine =
+    !!study.quote && !study.intro.some((para) => para.includes(study.quote!));
+
   return (
     <>
       {/* Header */}
@@ -44,7 +58,7 @@ export default function CaseStudyPage({ params }: Params) {
           <Reveal>
             <Link
               href="/work"
-              className="mb-6 inline-block font-display uppercase tracking-stamp text-xs text-smoke underline-offset-4 hover:text-paper hover:underline"
+              className="mb-3 inline-flex min-h-[44px] items-center font-display uppercase tracking-stamp text-xs text-cream/80 underline-offset-4 hover:text-paper hover:underline"
             >
               ← All our work
             </Link>
@@ -60,7 +74,7 @@ export default function CaseStudyPage({ params }: Params) {
                 href={study.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block font-display uppercase tracking-stamp text-sm text-paper underline-offset-4 hover:underline"
+                className="mt-1 inline-flex min-h-[44px] items-center font-display uppercase tracking-stamp text-sm text-paper underline-offset-4 hover:underline"
               >
                 View on Instagram →
               </a>
@@ -104,11 +118,11 @@ export default function CaseStudyPage({ params }: Params) {
               </div>
             </Reveal>
 
-            {study.quote && (
+            {showPullLine && (
               <Reveal delay={150}>
-                <blockquote className="mt-8 border-l-2 border-ember pl-6 text-xl italic leading-relaxed text-cream">
-                  &ldquo;{study.quote}&rdquo;
-                </blockquote>
+                <p className="mt-8 border-l border-cream/30 pl-6 text-xl italic leading-relaxed text-cream">
+                  {study.quote}
+                </p>
               </Reveal>
             )}
           </div>
@@ -136,8 +150,22 @@ export default function CaseStudyPage({ params }: Params) {
                       className="object-cover"
                     />
                   </div>
-                  <figcaption className="mt-3 text-sm leading-snug text-cream-dim">
-                    {item.caption}
+                  <figcaption className="mt-3 leading-snug">
+                    {(() => {
+                      const { label, text } = splitCaption(item.caption);
+                      return (
+                        <>
+                          {label && (
+                            <span className="block font-display text-xs uppercase tracking-[0.2em] text-paper">
+                              {label}
+                            </span>
+                          )}
+                          <span className="mt-1 block font-body text-base text-cream/85">
+                            {text}
+                          </span>
+                        </>
+                      );
+                    })()}
                   </figcaption>
                 </figure>
               </Reveal>
@@ -146,6 +174,11 @@ export default function CaseStudyPage({ params }: Params) {
         </div>
       </section>
 
+      <CtaBand
+        eyebrow="Planning something like this?"
+        heading="Tell Biggy what you're planning"
+        sub="The date, the kind of event, and how to reach you. He'll shape the food from there."
+      />
     </>
   );
 }

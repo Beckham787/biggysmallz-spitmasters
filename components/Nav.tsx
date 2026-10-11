@@ -29,6 +29,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   // Close the menu on route change.
   useEffect(() => {
@@ -47,7 +48,10 @@ export default function Nav() {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
     };
     const onClick = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
@@ -87,10 +91,22 @@ export default function Nav() {
             className="h-[60px] w-auto sm:h-16"
             priority
           />
-          <span className="hidden whitespace-nowrap font-display text-[0.55rem] uppercase tracking-[0.2em] text-paper sm:inline sm:text-[0.62rem] sm:tracking-[0.24em]">
+          <span className="hidden whitespace-nowrap font-display text-[0.7rem] uppercase tracking-[0.2em] text-paper sm:inline sm:text-xs sm:tracking-[0.24em]">
             Get in my belly
           </span>
         </Link>
+
+        <div className="flex items-center gap-6">
+        {/* Book a Service — always visible from tablet up. On phones the
+            floating WhatsApp button and the menu carry the enquiry. */}
+        {pathname !== "/book" && (
+          <Link
+            href="/book"
+            className="btn-ember hidden !px-5 !py-2.5 text-xs md:inline-flex"
+          >
+            Book a Service
+          </Link>
+        )}
 
         {/* Menu trigger — a slender small-caps label with a hairline that
             draws in on hover/open, and three thin rules instead of a boxed
@@ -98,10 +114,11 @@ export default function Nav() {
         <div className="relative" ref={menuRef}>
           <button
             type="button"
+            ref={triggerRef}
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="nav-menu"
-            className="group flex shrink-0 items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-paper"
+            className="group flex min-h-[44px] shrink-0 items-center gap-3 py-2 text-cream transition-colors duration-300 hover:text-paper"
           >
             <span className="font-display text-xs uppercase tracking-[0.24em]">
               Menu
@@ -147,6 +164,7 @@ export default function Nav() {
               })}
             </div>
           )}
+        </div>
         </div>
       </nav>
     </header>

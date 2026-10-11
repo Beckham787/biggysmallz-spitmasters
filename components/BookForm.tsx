@@ -1,9 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { siteConfig } from "@/lib/site-config";
+import { useEffect, useRef, useState } from "react";
+import { siteConfig, whatsappUrl } from "@/lib/site-config";
 
 type Status = "idle" | "submitting" | "success" | "error";
+type FieldErrors = { name?: string; contact?: string; phone?: string; email?: string };
+
+// Deliberately loose: it only catches a missing @ or a missing dot, never a
+// real address. Biggy would rather get an odd email than lose an enquiry.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Spam protection that costs the visitor nothing (craft floor §5): a hidden
 // honeypot field real people never see, plus a time trap. The submission is
@@ -26,6 +31,22 @@ export default function BookForm() {
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [dateUnsure, setDateUnsure] = useState(false);
   const [clientError, setClientError] = useState<string>("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  // Earliest selectable event date: today. Set after mount so the server and
+  // browser can never disagree about what "today" is.
+  const [minDate, setMinDate] = useState<string | undefined>(undefined);
+  const thanksRef = useRef<HTMLHeadingElement | null>(null);
+
+  useEffect(() => {
+    const d = new Date();
+    const pad = (n: number) => String(n).padStart(2, "0");
+    setMinDate(`${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`);
+  }, []);
+
+  // Move focus to the confirmation so keyboard and screen-reader users land on it.
+  useEffect(() => {
+    if (status === "success") thanksRef.current?.focus();
+  }, [status]);
   const openedAt = useRef<number>(Date.now());
   const tooFastPresses = useRef(0);
 
@@ -57,15 +78,33 @@ export default function BookForm() {
     const phone = (data.get("phone") as string)?.trim();
     const email = (data.get("email") as string)?.trim();
 
-    // Light client-side validation: name + at least one contact method.
-    if (!name) {
-      setClientError("Please tell us your name.");
-      return;
-    }
+    // Light client-side validation: name + at least one usable contact method.
+    const nextErrors: FieldErrors = {};
+    if (!name) nextErrors.name = "Please tell us your name.";
     if (!phone && !email) {
-      setClientError("Please leave a phone number or an email so Biggy can reach you.");
+      nextErrors.contact =
+        "Please leave a phone number or an email so Biggy can reach you.";
+    } else {
+      if (email && !EMAIL_RE.test(email)) {
+        nextErrors.email =
+          "That email doesn't look right. Check for a missing @ or dot.";
+      }
+      if (phone && phone.replace(/\D/g, "").length < 9) {
+        nextErrors.phone =
+          "That number looks short. Include the full number, e.g. 082 000 0000.";
+      }
+    }
+    if (Object.keys(nextErrors).length > 0) {
+      setFieldErrors(nextErrors);
+      const firstId = nextErrors.name
+        ? "name"
+        : nextErrors.phone || nextErrors.contact
+          ? "phone"
+          : "email";
+      form.querySelector<HTMLElement>(`#${firstId}`)?.focus();
       return;
     }
+    setFieldErrors({});
 
     const eventDate = dateUnsure ? "Not sure yet" : (data.get("eventDate") as string) || "Not specified";
     const eventType = (data.get("eventType") as string) || "Not specified";
@@ -109,9 +148,10 @@ export default function BookForm() {
       form.reset();
       setDateUnsure(false);
     } catch (err) {
-      setErrorMsg(
-        err instanceof Error ? err.message : "Something went wrong.",
-      );
+      // The provider's own wording ("Booking form isn't configured yet",
+      // "Something went wrong") means nothing to a visitor; say what to do.
+      setErrorMsg("That didn't send.");
+      console.error("Booking form submission failed:", err);
       setStatus("error");
     }
   }
@@ -123,7 +163,11 @@ export default function BookForm() {
         role="status"
         className="rounded-sm border border-gold/30 bg-coal p-10 text-center"
       >
-        <h2 className="font-display text-2xl uppercase tracking-[0.02em] text-cream">
+        <h2
+          ref={thanksRef}
+          tabIndex={-1}
+          className="font-display text-2xl uppercase tracking-[0.02em] text-cream focus:outline-none"
+        >
           Thank You
         </h2>
         <p className="mx-auto mt-4 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
@@ -143,15 +187,22 @@ export default function BookForm() {
   }
 
   const fieldClass =
-    "w-full rounded-sm border border-cream/15 bg-coal/60 px-4 py-3 font-body text-cream placeholder:text-smoke transition-colors focus:border-gold focus:outline-none";
+    "w-full rounded-sm border border-cream/15 bg-coal/60 px-4 py-3 font-body text-cream placeholder:text-cream/50 transition-colors focus:border-paper focus:outline-none aria-[invalid=true]:border-paper";
   const labelClass =
     "mb-2 block font-display text-xs uppercase tracking-[0.14em] text-cream-dim";
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      onInput={() => {
+        if (Object.keys(fieldErrors).length > 0) setFieldErrors({});
+      }}
+      noValidate
+      className="space-y-6"
+    >
       <div>
         <label htmlFor="name" className={labelClass}>
-          Your name <span className="text-paper">*</span>
+          Your name <span className="text-paper" aria-hidden="true">*</span>
         </label>
         <input
           id="name"
@@ -159,9 +210,17 @@ export default function BookForm() {
           type="text"
           autoComplete="name"
           required
+          aria-required="true"
+          aria-invalid={fieldErrors.name ? true : undefined}
+          aria-describedby={fieldErrors.name ? "name-error" : undefined}
           className={fieldClass}
           placeholder="Who should we ask for?"
         />
+        {fieldErrors.name && (
+          <p id="name-error" role="alert" className="mt-2 text-sm text-paper">
+            {fieldErrors.name}
+          </p>
+        )}
       </div>
 
       <fieldset className="grid gap-6 sm:grid-cols-2">
@@ -178,9 +237,18 @@ export default function BookForm() {
             type="tel"
             autoComplete="tel"
             inputMode="tel"
+            aria-invalid={fieldErrors.phone || fieldErrors.contact ? true : undefined}
+            aria-describedby={["contact-hint", fieldErrors.phone ? "phone-error" : "", fieldErrors.contact ? "contact-error" : ""]
+              .filter(Boolean)
+              .join(" ")}
             className={fieldClass}
             placeholder="e.g. 082 000 0000"
           />
+          {fieldErrors.phone && (
+            <p id="phone-error" role="alert" className="mt-2 text-sm text-paper">
+              {fieldErrors.phone}
+            </p>
+          )}
         </div>
         <div>
           <label htmlFor="email" className={labelClass}>
@@ -191,14 +259,28 @@ export default function BookForm() {
             name="email"
             type="email"
             autoComplete="email"
+            aria-invalid={fieldErrors.email || fieldErrors.contact ? true : undefined}
+            aria-describedby={["contact-hint", fieldErrors.email ? "email-error" : "", fieldErrors.contact ? "contact-error" : ""]
+              .filter(Boolean)
+              .join(" ")}
             className={fieldClass}
             placeholder="you@example.com"
           />
+          {fieldErrors.email && (
+            <p id="email-error" role="alert" className="mt-2 text-sm text-paper">
+              {fieldErrors.email}
+            </p>
+          )}
         </div>
       </fieldset>
-      <p className="-mt-3 text-sm text-smoke">
+      <p id="contact-hint" className="-mt-3 text-sm text-cream/75">
         Leave a phone number or an email — whichever suits you.
       </p>
+      {fieldErrors.contact && (
+        <p id="contact-error" role="alert" className="-mt-3 text-sm text-paper">
+          {fieldErrors.contact}
+        </p>
+      )}
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
@@ -209,6 +291,7 @@ export default function BookForm() {
             id="eventDate"
             name="eventDate"
             type="date"
+            min={minDate}
             disabled={dateUnsure}
             className={`${fieldClass} disabled:cursor-not-allowed disabled:opacity-50`}
           />
@@ -265,14 +348,23 @@ export default function BookForm() {
       )}
       {status === "error" && (
         <p role="alert" className="text-sm text-paper">
-          {errorMsg} You can also reach Biggy directly on{" "}
+          {errorMsg} Message Biggy on{" "}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4"
+          >
+            WhatsApp<span className="sr-only"> (opens in a new tab)</span>
+          </a>{" "}
+          or call{" "}
           <a
             href={`tel:${siteConfig.contact.phoneE164}`}
             className="underline underline-offset-4"
           >
             {siteConfig.contact.phoneDisplay}
           </a>
-          .
+          , and he&rsquo;ll take it from there.
         </p>
       )}
 
@@ -284,7 +376,7 @@ export default function BookForm() {
         >
           {status === "submitting" ? "Sending…" : "Send to Biggy"}
         </button>
-        <p className="font-body italic text-sm text-smoke">Yours in flavour.</p>
+        <p className="font-body italic text-sm text-cream/75">Yours in flavour.</p>
       </div>
       {/* Honeypot (last child, so the form's vertical rhythm is untouched): off-screen, out of the tab order and hidden from assistive
           tech. Not display:none, which some bots skip. */}

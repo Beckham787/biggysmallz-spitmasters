@@ -69,7 +69,7 @@ export default function FaqPage() {
     <>
       <section className="bg-ink pb-16 pt-36 sm:pt-44">
         <div className="section max-w-2xl">
-          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+          <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
             FAQ
           </p>
           <h1 className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">

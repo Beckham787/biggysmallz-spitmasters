@@ -24,7 +24,6 @@ export default function LocalBusinessSchema() {
     logo: `${siteConfig.url}/brand/lockup-charcoal-1024.png`,
     telephone: siteConfig.contact.phoneE164,
     email: siteConfig.contact.email,
-    priceRange: "$$$",
     founder: {
       "@type": "Person",
       name: siteConfig.owner.name,

@@ -18,7 +18,7 @@ export default function StudioMark() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Site by TK Studio — see more of their work"
-      className="inline-flex items-center text-cream-dim opacity-40 transition-opacity duration-300 hover:text-paper hover:opacity-90"
+      className="inline-flex items-center p-4 text-cream-dim opacity-40 transition-opacity duration-300 hover:text-paper hover:opacity-90"
     >
       <svg width="14" height="14" viewBox="0 0 64 64" fill="none" aria-hidden="true" stroke="currentColor">
         <line x1="16" y1="17" x2="48" y2="17" strokeWidth={weight} strokeLinecap="square" />

@@ -27,6 +27,17 @@ import { whatsappUrl } from "@/lib/site-config";
 export default function FloatingCta() {
   const pathname = usePathname();
   const [footerVisible, setFooterVisible] = useState(false);
+  // On the homepage the hero already carries "Chat to Biggy", so the floating
+  // button waits until the visitor has scrolled past it.
+  const [pastHero, setPastHero] = useState(false);
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
 
   useEffect(() => {
     const footer = document.querySelector("footer");
@@ -41,17 +52,19 @@ export default function FloatingCta() {
   }, [pathname]);
 
   if (pathname === "/book") return null;
+  const hiddenForHero = pathname === "/" && !pastHero;
+  const hidden = footerVisible || hiddenForHero;
 
   return (
+    <aside aria-label="Quick contact" aria-hidden={hidden}>
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat to Biggy on WhatsApp"
-      aria-hidden={footerVisible}
-      tabIndex={footerVisible ? -1 : undefined}
+      tabIndex={hidden ? -1 : undefined}
       className={`btn-ember fixed bottom-5 right-5 z-40 min-h-[44px] !px-5 !py-3 shadow-ember-lg transition-opacity duration-300 md:hidden ${
-        footerVisible ? "pointer-events-none opacity-0" : "opacity-100"
+        hidden ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
       style={{ marginBottom: "env(safe-area-inset-bottom)" }}
     >
@@ -68,5 +81,6 @@ export default function FloatingCta() {
         Chat to Biggy
       </span>
     </a>
+    </aside>
   );
 }

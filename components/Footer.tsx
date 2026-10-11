@@ -79,7 +79,7 @@ export default function Footer() {
             Strength mark below it. */}
         <Link
           href="/book"
-          className="btn-ember absolute right-6 top-6 z-20 !px-4 !py-2 text-xs sm:right-8 sm:top-8"
+          className="btn-ember absolute right-6 top-6 z-20 !px-4 !py-3.5 text-xs sm:right-8 sm:top-8"
         >
           Book a Service
         </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                 height={44}
                 className="h-9 w-auto shrink-0"
               />
-              <span className="font-display text-[0.58rem] uppercase leading-tight tracking-[0.18em] text-smoke">
+              <span className="font-display text-xs uppercase leading-tight tracking-[0.18em] text-smoke">
                 Powered by
                 <br />
                 Nguni Strength
@@ -120,14 +120,14 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5 font-body italic text-cream-dim">
             <a
               href={`tel:${siteConfig.contact.phoneE164}`}
-              className="transition-colors hover:text-paper"
+              className="inline-block py-2.5 transition-colors hover:text-paper"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
             <span className="text-cream-dim/30">·</span>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="break-all transition-colors hover:text-paper sm:break-normal"
+              className="inline-block break-all py-2.5 transition-colors hover:text-paper sm:break-normal"
             >
               {siteConfig.contact.email}
             </a>
@@ -136,7 +136,7 @@ export default function Footer() {
               href={siteConfig.contact.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-paper"
+              className="inline-block py-2.5 transition-colors hover:text-paper"
             >
               {siteConfig.contact.instagramHandle}
             </a>
@@ -145,7 +145,7 @@ export default function Footer() {
               href={siteConfig.contact.privateInstagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-paper"
+              className="inline-block py-2.5 transition-colors hover:text-paper"
             >
               {siteConfig.contact.privateInstagramHandle}
             </a>
@@ -157,19 +157,19 @@ export default function Footer() {
             © {siteConfig.established}–{new Date().getFullYear()}{" "}
             {siteConfig.name}. All rights reserved.
           </p>
-          <p className="font-display text-[0.6rem] uppercase tracking-[0.2em]">
+          <p className="font-display text-xs uppercase tracking-[0.2em]">
             {siteConfig.serviceAreaShort}
           </p>
           <div className="flex items-center gap-2 pt-1">
-            <Link href="/privacy" className="transition-colors hover:text-paper">
+            <Link href="/privacy" className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-paper">
               Privacy
             </Link>
             <span className="text-smoke/40">·</span>
-            <Link href="/terms" className="transition-colors hover:text-paper">
+            <Link href="/terms" className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-paper">
               Terms
             </Link>
             <span className="text-smoke/40">·</span>
-            <Link href="/faq" className="transition-colors hover:text-paper">
+            <Link href="/faq" className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-paper">
               FAQ
             </Link>
           </div>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import YearRail from "@/components/YearRail";
+import CtaBand from "@/components/CtaBand";
 
 /**
  * app/mozambique/page.tsx — the Mozambique Barbecue Festival feature page.
@@ -80,17 +82,15 @@ const heroImage = {
   alt: "Whole chickens and pineapples hanging over glowing coals under a domed rig, festival marquee tents behind, at the Mozambique Barbecue Festival.",
 };
 
-const years = ["2022", "2023", "2024", "2025", "2026"];
-
 export const metadata: Metadata = {
   title: "Mozambique Barbecue Festival",
   alternates: { canonical: "/mozambique" },
   description:
-    "Every October since 2022, Biggy's crossed the border for the Mozambique Barbecue Festival — whole animals on the coals at Campus da UEM, Maputo. Five years running.",
+    "Every October since 2022, Biggy has crossed the border for the Mozambique Barbecue Festival: whole animals on the coals at Campus da UEM, Maputo. Five years on the line-up, 2022 to 2026.",
   openGraph: {
     title: "Mozambique Barbecue Festival · Biggy Smallz Spitmasters",
     description:
-      "Five years on the coals at Mozambique's biggest fire-cooking festival.",
+      "Five years on the coals at Mozambique's biggest fire-cooking festival, 2022 to 2026.",
     images: [heroImage.src],
   },
 };
@@ -137,7 +137,7 @@ export default function MozambiquePage() {
 
         <div className="section relative z-10 w-full pb-14 pt-32 sm:pb-20">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
               International Stage · Fifth Year Running
             </p>
             <h1 className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
@@ -149,31 +149,15 @@ export default function MozambiquePage() {
               animals over live coals, thousands of appetites, and a stage
               shared with grill masters from three countries.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-2">
-              {years.map((y) => (
-                <span
-                  key={y}
-                  className={`font-display text-xs uppercase tracking-[0.1em] ${
-                    y === "2026"
-                      ? "text-paper"
-                      : "text-cream-dim/60"
-                  }`}
-                >
-                  {y}
-                  {y !== years[years.length - 1] && (
-                    <span className="ml-2 text-cream-dim/30">·</span>
-                  )}
-                </span>
-              ))}
-            </div>
+            <YearRail className="mt-7" />
             <p className="mt-4 font-display text-xs uppercase tracking-[0.14em] text-smoke">
-              Campus da UEM, Maputo · 2026 edition: 3 October
+              Campus da UEM, Maputo · 2026 edition: 3 October 2026 · Biggy announced as Churrasqueiro
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ── I · Confirmed for the Fire — a bespoke announcement section,
+      {/* ── I · On the 2026 Line-up — a bespoke announcement section,
           not the shared Chapter component, because it carries an event
           details row + ticket CTA on top of the usual image + copy. The
           caption paragraph is the real festival caption VERBATIM, in the
@@ -193,8 +177,8 @@ export default function MozambiquePage() {
             </div>
           </Reveal>
           <Reveal delay={120} className="sm:order-2">
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
-              I · Confirmed for the Fire
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
+              I · On the 2026 Line-up
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
               Da &Aacute;frica do Sul para o maior festival de churrasco de
@@ -206,32 +190,38 @@ export default function MozambiquePage() {
             </p>
             <dl className="mt-7 space-y-2.5">
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
+                <dt className="w-16 shrink-0 font-display text-xs uppercase tracking-[0.14em] text-paper">
                   Date
                 </dt>
                 <dd className="font-body text-cream-dim">3 October 2026</dd>
               </div>
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
+                <dt className="w-16 shrink-0 font-display text-xs uppercase tracking-[0.14em] text-paper">
                   Venue
                 </dt>
                 <dd className="font-body text-cream-dim">Campus da UEM, Maputo</dd>
               </div>
               <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-[0.62rem] uppercase tracking-[0.14em] text-paper">
+                <dt className="w-16 shrink-0 font-display text-xs uppercase tracking-[0.14em] text-paper">
                   Time
                 </dt>
                 <dd className="font-body text-cream-dim">12h00</dd>
               </div>
             </dl>
-            <a
-              href="https://www.arena.co.mz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost mt-7 inline-block text-sm"
-            >
-              Get your ticket →
-            </a>
+            <p className="mt-7 max-w-prose font-body text-base italic leading-relaxed text-cream/75">
+              The festival&rsquo;s own announcement of the 2026 line-up.
+              That edition has now passed &mdash; new dates go up on{" "}
+              <a
+                href="https://www.instagram.com/biggysmallzspitmasters"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
+              >
+                @biggysmallzspitmasters
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              .
+            </p>
           </Reveal>
         </div>
       </section>
@@ -245,6 +235,7 @@ export default function MozambiquePage() {
         label="Old Friends, New Fire"
         image="mozambique/IZGH3821.JPG"
         alt="Biggy and a fellow chef at the festival, both in Coca-Cola caps, the Churrasqueiro Internacional lanyard around Biggy's neck."
+        caption="Biggy with a fellow chef, Churrasqueiro Internacional lanyard around his neck."
         align="right"
       >
         Some of the best friendships are forged around the fire. Good
@@ -256,6 +247,7 @@ export default function MozambiquePage() {
         label="The Craft"
         image="mozambique/UTVJ4075.JPG"
         alt="Cuts of meat hanging from a domed rig over glowing coals, red earth and a clear blue sky."
+        caption="Cuts hanging from the domed rig over the coals."
         align="left"
       >
         Experiencing the Mozambique Barbecue Festival was and always is a
@@ -295,14 +287,14 @@ export default function MozambiquePage() {
         />
         <div className="section relative z-10 w-full pb-14 pt-24 sm:pb-20">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
               IV · That&rsquo;s My Name Up There
             </p>
             <p className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
               Martin &lsquo;Biggy&rsquo; Mhlongo
             </p>
             <p className="mt-5 font-display text-xs uppercase tracking-[0.14em] text-smoke">
-              His own corner of the festival, five years running.
+              His own corner of the festival.
             </p>
           </Reveal>
         </div>
@@ -316,13 +308,13 @@ export default function MozambiquePage() {
       <section className="bg-charcoal py-16 sm:py-24">
         <div className="section">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
               V · Archives
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
-              Five years of coals, whole animals, and everything that ends
-              up beside them — a small selection of what five Octobers in
-              Maputo actually look like.
+              Coals, whole animals, and everything that ends up beside
+              them — a small selection of the festival from Biggy&rsquo;s
+              side of the fire.
             </p>
           </Reveal>
           <div className="mt-10 grid grid-cols-2 auto-rows-[130px] gap-3 sm:grid-cols-4 sm:auto-rows-[160px] sm:gap-4">
@@ -344,16 +336,16 @@ export default function MozambiquePage() {
       <section className="border-y border-cream/10 bg-coal py-20 text-center sm:py-28">
         <div className="section">
           <Reveal>
-            <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
               Since 2022
             </p>
             <p className="mt-5 font-display text-4xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
               5 Years.
             </p>
             <p className="mx-auto mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
-              Biggy&rsquo;s back on the bill for the 2026 edition — 3
-              October, Campus da UEM, Maputo. Follow along for this
-              year&rsquo;s lineup.
+              The 2026 edition was on 3 October at Campus da UEM, Maputo,
+              with Biggy announced as Churrasqueiro. Next dates go up on
+              Instagram.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
@@ -371,6 +363,12 @@ export default function MozambiquePage() {
           </Reveal>
         </div>
       </section>
+
+      <CtaBand
+        eyebrow="Book a Service"
+        heading="Tell Biggy what you're planning"
+        sub="The date, the kind of event, and how to reach you. He'll shape the food from there."
+      />
     </>
   );
 }
@@ -388,6 +386,7 @@ function Chapter({
   label,
   image,
   alt,
+  caption,
   align,
   frameShadow,
   children,
@@ -396,6 +395,7 @@ function Chapter({
   label: string;
   image: string;
   alt: string;
+  caption?: string;
   align: "left" | "right";
   frameShadow?: boolean;
   children: React.ReactNode;
@@ -407,24 +407,31 @@ function Chapter({
     <section className="bg-charcoal py-16 sm:py-24">
       <div className="section grid gap-8 sm:grid-cols-2 sm:items-center sm:gap-14">
         <Reveal className={imageOrder}>
-          <div
-            className={`relative aspect-[4/5] overflow-hidden rounded-sm border border-gold/20 bg-coal ${
-              frameShadow ? "shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]" : ""
-            }`}
-          >
-            <Image
-              src={image.startsWith("mozambique/")
-                ? `/images/${image}`
-                : image}
-              alt={alt}
-              fill
-              sizes="(min-width: 640px) 45vw, 90vw"
-              className="object-cover"
-            />
-          </div>
+          <figure>
+            <div
+              className={`relative aspect-[4/5] overflow-hidden rounded-sm border border-cream/15 bg-coal ${
+                frameShadow ? "shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]" : ""
+              }`}
+            >
+              <Image
+                src={image.startsWith("mozambique/")
+                  ? `/images/${image}`
+                  : image}
+                alt={alt}
+                fill
+                sizes="(min-width: 640px) 45vw, 90vw"
+                className="object-cover"
+              />
+            </div>
+            {caption && (
+              <figcaption className="mt-3 font-body text-sm italic leading-snug text-cream/70">
+                {caption}
+              </figcaption>
+            )}
+          </figure>
         </Reveal>
         <Reveal delay={120} className={textOrder}>
-          <p className="font-display text-[0.62rem] uppercase tracking-[0.3em] text-paper">
+          <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
             {number} · {label}
           </p>
           <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
