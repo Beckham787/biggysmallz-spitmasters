@@ -157,7 +157,7 @@ export default function MozambiquePage() {
         </div>
       </section>
 
-      {/* ── I · On the 2026 Line-up — a bespoke announcement section,
+      {/* ── I · The 2026 Announcement — a bespoke archive section,
           not the shared Chapter component, because it carries an event
           details row + ticket CTA on top of the usual image + copy. The
           caption paragraph is the real festival caption VERBATIM, in the
@@ -178,7 +178,7 @@ export default function MozambiquePage() {
           </Reveal>
           <Reveal delay={120} className="sm:order-2">
             <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-              I · On the 2026 Line-up
+              I · The 2026 Announcement
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
               Da &Aacute;frica do Sul para o maior festival de churrasco de
@@ -201,16 +201,10 @@ export default function MozambiquePage() {
                 </dt>
                 <dd className="font-body text-cream-dim">Campus da UEM, Maputo</dd>
               </div>
-              <div className="flex items-baseline gap-3">
-                <dt className="w-16 shrink-0 font-display text-xs uppercase tracking-[0.14em] text-paper">
-                  Time
-                </dt>
-                <dd className="font-body text-cream-dim">12h00</dd>
-              </div>
             </dl>
             <p className="mt-7 max-w-prose font-body text-base italic leading-relaxed text-cream/75">
-              The festival&rsquo;s own announcement of the 2026 line-up.
-              That edition has now passed &mdash; new dates go up on{" "}
+              The festival&rsquo;s own announcement of its 2026 line-up. New
+              dates go up on{" "}
               <a
                 href="https://www.instagram.com/biggysmallzspitmasters"
                 target="_blank"
