@@ -21,6 +21,9 @@ import { siteConfig } from "@/lib/site-config";
 const links = [
   { href: "/about", label: "About Us" },
   { href: "/work", label: "Our Work" },
+  // 2026-10-18: Latest — the menu is a drop-down, so a fourth item costs the
+  // bar nothing at 320 px.
+  { href: "/latest", label: "Latest" },
   { href: "/book", label: "Book a Service" },
 ];
 

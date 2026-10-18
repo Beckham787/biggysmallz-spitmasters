@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { caseStudies } from "@/lib/case-studies";
+import { latestEntries } from "@/lib/latest";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -18,5 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
-  return [...staticEntries, ...caseStudyEntries];
+  // /latest changes with every Instagram post; its date is the newest entry's.
+  const latestEntry = {
+    url: `${base}/latest`,
+    lastModified: latestEntries[0] ? new Date(`${latestEntries[0].date}T00:00:00+02:00`) : now,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  };
+  return [...staticEntries, latestEntry, ...caseStudyEntries];
 }

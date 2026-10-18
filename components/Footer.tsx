@@ -160,7 +160,11 @@ export default function Footer() {
           <p className="font-display text-xs uppercase tracking-[0.2em]">
             {siteConfig.serviceAreaShort}
           </p>
-          <div className="flex items-center gap-2 pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-x-2 pt-1">
+            <Link href="/latest" className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-paper">
+              Latest
+            </Link>
+            <span className="text-smoke/40">·</span>
             <Link href="/privacy" className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-paper">
               Privacy
             </Link>

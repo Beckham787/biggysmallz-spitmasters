@@ -6,6 +6,7 @@ import Reveal from "@/components/Reveal";
 import HeroPhoto from "@/components/HeroPhoto";
 import RecognitionFeature from "@/components/RecognitionFeature";
 import ServiceTiles from "@/components/ServiceTiles";
+import LatestBand from "@/components/LatestBand";
 import CtaBand from "@/components/CtaBand";
 
 // The homepage reads today's date (RecognitionFeature decides what is
@@ -79,6 +80,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Latest — the newest entries from lib/latest.ts, matching what's
+          on Instagram. After the range (what he cooks), before the event
+          story (one event in depth). ─────────────────────────────────── */}
+      <LatestBand />
 
       {/* ── Recent event spotlight — venue and event type only, no client
           names, per Biggy's request. ────────────────────────────────────── */}
