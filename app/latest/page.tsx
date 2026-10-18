@@ -86,21 +86,22 @@ export default function LatestPage() {
             <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
               Latest
             </p>
+            {/* Above the fold, so the swap from the fallback font to the
+                webfont must not change line counts, or the month list below
+                jumps (measured: 0.21–0.24 CLS on a throttled phone). The
+                headline breaks on purpose below sm; the intro is roman, the
+                face the fallback's metrics are matched to, with one spare
+                line reserved at the very narrowest widths, and has no inline
+                link (a link that re-wraps jumps sideways, which scores far
+                worse than the list moving down a line). The handle is in the
+                footer; each entry carries its own Instagram link. */}
             <h1 className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-4xl">
-              Where the fire&rsquo;s been
+              Where the
+              <br className="sm:hidden" /> fire&rsquo;s been
             </h1>
-            <p className="mt-5 max-w-xl font-body text-lg italic leading-relaxed text-cream/85">
-              Each entry here matches a post on{" "}
-              <a
-                href={siteConfig.contact.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
-              >
-                Biggy&rsquo;s Instagram
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-              , dated to the day. Where he named the dishes, the names are his.
+            <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-cream/85 max-[359px]:min-h-[5lh]">
+              Each entry here matches a post on Biggy&rsquo;s Instagram, dated
+              to the day. Where he named the dishes, the names are his.
             </p>
           </Reveal>
         </div>
