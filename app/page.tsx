@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, whatsappUrl } from "@/lib/site-config";
-import { featuredCaseStudy } from "@/lib/case-studies";
 import Reveal from "@/components/Reveal";
 import HeroPhoto from "@/components/HeroPhoto";
 import RecognitionFeature from "@/components/RecognitionFeature";
@@ -13,12 +12,6 @@ import CtaBand from "@/components/CtaBand";
 // upcoming and what is previous), so rebuild it at most hourly instead of
 // freezing "today" at build time.
 export const revalidate = 3600;
-
-// Recently featured — venue and event type only, no client names, per
-// Biggy's request.
-const featuredLabel = [featuredCaseStudy.category, featuredCaseStudy.venue]
-  .filter(Boolean)
-  .join(" · ");
 
 export default function HomePage() {
   return (
@@ -78,89 +71,26 @@ export default function HomePage() {
           <div className="mt-10">
             <ServiceTiles />
           </div>
+          <Link
+            href="/work"
+            className="mt-8 inline-flex min-h-[44px] items-center font-display text-sm uppercase tracking-[0.14em] text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
+          >
+            See the work
+          </Link>
         </div>
       </section>
 
       {/* ── Latest — the newest entries from lib/latest.ts, matching what's
-          on Instagram. After the range (what he cooks), before the event
-          story (one event in depth). ─────────────────────────────────── */}
+          on Instagram: the homepage's one "recent" section. The featured
+          event story that used to follow it ("Recently") now lives on
+          /latest under its own month, so the homepage doesn't show two
+          versions of "what he did lately". ────────────────────────────── */}
       <LatestBand />
-
-      {/* ── Recent event spotlight — venue and event type only, no client
-          names, per Biggy's request. ────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-ink py-16 sm:py-24">
-        <div className="section relative z-10">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-5">
-              <Reveal>
-                <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-                  Recently
-                </p>
-                <h2 className="mt-3 text-3xl text-cream sm:text-4xl">
-                  {featuredLabel}
-                </h2>
-                <p className="mt-2 font-display text-xs uppercase tracking-[0.14em] text-cream/70">
-                  {featuredCaseStudy.date}
-                </p>
-                <p className="mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream/85">
-                  {featuredCaseStudy.teaser}
-                </p>
-              </Reveal>
-
-              {/* Biggy's own line from the event write-up, set as a plain
-                  pull line: no quotation marks, so it can't read as a client
-                  testimonial. */}
-              {featuredCaseStudy.quote && (
-                <Reveal delay={150}>
-                  <p className="mt-6 max-w-md border-l border-cream/30 pl-5 font-body text-lg italic leading-relaxed text-cream/90">
-                    {featuredCaseStudy.quote}
-                  </p>
-                </Reveal>
-              )}
-
-              <Reveal delay={250}>
-                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                  <Link
-                    href={`/work/${featuredCaseStudy.slug}`}
-                    className="btn-ember text-base"
-                  >
-                    See the full event
-                  </Link>
-                  <Link
-                    href="/work"
-                    className="inline-flex min-h-[44px] items-center font-display text-sm uppercase tracking-[0.14em] text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
-                  >
-                    All our work
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
-
-            <Reveal className="lg:col-span-7" as="div">
-              <Link
-                href={`/work/${featuredCaseStudy.slug}`}
-                className="block"
-                aria-label={`Read the full story: ${featuredLabel}`}
-              >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal sm:aspect-[4/3]">
-                  <Image
-                    src="/images/wedding-moyres/wedding-moyres-plating.png"
-                    alt="Biggy and Chef Sikolethu plating together at the table."
-                    fill
-                    sizes="(min-width: 1024px) 58vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
       {/* ── The chef behind the fire — short and portrait-led. The COVID
           line is the About page's own, and stays unattributed (no place,
           date or organisation) as it does there. ──────────────────────── */}
-      <section className="border-y border-cream/10 bg-charcoal py-16 sm:py-24">
+      <section className="border-b border-cream/10 bg-charcoal py-16 sm:py-24">
         <div className="section">
           <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
             <Reveal className="md:col-span-4" as="div">

@@ -41,3 +41,13 @@ sitemap and robots files, the `/api/book` route.
 ## Verification
 
 See section 6 of `website-refinement-audit.md`. Open items: `content-verification-needed.md`.
+
+## 19 October 2026 (branch `feat/latest-2026-10`, on top of the Latest section)
+
+| File | Change |
+|---|---|
+| `app/page.tsx` | "Recently" (featured event story) removed: the homepage had two "what he did lately" sections once the Latest band arrived. "See the work" link added after the range, so the homepage still leads to `/work`. No doubled hairline between Latest and the Biggy intro. |
+| `app/latest/page.tsx` | The featured story now sits in the feed under its month (June 2026) as an "Event story": one photo, venue + occasion, teaser, Biggy's pull line, "See the full event", "All our work". Rendered from `lib/case-studies.ts` (the `featured` story), not copied. Festival label "Festival line-up" → "Festival". Intro: "Events and posts from Biggy's Instagram, newest first, by month. Where he named the dishes, the names are his." |
+| `lib/case-studies.ts` | `featureImage` (the wedding's plating photo, as the homepage used) and `studyMonthIso()` ("June 2026" → `2026-06-01`, for sorting only; the day is never shown). |
+| `lib/appearances.ts`, `app/mozambique/page.tsx`, `app/work/page.tsx` | Mozambique 2026: "announced as" → cooked (TK confirmed 19 Oct). |
+| `components/LatestBand.tsx` | Comment only. |

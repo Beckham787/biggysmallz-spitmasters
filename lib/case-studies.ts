@@ -34,7 +34,10 @@ export type CaseStudy = {
   slideshowImages?: [CoverImage, CoverImage, CoverImage];
   /** Every photo from the event, captioned to match the menu. */
   gallery: GalleryItem[];
+  /** The featured story is the one /latest shows as an event story. */
   featured?: boolean;
+  /** The single photo used when the story is featured (on /latest). */
+  featureImage?: CoverImage;
 };
 
 /**
@@ -97,6 +100,10 @@ export const caseStudies: CaseStudy[] = [
       { image: "wedding-moyres/3.JPG", caption: "Roasted bone marrow, plated at the pass", alt: "Roasted marrow bones with herbs and oil, plated across the pass." },
     ],
     featured: true,
+    featureImage: {
+      image: "wedding-moyres/wedding-moyres-plating.png",
+      alt: "Biggy and Chef Sikolethu plating together at the table.",
+    },
   },
   {
     slug: "milestone-40th-birthday",
@@ -192,6 +199,25 @@ export const featuredCaseStudy =
   caseStudies.find((c) => c.featured) ?? caseStudies[0];
 
 export const otherCaseStudies = caseStudies.filter((c) => !c.featured);
+
+const MONTHS = [
+  "january", "february", "march", "april", "may", "june",
+  "july", "august", "september", "october", "november", "december",
+];
+
+/**
+ * "June 2026" → "2026-06-01", so a story can sit in a dated list (/latest)
+ * under its month. Stories carry a month, not a day, so the 1st stands in
+ * for "some day that month" and is never shown. Undefined if the date
+ * doesn't read as "<Month> <Year>".
+ */
+export function studyMonthIso(study: CaseStudy): string | undefined {
+  const m = study.date.trim().toLowerCase().match(/^([a-z]+)\s+(\d{4})$/);
+  if (!m) return undefined;
+  const month = MONTHS.indexOf(m[1]);
+  if (month < 0) return undefined;
+  return `${m[2]}-${String(month + 1).padStart(2, "0")}-01`;
+}
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((c) => c.slug === slug);

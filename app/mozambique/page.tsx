@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   title: "Mozambique Barbecue Festival",
   alternates: { canonical: "/mozambique" },
   description:
-    "Every October since 2022, Biggy has crossed the border for the Mozambique Barbecue Festival: whole animals on the coals at Campus da UEM, Maputo. Five years on the line-up, 2022 to 2026.",
+    "Every October since 2022, Biggy has crossed the border for the Mozambique Barbecue Festival: whole animals on the coals at Campus da UEM, Maputo. Five years on the coals, 2022 to 2026.",
   openGraph: {
     title: "Mozambique Barbecue Festival · Biggy Smallz Spitmasters",
     description:
@@ -151,7 +151,7 @@ export default function MozambiquePage() {
             </p>
             <YearRail className="mt-7" />
             <p className="mt-4 font-display text-xs uppercase tracking-[0.14em] text-smoke">
-              Campus da UEM, Maputo · 2026 edition: 3 October 2026 · Biggy announced as Churrasqueiro
+              Campus da UEM, Maputo · 2026 edition: 3 October 2026 · Biggy cooked as Churrasqueiro
             </p>
           </Reveal>
         </div>
@@ -338,8 +338,8 @@ export default function MozambiquePage() {
             </p>
             <p className="mx-auto mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream-dim">
               The 2026 edition was on 3 October at Campus da UEM, Maputo,
-              with Biggy announced as Churrasqueiro. Next dates go up on
-              Instagram.
+              with Biggy back on the coals as Churrasqueiro. Next dates go
+              up on Instagram.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a

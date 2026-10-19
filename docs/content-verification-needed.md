@@ -20,20 +20,19 @@ how much they change what visitors read.
 - The festival's logo stays in the small "Festivals" row either way (it was on the live
   site as "Catch me on").
 
-## 2. Mozambique Barbecue Festival 2026 — did Biggy cook on 3 October?
+## 2. Mozambique Barbecue Festival 2026 — RESOLVED 19 Oct 2026, photos pending
 
-The 2026 poster confirms his name on the line-up (announced as Churrasqueiro). Nothing
-on file confirms he cooked there. The preview therefore says "announced as
-Churrasqueiro" for 2026 and nothing about the day.
-- "Five Years on Mozambique's Coals" and the 2022–2026 rail count 2026 as the fifth
-  year. If he did not attend, change to four years (`YearRail.tsx`, headline in
-  `RecognitionFeature.tsx`, `/work`, `/mozambique`, and the metadata).
-- "Every October since 2022, Biggy has crossed into Maputo…" is existing site copy,
-  kept; it covers 2026 by implication.
-- If he did cook: send 2026 photographs and a one-line caption for a "2026" chapter.
-- The Portuguese announcement text (Chapter I) is the festival's own caption, kept
-  verbatim as TK instructed. The poster image still shows "Bilhetes: arena.co.mz"
-  (tickets); the ticket button on the page was removed because the event has passed.
+TK confirmed on 19 October 2026 that Biggy cooked at the festival on 3 October. The
+site now says so: "Back on the coals as Churrasqueiro for the 2026 edition"
+(`lib/appearances.ts`, shown on `/latest`), "Biggy cooked as Churrasqueiro"
+(`/mozambique`), "back as Churrasqueiro in 2026" (`/work`). "Five Years on Mozambique's
+Coals" and the 2022–2026 rail stand.
+- **Still to come: Biggy's photos from the day.** When they arrive: add a `lib/latest.ts`
+  entry dated 2026-10-03 (so it opens the homepage Latest band) and, if TK wants, a 2026
+  chapter on `/mozambique`. Do not use older archive photos as 2026 photos.
+- The Portuguese announcement text (Chapter I, "The 2026 Announcement") is the
+  festival's own caption, kept verbatim as TK instructed. The poster image still shows
+  "Bilhetes: arena.co.mz" (tickets); there is no ticket button.
 
 ## 3. Television and radio credits — what exactly was the role?
 

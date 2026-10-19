@@ -6,12 +6,22 @@ import CtaBand from "@/components/CtaBand";
 import { siteConfig } from "@/lib/site-config";
 import { latestEntries, monthLabel, type LatestEntry, type LatestImage } from "@/lib/latest";
 import { previousAppearances, type Appearance } from "@/lib/appearances";
+import {
+  featuredCaseStudy,
+  displayTitle,
+  studyMonthIso,
+  type CaseStudy,
+} from "@/lib/case-studies";
 
 /**
  * /latest — everything from lib/latest.ts, newest first, grouped by month,
- * plus past festival appearances read from lib/appearances.ts (rendered from
- * that file, never copied into this one). Static cards and outbound links
- * only; no Instagram embeds.
+ * plus past festival appearances read from lib/appearances.ts and the
+ * featured event story from lib/case-studies.ts (both rendered from their
+ * own files, never copied into this one). The featured story used to sit on
+ * the homepage as "Recently"; it moved here on 19 Oct 2026 so the homepage
+ * has one "recent" section (the Latest band), and it files under its own
+ * month like everything else. Static cards and outbound links only; no
+ * Instagram embeds.
  *
  * Past appearances depend on today's date, so the page is rebuilt at most
  * hourly instead of freezing "today" at build time. No Event schema: these
@@ -51,10 +61,15 @@ export const metadata: Metadata = {
 
 type Item =
   | { type: "entry"; date: string; entry: LatestEntry }
-  | { type: "appearance"; date: string; appearance: Appearance };
+  | { type: "appearance"; date: string; appearance: Appearance }
+  | { type: "story"; date: string; study: CaseStudy };
 
-/** Newest first; on the same date an entry comes before an appearance. */
+/**
+ * Newest first; on the same date an entry comes before an appearance. A
+ * story is dated by month only (the 1st stands in), so it closes its month.
+ */
 function feed(): { month: string; items: Item[] }[] {
+  const storyDate = studyMonthIso(featuredCaseStudy);
   const items: Item[] = [
     ...latestEntries.map((entry) => ({ type: "entry" as const, date: entry.date, entry })),
     ...previousAppearances().map((appearance) => ({
@@ -62,6 +77,9 @@ function feed(): { month: string; items: Item[] }[] {
       date: appearance.date,
       appearance,
     })),
+    ...(storyDate
+      ? [{ type: "story" as const, date: storyDate, study: featuredCaseStudy }]
+      : []),
   ].sort((a, b) => b.date.localeCompare(a.date));
 
   const months: { month: string; items: Item[] }[] = [];
@@ -100,8 +118,8 @@ export default function LatestPage() {
               <br className="sm:hidden" /> fire&rsquo;s been
             </h1>
             <p className="mt-5 max-w-xl font-body text-lg leading-relaxed text-cream/85 max-[359px]:min-h-[5lh]">
-              Each entry here matches a post on Biggy&rsquo;s Instagram, dated
-              to the day. Where he named the dishes, the names are his.
+              Events and posts from Biggy&rsquo;s Instagram, newest first, by
+              month. Where he named the dishes, the names are his.
             </p>
           </Reveal>
         </div>
@@ -137,8 +155,10 @@ export default function LatestPage() {
                         entry={item.entry}
                         priority={item.entry.slug === firstSlug}
                       />
-                    ) : (
+                    ) : item.type === "appearance" ? (
                       <AppearanceArticle key={item.appearance.slug} appearance={item.appearance} />
+                    ) : (
+                      <StoryArticle key={item.study.slug} study={item.study} />
                     ),
                   )}
                 </div>
@@ -282,7 +302,7 @@ function AppearanceArticle({ appearance: a }: { appearance: Appearance }) {
           <time dateTime={a.date}>{a.dateLabel}</time>
           <span aria-hidden="true"> &middot; </span>
           <span className="sr-only">, </span>
-          Festival line-up
+          Festival
         </p>
         <h3 className="mt-2 text-2xl text-cream sm:text-3xl">{a.name}</h3>
         <p className="mt-1 font-display text-xs uppercase tracking-[0.14em] text-cream/70">
@@ -300,6 +320,68 @@ function AppearanceArticle({ appearance: a }: { appearance: Appearance }) {
           </Link>
         )}
       </div>
+    </article>
+  );
+}
+
+/**
+ * The featured event story — what the homepage used to show as "Recently":
+ * one photo, the occasion and venue (never a private client's name), the
+ * teaser, Biggy's own pull line (no quotation marks, so it can't read as a
+ * client testimonial), and the way into the full case study.
+ */
+function StoryArticle({ study }: { study: CaseStudy }) {
+  const photo = study.featureImage ?? study.cover ?? study.slideshowImages?.[0];
+  return (
+    <article
+      id={`story-${study.slug}`}
+      className="grid scroll-mt-28 gap-8 lg:grid-cols-12 lg:gap-12"
+    >
+      {photo && (
+        <Reveal className="lg:col-span-7">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal sm:aspect-[4/3]">
+            <Image
+              src={`/images/${photo.image}`}
+              alt={photo.alt}
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal className={photo ? "lg:col-span-5" : "lg:col-span-12"} delay={120}>
+        <p className="font-display text-xs uppercase tracking-[0.14em] text-cream/70">
+          {study.date}
+          <span aria-hidden="true"> &middot; </span>
+          <span className="sr-only">, </span>
+          Event story
+        </p>
+        <h3 className="mt-2 text-3xl text-cream sm:text-4xl">{displayTitle(study)}</h3>
+        <p className="mt-4 max-w-md font-body text-lg italic leading-relaxed text-cream/85">
+          {study.teaser}
+        </p>
+        {study.quote && (
+          <p className="mt-6 max-w-md border-l border-cream/30 pl-5 font-body text-lg italic leading-relaxed text-cream/90">
+            {study.quote}
+          </p>
+        )}
+        <div className="mt-6 flex flex-wrap gap-x-6">
+          <Link
+            href={`/work/${study.slug}`}
+            className="inline-flex min-h-[44px] items-center font-display text-xs uppercase tracking-[0.16em] text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
+          >
+            See the full event
+          </Link>
+          <Link
+            href="/work"
+            className="inline-flex min-h-[44px] items-center font-display text-xs uppercase tracking-[0.16em] text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
+          >
+            All our work
+          </Link>
+        </div>
+      </Reveal>
     </article>
   );
 }

@@ -6,9 +6,9 @@ import { newestLatest, type LatestEntry } from "@/lib/latest";
 /**
  * LatestBand — the homepage's "Latest": the three newest entries from
  * lib/latest.ts, so a visitor coming over from Instagram sees the site keeps
- * up with it. Placed after the range and before the featured event story:
- * the range says what Biggy cooks, this shows that he is cooking it now, and
- * the story below goes deep on one event.
+ * up with it. Placed after the range: the range says what Biggy cooks, this
+ * shows that he is cooking it now. It is the homepage's only "recent"
+ * section; the featured event story lives on /latest under its month.
  *
  * Real dates only. Nothing here says "new" or "this week": if no entry is
  * added for a while, the band must still be true (npm run check:latest is

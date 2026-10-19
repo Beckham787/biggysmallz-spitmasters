@@ -74,9 +74,8 @@ export default function WorkPage() {
                 <YearRail className="mt-5" />
                 <p className="mt-5 max-w-md font-body text-lg leading-relaxed text-cream/85">
                   The Mozambique Barbecue Festival, Maputo: Biggy&rsquo;s own
-                  corner of it, every October since 2022. Announced as
-                  Churrasqueiro on the 2026 line-up. This one gets its own
-                  story.
+                  corner of it, every October since 2022, and back as
+                  Churrasqueiro in 2026. This one gets its own story.
                 </p>
                 <span className="mt-6 inline-block font-display text-sm uppercase tracking-[0.14em] text-paper underline-offset-4 group-hover:underline">
                   Read the story &rarr;

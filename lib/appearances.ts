@@ -46,7 +46,9 @@ export const appearances: Appearance[] = [
     poster: "/images/mozambique/mozambique-2026-poster.jpg",
     posterAlt:
       "The 2026 Mozambique Barbecue Festival poster, announcing Biggy Smallz as Churrasqueiro.",
-    note: "Announced as Churrasqueiro for the 2026 edition.",
+    // TK confirmed on 19 October 2026 that Biggy cooked there; his photos
+    // from the day are still to come.
+    note: "Back on the coals as Churrasqueiro for the 2026 edition.",
   },
 ];
 
