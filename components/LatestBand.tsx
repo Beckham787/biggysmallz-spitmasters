@@ -14,7 +14,8 @@ import { newestLatest, type LatestEntry } from "@/lib/latest";
  * added for a while, the band must still be true (npm run check:latest is
  * what catches that). Static cards and an outbound link; no Instagram embed.
  *
- * One entry lays out as a wide feature; two or three as a row of cards.
+ * One entry lays out as a wide feature; two or three as a row of cards
+ * (see the grid comment below for how three behave on tablets).
  */
 export default function LatestBand() {
   const entries = newestLatest(3);
@@ -39,17 +40,23 @@ export default function LatestBand() {
           </h2>
         </Reveal>
 
+        {/* The grid follows the count, so no track is ever left empty: two
+            entries are two columns; three are three from lg, and on tablets
+            (two columns) the third card is left to /latest rather than
+            sitting alone on a second row. Phones stack all three. */}
         <ul
           className={
             single
               ? "mt-10"
-              : "mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+              : entries.length === 2
+                ? "mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2"
+                : "mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
           }
         >
           {entries.map((entry, i) => (
-            <li key={entry.slug}>
+            <li key={entry.slug} className={i === 2 ? "sm:max-lg:hidden" : undefined}>
               <Reveal delay={i * 120}>
-                <LatestCard entry={entry} wide={single} />
+                <LatestCard entry={entry} layout={single ? "wide" : entries.length === 2 ? "half" : "third"} />
               </Reveal>
             </li>
           ))}
@@ -68,8 +75,18 @@ export default function LatestBand() {
   );
 }
 
+// What each layout's photo actually renders at. `.section` caps the content
+// at 1088 px from 1152 px up, so beyond that the widths are fixed: 7 of 12
+// columns = 615 px, half of a 2-up = 528 px, a third of a 3-up = 342 px.
+const SIZES = {
+  wide: "(min-width: 1152px) 615px, (min-width: 1024px) 58vw, 100vw",
+  half: "(min-width: 1152px) 528px, (min-width: 640px) 46vw, 100vw",
+  third: "(min-width: 1152px) 342px, (min-width: 1024px) 30vw, (min-width: 640px) 46vw, 100vw",
+} as const;
+
 /** One entry: photo, date and occasion, title, one line, Instagram link. */
-function LatestCard({ entry, wide }: { entry: LatestEntry; wide: boolean }) {
+function LatestCard({ entry, layout }: { entry: LatestEntry; layout: keyof typeof SIZES }) {
+  const wide = layout === "wide";
   const cover = entry.images[0];
   // The card opens the case study when there is one, otherwise the entry's
   // place on /latest (all its photos and the dishes).
@@ -89,11 +106,7 @@ function LatestCard({ entry, wide }: { entry: LatestEntry; wide: boolean }) {
           src={cover.src}
           alt={cover.alt}
           fill
-          sizes={
-            wide
-              ? "(min-width: 1024px) 58vw, 100vw"
-              : "(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 100vw"
-          }
+          sizes={SIZES[layout]}
           className="object-cover transition duration-700 group-hover:scale-[1.03]"
         />
       </div>

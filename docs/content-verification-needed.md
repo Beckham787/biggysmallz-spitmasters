@@ -28,8 +28,12 @@ site now says so: "Back on the coals as Churrasqueiro for the 2026 edition"
 (`/mozambique`), "back as Churrasqueiro in 2026" (`/work`). "Five Years on Mozambique's
 Coals" and the 2022–2026 rail stand.
 - **Still to come: Biggy's photos from the day.** When they arrive: add a `lib/latest.ts`
-  entry dated 2026-10-03 (so it opens the homepage Latest band) and, if TK wants, a 2026
-  chapter on `/mozambique`. Do not use older archive photos as 2026 photos.
+  entry dated 2026-10-03 with `href: "/mozambique"` (`docs/latest-howto.md`). Entries sort
+  by date, so it sits after the 11 October entry (second in the homepage band, not
+  first). On `/latest` it replaces the 3 October line-up card from `lib/appearances.ts`
+  (an appearance is hidden when a Latest entry has the same date), so the day shows
+  once. If TK wants, also a 2026 chapter on `/mozambique`. Do not use older archive
+  photos as 2026 photos.
 - The Portuguese announcement text (Chapter I, "The 2026 Announcement") is the
   festival's own caption, kept verbatim as TK instructed. The poster image still shows
   "Bilhetes: arena.co.mz" (tickets); there is no ticket button.

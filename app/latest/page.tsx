@@ -67,12 +67,18 @@ type Item =
 /**
  * Newest first; on the same date an entry comes before an appearance. A
  * story is dated by month only (the 1st stands in), so it closes its month.
+ * An appearance is left out when a Latest entry has the same date: once
+ * Biggy posts the day itself (photos, dishes), that entry replaces the
+ * line-up card instead of showing the same day twice.
  */
 function feed(): { month: string; items: Item[] }[] {
   const storyDate = studyMonthIso(featuredCaseStudy);
+  const entryDates = new Set(latestEntries.map((e) => e.date));
   const items: Item[] = [
     ...latestEntries.map((entry) => ({ type: "entry" as const, date: entry.date, entry })),
-    ...previousAppearances().map((appearance) => ({
+    ...previousAppearances()
+      .filter((appearance) => !entryDates.has(appearance.date))
+      .map((appearance) => ({
       type: "appearance" as const,
       date: appearance.date,
       appearance,
@@ -266,10 +272,12 @@ function Photos({ images, priority }: { images: LatestImage[]; priority: boolean
               alt={img.alt}
               fill
               priority={priority && i === 0}
+              // .section caps content at 1088 px from 1152 px up: the
+              // 7-of-12 column is 615 px, a tile in its 2-up grid 301 px.
               sizes={
                 wide
-                  ? "(min-width: 1024px) 58vw, 100vw"
-                  : "(min-width: 1024px) 29vw, 50vw"
+                  ? "(min-width: 1152px) 615px, (min-width: 1024px) 58vw, 100vw"
+                  : "(min-width: 1152px) 301px, (min-width: 1024px) 29vw, 50vw"
               }
               className="object-cover"
             />
@@ -344,7 +352,7 @@ function StoryArticle({ study }: { study: CaseStudy }) {
               src={`/images/${photo.image}`}
               alt={photo.alt}
               fill
-              sizes="(min-width: 1024px) 58vw, 100vw"
+              sizes="(min-width: 1152px) 615px, (min-width: 1024px) 58vw, 100vw"
               className="object-cover"
             />
           </div>

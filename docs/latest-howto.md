@@ -75,7 +75,8 @@ npx tsc --noEmit
 npm run build
 ```
 
-`check:latest` fails on a stale newest entry (over 30 days), a date label
+`check:latest` needs Node 22.18 or newer (`node --version`). It fails on a
+stale newest entry (over 30 days), a date label
 that doesn't match the date, a missing or oversized photo, short alt text,
 a banned word, or a malformed Instagram link. It warns when `instagramUrl` is
 missing. Stop any `next dev` server before `npm run build`.

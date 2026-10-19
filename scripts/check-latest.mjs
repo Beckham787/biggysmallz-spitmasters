@@ -12,7 +12,8 @@
  *   npm run check:latest                     check against today (SA time)
  *   npm run check:latest -- --now 2026-11-11 check as if it were that date
  *
- * Loads lib/latest.ts directly: Node 22.18+/24 strips the types.
+ * Needs Node 22.18 or newer: it loads lib/latest.ts directly and Node strips
+ * the types. An older Node stops with a syntax error, so this checks first.
  */
 import { existsSync, statSync } from "node:fs";
 import path from "node:path";
@@ -48,7 +49,15 @@ export function checkLatest(entries, lib, now = new Date()) {
     if (e.kind !== "event" && e.kind !== "post") errors.push(`${at} kind must be "event" or "post"`);
     for (const field of ["title", "occasion", "line"]) {
       if (!e[field] || !String(e[field]).trim()) errors.push(`${at} ${field} is empty`);
-      for (const re of BANNED) if (re.test(e[field] ?? "")) errors.push(`${at} ${field} uses a banned word (${re})`);
+    }
+    // Every visible string, not only the three required ones.
+    const texts = [
+      ["title", e.title], ["occasion", e.occasion], ["line", e.line], ["servedAs", e.servedAs],
+      ...(e.dishes ?? []).map((d, i) => [`dishes[${i}]`, d]),
+      ...(e.images ?? []).map((img, i) => [`images[${i}].alt`, img.alt]),
+    ];
+    for (const [field, text] of texts) {
+      for (const re of BANNED) if (re.test(text ?? "")) errors.push(`${at} ${field} uses a banned word (${re})`);
     }
     if (!Array.isArray(e.images) || e.images.length < 1 || e.images.length > 4) {
       errors.push(`${at} needs 1–4 images`);
@@ -80,6 +89,11 @@ export function checkLatest(entries, lib, now = new Date()) {
 
 // CLI — only when run directly, so the check can also be imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const [major, minor] = process.versions.node.split(".").map(Number);
+  if (major < 22 || (major === 22 && minor < 18)) {
+    console.error(`check:latest needs Node 22.18 or newer (this is ${process.versions.node}): it loads lib/latest.ts with Node's type stripping.`);
+    process.exit(2);
+  }
   const lib = await import(pathToFileURL(path.join(SITE, "lib", "latest.ts")).href);
   const i = process.argv.indexOf("--now");
   // --now YYYY-MM-DD means noon on that day in South Africa.
