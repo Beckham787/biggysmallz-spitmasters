@@ -47,6 +47,16 @@ import CtaBand from "@/components/CtaBand";
  *     paragraph on, and reusing that template a fourth time with just
  *     re-worded filler is what TK flagged as not working.
  *
+ * Ninth pass, 23 Oct 2026: new chapter V, "Year Five", between the banner
+ * (IV) and the archive mosaic (now VI). It shows the three pieces posted on
+ * Instagram for the 2026 festival: the 49-second reel and the 12-second teaser
+ * (web copies in /public/videos/mozambique-2026-*.mp4, 720x1280, no autoplay,
+ * preload="none" so the page weight doesn't change until someone presses play)
+ * and the nine carousel slides (/public/images/mozambique/2026/, scroll-snap
+ * strip). Chapters I-IV and the archive are untouched apart from the archive's
+ * number. Real dates only: no "new" or "this week" (same rule as LatestBand).
+ * The reel has no captions yet: Biggy's 7 s line at 0:26 needs his typed words.
+ *
  * IMPORTANT: none of this touches the homepage. The homepage's own
  * Upcoming card still points at the same poster image
  * (mozambique-2026-poster.jpg) independently — only this page's copy and
@@ -81,6 +91,19 @@ const heroImage = {
   src: "/images/mozambique/mozambique-hanging-chickens.png",
   alt: "Whole chickens and pineapples hanging over glowing coals under a domed rig, festival marquee tents behind, at the Mozambique Barbecue Festival.",
 };
+
+/** The nine carousel slides as posted, in order (web copies, 1080x1350). */
+const carouselSlides = [
+  { src: "/images/mozambique/2026/mozambique-2026-01.jpg", alt: "Slide 1: Five years. Same fire. Biggy at the whole-animal spits in Maputo, Mozambique Barbecue Festival, 3 October 2026." },
+  { src: "/images/mozambique/2026/mozambique-2026-02.jpg", alt: "Slide 2: Since 2022. A faded photograph from an earlier festival, a whole animal on the spit. Every October, back across the border to Maputo." },
+  { src: "/images/mozambique/2026/mozambique-2026-03.jpg", alt: "Slide 3: Four Octobers on the coals, 2022 to 2025. A grid of six archive photos: whole animals, hanging meat and pineapples on the coals." },
+  { src: "/images/mozambique/2026/mozambique-2026-04.jpg", alt: "Slide 4: Before the gates opened. A whole animal on the cross beside the coals, year five, 3 October 2026." },
+  { src: "/images/mozambique/2026/mozambique-2026-05.jpg", alt: "Slide 5: Where meat meets smoke, and time slows down. Biggy's own line over a photo of him basting at the fire." },
+  { src: "/images/mozambique/2026/mozambique-2026-06.jpg", alt: "Slide 6: Pitmaster. Two photos from under the red festival tent. Between the fires: tasting, talking, and never far from a laugh." },
+  { src: "/images/mozambique/2026/mozambique-2026-07.jpg", alt: "Slide 7: STV Notícias came to the fire. Biggy in his apron beside a reporter holding the channel's microphone." },
+  { src: "/images/mozambique/2026/mozambique-2026-08.jpg", alt: "Slide 8: Five years, stitched in. The years 2022 to 2026 embroidered on Biggy's apron beneath the festival patches, and his Pitmaster lanyard." },
+  { src: "/images/mozambique/2026/mozambique-2026-09.jpg", alt: "Slide 9: Obrigado, Maputo. Até para o ano. Five years on the coals, 2022 to 2026. See you next October." },
+];
 
 export const metadata: Metadata = {
   title: "Mozambique Barbecue Festival",
@@ -294,6 +317,115 @@ export default function MozambiquePage() {
         </div>
       </section>
 
+      {/* ── V · Year Five — the 2026 pieces from Instagram: reel, teaser and
+          the nine-slide carousel. Static video tags (no autoplay, nothing
+          downloads until play) and a scroll-snap strip of stills; the
+          Instagram link is outbound only, no embeds. ───────────────────── */}
+      <section
+        aria-labelledby="year-five-heading"
+        className="border-t border-cream/10 bg-ink py-16 sm:py-24"
+      >
+        <div className="section">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-4">
+              <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
+                V · Year Five
+              </p>
+              <h2
+                id="year-five-heading"
+                className="mt-4 font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl"
+              >
+                Five years. Same fire.
+              </h2>
+              <p className="mt-5 max-w-md font-body text-lg italic leading-relaxed text-cream/85">
+                Biggy&rsquo;s fifth October at Campus da UEM, as he posted it
+                on Instagram: a film, a teaser and nine slides, each one
+                built on the four Octobers before it.
+              </p>
+              <a
+                href="https://www.instagram.com/biggysmallzspitmasters"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex min-h-[44px] items-center font-display text-xs uppercase tracking-[0.16em] text-paper underline decoration-cream/40 underline-offset-4 hover:decoration-paper"
+              >
+                On Instagram
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Reveal>
+
+            <div className="grid gap-8 sm:grid-cols-2 sm:gap-6 lg:col-span-8">
+              <Reveal delay={120}>
+                <figure>
+                  <video
+                    controls
+                    playsInline
+                    preload="none"
+                    poster="/videos/mozambique-2026-reel-poster.jpg"
+                    aria-label="Biggy in Maputo, the 2026 reel. About 50 seconds."
+                    className="aspect-[9/16] w-full rounded-sm bg-coal object-cover"
+                  >
+                    <source src="/videos/mozambique-2026-reel.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption className="mt-3 font-display text-xs uppercase tracking-[0.14em] text-cream/70">
+                    The reel · 50 seconds
+                  </figcaption>
+                </figure>
+              </Reveal>
+              <Reveal delay={240}>
+                <figure>
+                  <video
+                    controls
+                    playsInline
+                    preload="none"
+                    poster="/videos/mozambique-2026-teaser-poster.jpg"
+                    aria-label="The 2026 teaser. 12 seconds."
+                    className="aspect-[9/16] w-full rounded-sm bg-coal object-cover"
+                  >
+                    <source src="/videos/mozambique-2026-teaser.mp4" type="video/mp4" />
+                  </video>
+                  <figcaption className="mt-3 font-display text-xs uppercase tracking-[0.14em] text-cream/70">
+                    The teaser · 12 seconds
+                  </figcaption>
+                </figure>
+              </Reveal>
+            </div>
+          </div>
+
+          <Reveal>
+            <p className="mt-14 font-display text-xs uppercase tracking-[0.3em] text-paper sm:mt-20">
+              The carousel · nine slides
+            </p>
+          </Reveal>
+          <div
+            role="region"
+            aria-label="The nine carousel slides. Scroll sideways."
+            tabIndex={0}
+            className="-mx-6 mt-6 overflow-x-auto px-6 pb-4 sm:-mx-8 sm:px-8"
+          >
+            <ul className="flex snap-x snap-mandatory gap-3 sm:gap-4">
+              {carouselSlides.map((slide, i) => (
+                <li
+                  key={slide.src}
+                  className="relative aspect-[4/5] w-[72%] shrink-0 snap-start overflow-hidden rounded-sm bg-coal sm:w-[38%] lg:w-[24%]"
+                >
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    sizes="(min-width: 1024px) 24vw, (min-width: 640px) 38vw, 72vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                  <span className="sr-only">
+                    Slide {i + 1} of {carouselSlides.length}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* ── V · The Fire Never Stops — mosaic gallery, deliberately
           different from the chapters above: many small tiles, not one
           narrative beat. Also carries the two photos that used to be
@@ -303,7 +435,7 @@ export default function MozambiquePage() {
         <div className="section">
           <Reveal>
             <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-              V · Archives
+              VI · Archives
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
               Coals, whole animals, and everything that ends up beside
