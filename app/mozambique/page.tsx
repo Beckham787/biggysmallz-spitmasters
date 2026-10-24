@@ -47,15 +47,29 @@ import CtaBand from "@/components/CtaBand";
  *     paragraph on, and reusing that template a fourth time with just
  *     re-worded filler is what TK flagged as not working.
  *
- * Ninth pass, 24 Oct 2026: new chapter V, "Year Five", between the banner
- * (IV) and the archive mosaic (now VI). It tells the 2026 festival in photographs
+ * Ninth pass, 24 Oct 2026 (TK): new chapter II, "Year Five", straight after
+ * the 2026 announcement poster (I), then III "That's My Name Up There", then
+ * the archive (IV). Year Five tells the 2026 festival in photographs
  * (public/images/mozambique/2026/), laid out as a page, not as Instagram: no
- * carousel strip, no video players, no slide graphics. The photographs are the
- * ones the Instagram film and slides were made from; the captions are the same
- * lines, set as real page text. Chapters I-IV and the archive are untouched
- * apart from the archive's number. Real dates only: no "new" or "this week"
- * (same rule as LatestBand). Biggy's own line is set without quotation marks
- * so it can't read as a client testimonial (same rule as /latest).
+ * carousel strip, no video players, no slide graphics. Biggy's own line is set
+ * without quotation marks so it can't read as a client testimonial (same rule
+ * as /latest). Real dates only: no "new" or "this week".
+ *
+ * Also 24 Oct (TK): the old chapters II "Old Friends, New Fire" and III "The
+ * Craft" are gone as separate sections; their two photos (IZGH3821, UTVJ4075)
+ * now sit in the archive mosaic. The supplied captions, kept here verbatim so
+ * they can be put back:
+ *   II  "Biggy with a fellow chef, Churrasqueiro Internacional lanyard around
+ *        his neck." / "Some of the best friendships are forged around the
+ *        fire. Good gees, great stories, and unforgettable memories."
+ *   III "Cuts hanging from the domed rig over the coals." / "Experiencing the
+ *        Mozambique Barbecue Festival was and always is a journey for the
+ *        senses. The sizzling flavours, rich tradition, and warm gatherings
+ *        made every bite unforgettable. We embraced the soul of slow cooking
+ *        with Low and Slow open flame roasted Prime Rib, paired with Elote
+ *        Corn. But the true start of the day was our Hang Roasted whole
+ *        Oxtail, braised in Laurentina Preta dark beer and served alongside
+ *        freshly baked herb butter Pão."
  *
  * IMPORTANT: none of this touches the homepage. The homepage's own
  * Upcoming card still points at the same poster image
@@ -230,81 +244,7 @@ export default function MozambiquePage() {
         </div>
       </section>
 
-      {/* ── Chapters II–III — the shared two-column template (contained
-          portrait image + numbered eyebrow + story text), alternating
-          sides. Each caption below is the exact text TK supplied — no
-          added sentences on top. ─────────────────────────────────────── */}
-      <Chapter
-        number="II"
-        label="Old Friends, New Fire"
-        image="mozambique/IZGH3821.JPG"
-        alt="Biggy and a fellow chef at the festival, both in Coca-Cola caps, the Churrasqueiro Internacional lanyard around Biggy's neck."
-        caption="Biggy with a fellow chef, Churrasqueiro Internacional lanyard around his neck."
-        align="right"
-      >
-        Some of the best friendships are forged around the fire. Good
-        gees, great stories, and unforgettable memories.
-      </Chapter>
-
-      <Chapter
-        number="III"
-        label="The Craft"
-        image="mozambique/UTVJ4075.JPG"
-        alt="Cuts of meat hanging from a domed rig over glowing coals, red earth and a clear blue sky."
-        caption="Cuts hanging from the domed rig over the coals."
-        align="left"
-      >
-        Experiencing the Mozambique Barbecue Festival was and always is a
-        journey for the senses. The sizzling flavours, rich tradition, and
-        warm gatherings made every bite unforgettable. We embraced the
-        soul of slow cooking with Low and Slow open flame roasted Prime
-        Rib, paired with Elote Corn. But the true start of the day was our
-        Hang Roasted whole Oxtail, braised in Laurentina Preta dark beer
-        and served alongside freshly baked herb butter P&atilde;o.
-      </Chapter>
-
-      {/* ── IV · That's My Name Up There — deliberately NOT the shared
-          Chapter template. No usable real caption exists for this photo,
-          and a fourth round of authored filler in the same repeated
-          two-column layout is what TK flagged as not working ("do
-          something with that space"). Instead: a full-bleed banner
-          moment that pulls the sign's own text out as large display
-          type — the photo's subject becomes the copy. Title renamed
-          2026-08-23 per TK, from the plain descriptive "His Own Name on
-          the Banner" to something that reads like Biggy's own voice
-          (playful, proud, first-person — matching his real Instagram
-          captions) rather than a caption written about him. ──────────── */}
-      <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-ink sm:min-h-[70vh]">
-        <Image
-          src="/images/mozambique/mozambique-stall.png"
-          alt="Biggy's own branded stall, his name Martin 'Biggy' Mhlongo across the top banner, the Mozambique Barbecue Festival badge below."
-          fill
-          sizes="100vw"
-          className="object-cover object-[center_20%] brightness-[0.4] saturate-[0.85]"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, rgba(11,10,9,0.92) 0%, rgba(11,10,9,0.3) 60%, rgba(11,10,9,0.05) 100%)",
-          }}
-        />
-        <div className="section relative z-10 w-full pb-14 pt-24 sm:pb-20">
-          <Reveal>
-            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-              IV · That&rsquo;s My Name Up There
-            </p>
-            <p className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
-              Martin &lsquo;Biggy&rsquo; Mhlongo
-            </p>
-            <p className="mt-5 font-display text-xs uppercase tracking-[0.14em] text-smoke">
-              His own corner of the festival.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── V · Year Five — the 2026 festival in photographs, laid out as a
+      {/* ── II · Year Five — the 2026 festival in photographs, laid out as a
           page: a wide opening pair, Biggy's own line beside the basting
           photo, three detail frames, and the sign-off. No carousel, no
           video, no Instagram graphics. ─────────────────────────────────── */}
@@ -315,7 +255,7 @@ export default function MozambiquePage() {
         <div className="section">
           <Reveal>
             <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-              V · Year Five
+              II · Year Five
             </p>
             <h2
               id="year-five-heading"
@@ -330,7 +270,7 @@ export default function MozambiquePage() {
             </p>
           </Reveal>
 
-          {/* Opening pair: the wide fire shot beside the whole animal on the cross. */}
+          {/* Opening pair: the wide fire shot beside the whole animal on the asador. */}
           <div className="mt-12 grid gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-10">
             <Reveal className="lg:col-span-7">
               <figure>
@@ -353,14 +293,14 @@ export default function MozambiquePage() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-coal">
                   <Image
                     src="/images/mozambique/2026/mozambique-2026-cross.jpg"
-                    alt="A whole animal on the cross beside a bed of coals and a Coca-Cola banner, white festival tents behind."
+                    alt="A whole animal on an asador beside a bed of coals and a Coca-Cola banner, white festival tents behind."
                     fill
                     sizes="(min-width: 1152px) 430px, (min-width: 1024px) 40vw, 100vw"
                     className="object-cover object-[center_60%]"
                   />
                 </div>
                 <figcaption className="mt-3 font-body text-sm italic leading-snug text-cream/70">
-                  Before the gates opened. On the cross and over the coals.
+                  Before the gates opened. On the asadors and over the coals.
                 </figcaption>
               </figure>
             </Reveal>
@@ -471,7 +411,48 @@ export default function MozambiquePage() {
         </div>
       </section>
 
-      {/* ── V · The Fire Never Stops — mosaic gallery, deliberately
+      {/* ── III · That's My Name Up There — deliberately NOT the shared
+          Chapter template. No usable real caption exists for this photo,
+          and a fourth round of authored filler in the same repeated
+          two-column layout is what TK flagged as not working ("do
+          something with that space"). Instead: a full-bleed banner
+          moment that pulls the sign's own text out as large display
+          type — the photo's subject becomes the copy. Title renamed
+          2026-08-23 per TK, from the plain descriptive "His Own Name on
+          the Banner" to something that reads like Biggy's own voice
+          (playful, proud, first-person — matching his real Instagram
+          captions) rather than a caption written about him. ──────────── */}
+      <section className="relative flex min-h-[60vh] items-end overflow-hidden bg-ink sm:min-h-[70vh]">
+        <Image
+          src="/images/mozambique/mozambique-stall.png"
+          alt="Biggy's own branded stall, his name Martin 'Biggy' Mhlongo across the top banner, the Mozambique Barbecue Festival badge below."
+          fill
+          sizes="100vw"
+          className="object-cover object-[center_20%] brightness-[0.4] saturate-[0.85]"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(0deg, rgba(11,10,9,0.92) 0%, rgba(11,10,9,0.3) 60%, rgba(11,10,9,0.05) 100%)",
+          }}
+        />
+        <div className="section relative z-10 w-full pb-14 pt-24 sm:pb-20">
+          <Reveal>
+            <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
+              III · That&rsquo;s My Name Up There
+            </p>
+            <p className="mt-4 max-w-2xl font-display text-3xl uppercase tracking-[0.02em] text-cream sm:text-5xl">
+              Martin &lsquo;Biggy&rsquo; Mhlongo
+            </p>
+            <p className="mt-5 font-display text-xs uppercase tracking-[0.14em] text-smoke">
+              His own corner of the festival.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── IV · The Fire Never Stops — mosaic gallery, deliberately
           different from the chapters above: many small tiles, not one
           narrative beat. Also carries the two photos that used to be
           their own "Round the Coals" section, folded in here instead of
@@ -480,7 +461,7 @@ export default function MozambiquePage() {
         <div className="section">
           <Reveal>
             <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-              VI · Archives
+              IV · Archives
             </p>
             <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
               Coals, whole animals, and everything that ends up beside
@@ -488,16 +469,18 @@ export default function MozambiquePage() {
               side of the fire.
             </p>
           </Reveal>
-          <div className="mt-10 grid grid-cols-2 auto-rows-[130px] gap-3 sm:grid-cols-4 sm:auto-rows-[160px] sm:gap-4">
-            <MosaicTile image="mozambique/PCII7929.JPG" alt="Lamb halves roasting on stands beside a fire, cloudy sky overhead." span="row-span-2" delay={0} />
-            <MosaicTile image="mozambique/UNHZ6749.JPG" alt="Biggy slicing grilled meat on a wooden board, red festival lighting." span="row-span-1" delay={120} />
-            <MosaicTile image="mozambique/mozambique-pineapples.png" alt="A row of whole pineapples laid over glowing coals." span="row-span-2" delay={240} />
-            <MosaicTile image="mozambique/SDCU1014.JPG" alt="A grilled meat wrap folded with pickled red onion, held out under red festival lighting." span="row-span-1" delay={360} />
-            <MosaicTile image="mozambique/mozambique-hanging-meats.png" alt="Whole cuts of meat hanging from chains over coals, black mesh fencing behind." span="row-span-2" delay={480} />
-            <MosaicTile image="mozambique/XENB4299.JPG" alt="Cuts of meat and red onions hanging from steel hooks against a clear blue sky." span="row-span-1" delay={600} />
-            <MosaicTile image="mozambique/BNRI0775.JPG" alt="Biggy and a chef from Mr Faife Rodizio posing with a skewer of grilled meat fresh off the fire." span="row-span-1" delay={720} />
-            <MosaicTile image="mozambique/JQDR9528.JPG" alt="Biggy and four other chefs and friends gathered around an open fire, drinks in hand." span="row-span-1" delay={840} />
-            <MosaicTile image="mozambique/RMEJ1233.JPG" alt="Close-up of hands carving a rack of glazed, seasoned ribs on a wooden board." span="row-span-1 col-span-2 sm:col-span-1" delay={960} />
+          <div className="mt-10 grid grid-flow-dense grid-cols-2 auto-rows-[130px] gap-3 sm:auto-rows-[160px] sm:grid-cols-4 sm:gap-4">
+            <MosaicTile image="mozambique/PCII7929.JPG" alt="Lamb halves roasting on stands beside a fire, cloudy sky overhead." span="row-span-2 sm:col-start-1 sm:row-start-1" delay={0} />
+            <MosaicTile image="mozambique/UNHZ6749.JPG" alt="Biggy slicing grilled meat on a wooden board, red festival lighting." span="sm:col-start-2 sm:row-start-1" delay={120} />
+            <MosaicTile image="mozambique/mozambique-pineapples.png" alt="A row of whole pineapples laid over glowing coals." span="row-span-2 sm:col-start-3 sm:row-start-1" delay={240} />
+            <MosaicTile image="mozambique/SDCU1014.JPG" alt="A grilled meat wrap folded with pickled red onion, held out under red festival lighting." span="sm:col-start-4 sm:row-start-1" delay={360} />
+            <MosaicTile image="mozambique/mozambique-hanging-meats.png" alt="Whole cuts of meat hanging from chains over coals, black mesh fencing behind." span="row-span-2 sm:col-start-2 sm:row-start-2" delay={480} />
+            <MosaicTile image="mozambique/XENB4299.JPG" alt="Cuts of meat and red onions hanging from steel hooks against a clear blue sky." span="sm:col-start-4 sm:row-start-2" delay={600} />
+            <MosaicTile image="mozambique/BNRI0775.JPG" alt="Biggy and a chef from Mr Faife Rodizio posing with a skewer of grilled meat fresh off the fire." span="sm:col-start-4 sm:row-start-3" delay={720} />
+            <MosaicTile image="mozambique/JQDR9528.JPG" alt="Biggy and four other chefs and friends gathered around an open fire, drinks in hand." span="sm:col-start-4 sm:row-start-4" delay={840} />
+            <MosaicTile image="mozambique/IZGH3821.JPG" alt="Biggy and a fellow chef at the festival, both in Coca-Cola caps, the Churrasqueiro Internacional lanyard around Biggy's neck." span="row-span-2 sm:col-start-1 sm:row-start-3" delay={960} />
+            <MosaicTile image="mozambique/UTVJ4075.JPG" alt="Cuts of meat hanging from a domed rig over glowing coals, red earth and a clear blue sky." span="row-span-2 sm:col-start-3 sm:row-start-3" delay={1080} />
+            <MosaicTile image="mozambique/RMEJ1233.JPG" alt="Close-up of hands carving a rack of glazed, seasoned ribs on a wooden board." span="sm:col-start-2 sm:row-start-4" delay={1200} />
           </div>
         </div>
       </section>
@@ -541,76 +524,6 @@ export default function MozambiquePage() {
         sub="The date, the kind of event, and how to reach you. He'll shape the food from there."
       />
     </>
-  );
-}
-
-/** The page's core narrative unit, used for chapters II–III: a contained
- * image at its own natural aspect ratio (never forced wide) beside a
- * numbered eyebrow and a short story paragraph, alternating which side
- * the image sits on so the sequence reads as a gentle zig-zag rather than
- * identical blocks stacked straight down. `frameShadow` adds the soft
- * drop-shadow used for a flat printed flyer (not used here anymore — the
- * poster now lives in its own bespoke announcement section above — but
- * kept on the component in case a future chapter needs it). */
-function Chapter({
-  number,
-  label,
-  image,
-  alt,
-  caption,
-  align,
-  frameShadow,
-  children,
-}: {
-  number: string;
-  label: string;
-  image: string;
-  alt: string;
-  caption?: string;
-  align: "left" | "right";
-  frameShadow?: boolean;
-  children: React.ReactNode;
-}) {
-  const imageOrder = align === "right" ? "sm:order-2" : "sm:order-1";
-  const textOrder = align === "right" ? "sm:order-1" : "sm:order-2";
-
-  return (
-    <section className="bg-charcoal py-16 sm:py-24">
-      <div className="section grid gap-8 sm:grid-cols-2 sm:items-center sm:gap-14">
-        <Reveal className={imageOrder}>
-          <figure>
-            <div
-              className={`relative aspect-[4/5] overflow-hidden rounded-sm border border-cream/15 bg-coal ${
-                frameShadow ? "shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]" : ""
-              }`}
-            >
-              <Image
-                src={image.startsWith("mozambique/")
-                  ? `/images/${image}`
-                  : image}
-                alt={alt}
-                fill
-                sizes="(min-width: 640px) 45vw, 90vw"
-                className="object-cover"
-              />
-            </div>
-            {caption && (
-              <figcaption className="mt-3 font-body text-sm italic leading-snug text-cream/70">
-                {caption}
-              </figcaption>
-            )}
-          </figure>
-        </Reveal>
-        <Reveal delay={120} className={textOrder}>
-          <p className="font-display text-xs uppercase tracking-[0.3em] text-paper">
-            {number} · {label}
-          </p>
-          <p className="mt-4 max-w-prose font-body text-lg italic leading-relaxed text-cream">
-            {children}
-          </p>
-        </Reveal>
-      </div>
-    </section>
   );
 }
 
