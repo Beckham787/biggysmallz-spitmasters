@@ -8,10 +8,19 @@ import type { NextRequest } from "next/server";
 // no canonical picked, which keeps affected pages out of the index.
 const CANONICAL_HOST = "biggysmallzspitmasters.co.za";
 
+// The project's own production address on vercel.app. It serves the same
+// pages as the real domain, so it is redirected too. Preview deployments
+// (other *.vercel.app hosts) are left alone so branches can be reviewed.
+const VERCEL_PRODUCTION_HOST = "biggysmallz-spitmasters.vercel.app";
+
 export function middleware(request: NextRequest) {
   const host = request.headers.get("host");
 
-  if (host && host !== CANONICAL_HOST && !host.endsWith(".vercel.app")) {
+  if (
+    host &&
+    host !== CANONICAL_HOST &&
+    (host === VERCEL_PRODUCTION_HOST || !host.endsWith(".vercel.app"))
+  ) {
     const url = request.nextUrl.clone();
     url.host = CANONICAL_HOST;
     url.protocol = "https";

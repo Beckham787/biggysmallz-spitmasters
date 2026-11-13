@@ -34,7 +34,9 @@ const body = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Personal chef, spitbraai & fine-dining catering`,
+    // 2026-11-13: names the search people type ("spit braai catering") and
+    // the home town; the description below keeps the one-word "spitbraai".
+    default: `${siteConfig.name} — Spit braai & personal chef catering, Mbombela`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -82,7 +84,9 @@ export const metadata: Metadata = {
     // the retired Cinzel type burned in. Source: brand/rollout/templates.
     images: [
       {
-        url: "/images/og-2026.png",
+        // JPEG of the same artwork (103 KB against 603 KB as PNG): WhatsApp
+        // drops link-preview images much above 300 KB.
+        url: "/images/og-2026.jpg",
         width: 1200,
         height: 630,
         alt: "Get in my belly. Biggy Smallz Spitmasters: Biggy slicing meat at the Mozambique Barbecue Festival, beside the Spitmasters badge.",
@@ -94,7 +98,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Get in my belly.`,
     description:
       "Personal chef catering, brought to wherever your table is — from whole-fire spitbraai to a quiet seven-course evening.",
-    images: ["/images/og-2026.png"],
+    images: ["/images/og-2026.jpg"],
   },
   alternates: {
     canonical: siteConfig.url,

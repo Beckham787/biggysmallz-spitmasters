@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy, displayTitle } from "@/lib/case-studies";
+import { siteConfig } from "@/lib/site-config";
 import Reveal from "@/components/Reveal";
 import CaseStudyMedia from "@/components/CaseStudyMedia";
 import CtaBand from "@/components/CtaBand";
@@ -50,8 +51,28 @@ export default function CaseStudyPage({ params }: Params) {
   const showPullLine =
     !!study.quote && !study.intro.some((para) => para.includes(study.quote!));
 
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: siteConfig.name, item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Our Work", item: `${siteConfig.url}/work` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: displayTitle(study),
+        item: `${siteConfig.url}/work/${study.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Header */}
       <section className="bg-charcoal pb-10 pt-32 sm:pt-40">
         <div className="section">

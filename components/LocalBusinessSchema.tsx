@@ -16,11 +16,12 @@ export default function LocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "FoodEstablishment",
     additionalType: "https://schema.org/LocalBusiness",
+    "@id": `${siteConfig.url}/#business`,
     name: siteConfig.name,
     alternateName: siteConfig.shortName,
     description: siteConfig.description,
     url: siteConfig.url,
-    image: `${siteConfig.url}/images/og-2026.png`,
+    image: `${siteConfig.url}/images/og-2026.jpg`,
     logo: `${siteConfig.url}/brand/lockup-charcoal-1024.png`,
     telephone: siteConfig.contact.phoneE164,
     email: siteConfig.contact.email,
@@ -41,6 +42,17 @@ export default function LocalBusinessSchema() {
       addressLocality: "Mbombela",
       addressRegion: "Mpumalanga",
       addressCountry: "ZA",
+    },
+    foundingDate: String(siteConfig.established),
+    // The six service categories from site-config, as a catalogue. No prices:
+    // every event is quoted individually.
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Catering and personal chef services",
+      itemListElement: siteConfig.services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.title, description: s.blurb },
+      })),
     },
     servesCuisine: ["South African", "Spanish-influenced", "Asian-influenced"],
     sameAs: [
